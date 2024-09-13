@@ -4,7 +4,7 @@ const testDeFunciones = () => {
     solicitarValores()
     let continuar = true
     while (continuar) {
-        let menu = parseInt(prompt("Menu para testear las funciones\nSeleccione la opción deseada: \n   1- mostrarDatos()\n   2- cargarIngresosOGastos()\n   3- sumarIngresos()\n   4- sumarGastos()\n   0- Salir"))
+        let menu = parseInt(prompt("Menu para testear las funciones\nSeleccione la opción deseada: \n   1- mostrarDatos()\n   2- cargarIngresosOGastos()\n   3- sumarIngresos()\n   4- sumarGastos()\n   5- porcentajeGastadoDelSueldo()\n   6- balanceTotal()\n   0- Salir"))
         switch (menu) {
             case 1:
                 mostrarDatos(datosIngresosyGastos)
@@ -13,11 +13,15 @@ const testDeFunciones = () => {
                 cargarIngresosOGastos(datosIngresosyGastos)
                 break
             case 3:
-                console.log(sumarIngresos(datosIngresosyGastos))
+                console.log("Ingresos registrados: " + sumarIngresos(datosIngresosyGastos))
                 break
             case 4:
-                console.log(sumarGastos(datosIngresosyGastos))
+                console.log("Gastos registrados: " + sumarGastos(datosIngresosyGastos))
                 break
+            case 5:
+                console.log("Gastaste " + Math.round(porcentajeGastadoDelSueldo(30000, datosIngresosyGastos)) + "% de tu sueldo.")
+            case 6:
+                console.log("El balance de tu cuenta es: " + balanceTotal(datosIngresosyGastos))
             case 0:
                 break
             default:
@@ -41,9 +45,9 @@ const solicitarValores = () => {
         let valor = parseInt(prompt("INGRESO DE DATOS PARA LAS PRUEBAS\nIngrese un valor de tipo númerico: "))
         datosIngresosyGastos.push(valor)
         let confirmacion = prompt("¿Desea ingresar más datos? (s/n)").toLowerCase()
-        // while (confirmacion != "s" || confirmacion != "n") {
-        //     confirmacion = prompt("Opción erronea, debe ingresar 's' o 'n'.\n¿Desea ingresar más datos? (s/n)").toLowerCase()
-        // }
+        while (confirmacion != "s" && confirmacion != "n") {
+            confirmacion = prompt("Opción erronea, debe ingresar 's' o 'n'.\n¿Desea ingresar más datos? (s/n)").toLowerCase()
+        }
         if (confirmacion == "n") {
             continuar = false
         }
@@ -87,6 +91,16 @@ const sumarGastos = (gastos) => {
     }
     return total
 }
+
+//Calcular porcentaje gastado a partir de un valor de sueldo
+const porcentajeGastadoDelSueldo = (sueldo, datos) => {
+    let gastos = sumarGastos(datos) * -1
+    let porcentaje = (gastos * 100) / sueldo
+    return porcentaje
+}
+
+//Calcular el total de todos los valores ingresados
+const balanceTotal = (datos) => sumarIngresos(datos) + sumarGastos(datos)
 
 //Llamada a la función de test
 testDeFunciones()
