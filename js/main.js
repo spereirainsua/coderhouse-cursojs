@@ -104,49 +104,117 @@
 // console.log(array.length)
 
 // OBJETOS
-const perfume = {
-    marca: "Polo",
-    linea: "Blue",
-    color: "Azul",
-    botella: "Rectangular",
-    capacidad_ml: 125,
-    estuche: true
+// const perfume = {
+//     marca: "Polo",
+//     linea: "Blue",
+//     color: "Azul",
+//     botella: "Rectangular",
+//     capacidad_ml: 125,
+//     estuche: true
+// }
+
+// const jugador1 = {
+//     jugador: "Messi",
+//     dorsal: 10,
+//     edad: 36
+// }
+
+// const jugador2 = {
+//     jugador: "Dibu",
+//     dorsal: 23,
+//     edad: 32
+// }
+
+// const jugador3 = {
+//     jugador: "Di María",
+//     dorsal: 11,
+//     edad: 36
+// }
+
+// const jugador4 = {
+//     jugador: "Lautaro Martinez",
+//     dorsal: 22,
+//     edad: 27
+// }
+
+// const jugador5 = {
+//     jugador: "Julian Alvarez",
+//     dorsal: 9,
+//     edad: 34
+// }
+
+// const convocados = [jugador1,jugador2,jugador3,jugador4,jugador5]
+// console.log(convocados)
+
+// // for-of --> Recorrer arrays
+// for (const convocado of convocados) {
+//     console.log(convocado.jugador)
+// }
+
+//OBJETOS CLASE 2
+// const celular1 = {
+//     modelo: "s24",
+//     marca: "Samsung",
+//     precio: 1000
+// }
+// const celular2 = {
+//     modelo: "Iphone 16",
+//     marca: "Apple",
+//     precio: 1900
+// }
+
+//funcion constructora
+// function Celular(modelo, marca, precio) {
+//     this.modelo = modelo
+//     this.marca = marca
+//     this.precio = precio
+// }
+const precioDolar = 40
+class Celular {
+    static id = 0
+    constructor (modelo, marca, precio) {
+        this.id = ++Celular.id
+        this.modelo = modelo
+        this.marca = marca
+        this.precio = precio
+    }
+    enPesos = () => {
+        return this.precio * precioDolar
+    }
 }
 
-const jugador1 = {
-    jugador: "Messi",
-    dorsal: 10,
-    edad: 36
+const celular1 = new Celular("S24", "Samsung", 1000)
+const celular2 = new Celular("Iphone 16", "Apple", 1900)
+
+console.log(celular1, celular2)
+
+const productos = []
+
+const cargarProductos = () => {
+    let cargarModelo = prompt("Ingrese el modelo del teléfono ")
+    let cargaMarca = prompt("Ingrese la marca del teléfono ")
+    let cargaPrecio = prompt("Ingrese el precio en dolares ")
+
+    const celular = new Celular(cargarModelo, cargaMarca, cargaPrecio)
+    productos.push(celular)
 }
 
-const jugador2 = {
-    jugador: "Dibu",
-    dorsal: 23,
-    edad: 32
+const verProductos = () => {
+    console.log(productos)
 }
 
-const jugador3 = {
-    jugador: "Di María",
-    dorsal: 11,
-    edad: 36
-}
-
-const jugador4 = {
-    jugador: "Lautaro Martinez",
-    dorsal: 22,
-    edad: 27
-}
-
-const jugador5 = {
-    jugador: "Julian Alvarez",
-    dorsal: 9,
-    edad: 34
-}
-
-const convocados = [jugador1,jugador2,jugador3,jugador4,jugador5]
-console.log(convocados)
-
-// for-of --> Recorrer arrays
-for (const convocado of convocados) {
-    console.log(convocado.jugador)
+let menu = parseInt(prompt("Ingrese la opción:\n 1- Ver catalogo de productos\n 2- Cargar nuevo producto\n 3- Salir"))
+while (menu =! 3) {
+    switch (menu) {
+        case 1:
+            verProductos()
+            break
+        case 2:
+            cargarProductos()
+            break
+        default:
+            alert("Opción invalida")
+            break
+    }
+    menu = parseInt(prompt("Ingrese la opción:\n 1- Ver catalogo de productos\n 2- Cargar nuevo producto\n 3- Salir"))
 }
