@@ -298,39 +298,195 @@ const productos = [
     }
 ]
 
-//forEach()
+// //forEach()
+// productos.forEach((producto) => {
+//     //console.log(producto)
+//     console.log("Producto: " + producto.nombre + " Precio: " + producto.precio)
+// })
+
+// //find() devuelve el primer objeto que encuentra
+// const buscar = prompt("Ingrese el producto a buscar: ")
+// const busqueda = productos.find((producto) => producto.nombre == buscar)
+// console.log(busqueda)
+
+// //filter()
+// let filtro = parseInt(prompt("Ingrese el precio máximo a mostrar: "))
+// const filtrados = productos.filter((producto) => producto.precio <= filtro)
+// console.log(filtrados)
+
+// //some()
+// console.log(productos.some((producto) => producto.nombre == "heladera"))
+
+// //map()
+// const productosDisponibles = productos.map((producto) => producto.nombre)
+// console.log(productosDisponibles)
+
+// const descuento = productos.map((producto) => {
+//     let precioDescuento = producto.precio - (producto.precio*20/100)
+//     return {
+//         nombre: producto.nombre,
+//         precio: precioDescuento
+//     }
+// })
+// console.log(descuento)
+
+// //reduce() suma total de precio de objetos
+// const total = productos.reduce((contador, producto) => contador + producto.precio, 0)
+// console.log(total)
+
+
+
+//CLASE DOM Y EVENTOS
+
+// //getElementById
+// let titulo = document.getElementById("title")
+// console.log(titulo)
+
+// let titleContainer = document.getElementById("title-container")
+// console.log(titleContainer)
+
+// //getElementsByClassName
+// let pastas = document.getElementsByClassName("pasta")
+// console.log(pastas)
+
+// //getElementsByTagName
+// let articulos = document.getElementsByTagName("article")
+// console.log(articulos)
+
+// //innerText
+// titulo.innerText = "Hola Coder!!!"
+
+// //innerHTML
+// let contenedor = document.getElementById("container")
+// contenedor.innerHTML = "<h2>Hola comision 74480</h2>"
+// contenedor.classList.add("header")
+
+// //append - Agregar elemento al final del elemento
+// let subtitulo = document.createElement("h2")
+// subtitulo.innerHTML = "<span>Aguante la pizza!!!</span>"
+// document.body.append(subtitulo)
+
+// //remove
+// titulo.remove()
+// pastas[0].remove()
+
+let zapatillas = ["Nike", "Adidas", "Vans", "Converse", "Puma"]
+let marcas = document.getElementById("marcas")
+for (const zapatilla of zapatillas) {
+    let li = document.createElement("li")
+    li.innerHTML = "zapatilla"
+    marcas.appendChild(li)
+}
+
+let products = document.getElementById("productos")
 productos.forEach((producto) => {
-    //console.log(producto)
-    console.log("Producto: " + producto.nombre + " Precio: " + producto.precio)
+    let contenedor = document.createElement("div")
+    contenedor.className = "card"
+    contenedor.innerHTML = `<span>ID: ${producto.id}</span>
+                            <h3>Producto: ${producto.name}</h3>
+                            <h4>Precio: ${producto.precio}</h4>`
+    products.appendChild(contenedor)
 })
 
-//find() devuelve el primer objeto que encuentra
-const buscar = prompt("Ingrese el producto a buscar: ")
-const busqueda = productos.find((producto) => producto.nombre == buscar)
-console.log(busqueda)
 
-//filter()
-let filtro = parseInt(prompt("Ingrese el precio máximo a mostrar: "))
-const filtrados = productos.filter((producto) => producto.precio <= filtro)
-console.log(filtrados)
+//addEventListener
 
-//some()
-console.log(productos.some((producto) => producto.nombre == "heladera"))
+let evento = document.getElementById("h2")
+// evento.addEventListener("click", clickTest)
+// function clickTest () {
+//     console.log("Evento de click")
+// }
 
-//map()
-const productosDisponibles = productos.map((producto) => producto.nombre)
-console.log(productosDisponibles)
+let clics = 0
+evento.onclick = () => {
+    clics++
+    console.log("Cantiadad de clics: ", clics)
+}
 
-const descuento = productos.map((producto) => {
-    let precioDescuento = producto.precio - (producto.precio*20/100)
-    return {
-        nombre: producto.nombre,
-        precio: precioDescuento
-    }
-})
-console.log(descuento)
+let counter = document.getElementById("contador")
+let sumar = document.getElementById("mas")
+let restar = document.getElementById("menos")
+let contador = 0
 
-//reduce() suma total de precio de objetos
-const total = productos.reduce((contador, producto) => contador + producto.precio, 0)
-console.log(total)
+sumar.onclick = () => {
+    contador++
+    counter.innerHTML = contador
+}
 
+restar.onclick = () => {
+    contador--
+    counter.innerHTML = contador
+}
+
+let input = document.getElementById("input")
+input.onkeyup = () => {
+    console.log("Apretaste una tecla")
+}
+
+let cervezas = ["rubia", "negra", "roja", "ipa", "apa"]
+let search = document.getElementById("search")
+search.onchange = () => {
+    const element = cervezas.find((cerveza) => cerveza == search.value)
+    console.log(element)
+}
+
+
+
+//localStorage
+
+localStorage.setItem("saludo", "Bienvenidos!")
+localStorage.setItem("comision", 74480)
+
+let saludo = localStorage.getItem("saludo")
+let comision = localStorage.getItem("comision")
+console.log(saludo, comision)
+
+localStorage.removeItem("comision")
+
+localStorage.clear()
+
+
+const cartProducts = []
+
+let productsContainer = document.getElementById("products-container")
+
+function renderProductos (productsArray) {
+    productoArray.forEach(producto => {
+        const card = document.createElement("div")
+        card.innerHTML = `<h3>${producto.nombre}</h3>
+                          <p>${producto.precio}</p>
+                          <button class="productoAgregar" id="${producto.id}">Agregar</button>`
+        productsContainer.appendChild(card)
+    })
+    addToCartButton()
+}
+
+renderProductos(productos)
+
+function addToCartButton () {
+    addButton = document.querySelectorAll(".productoAgregar")
+    addButton.forEach(button => {
+        button.onclick = (e) => {
+            const productId = e.currentTarget.id
+            const selectedProduct = productos.find(producto => producto.id == productId)
+            cartProducts.push(selectedProduct)
+            
+            localStorage.setItem("cartProducts", JSON.stringify(cartProducts))
+        }
+    })
+}
+
+//En nuevo HTML Carrito
+let cartContainer = document.getElementById("cart-section")
+let cartStorage = localStorage.getItem("cartProducts")
+cartStorage = JSON.parse(cartStorage)
+
+function renderCarrito(cartItems) {
+    cartItems.forEach(producto => {
+        const card = document.createElement("div")
+        card.innerHTML = `<h3>${producto.nombre}</h3>
+                          <p>$${producto.precio}</p>`
+        cartContainer.appendChild(card)
+    })
+}
+renderCarrito(cartStorage)

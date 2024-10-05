@@ -8,10 +8,58 @@
     <script defer src="./js/main.js"></script>
     <!-- defer para que cargue después que el codigo de la página -->
     <title>CursoJS</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <h1>Curso JS</h1>
+    <header id="title-container">
+        <h1 id="title">Curso JS</h1>
+        <h2 id="h2">Ideas proyecto: 
+            Poder tener control de gastos e ingresos
+            Agregar lista de compras a realizar</h2>
+    </header>
+    
+    <main>
+        <div class="contador">
+            <button id="menos">-</button>
+            <span id="contador">0</span>
+            <button id="mas">+</button>
+        </div>
+
+        <input type="text" id="input">
+        
+        <input type="text" id="search">
+
+        <ul>
+            <li class="pasta">Tallarines</li>
+            <li class="pasta">Ñoquis</li>
+            <li class="pasta">Ravioles</li>
+        </ul>
+
+        <article>
+            <article>Artículo 1</article>
+            <article>Artículo 2</article>
+            <article>Artículo 3</article>
+        </article>
+
+        <div id="container" class="container"></div>
+
+        <ul id="marcas"></ul>
+        <div id="productos"></div>
+
+    </main>
+
+    <footer>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
 
 </html>
