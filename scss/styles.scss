@@ -1,0 +1,79 @@
+@import "./base/maps";
+
+@import "./base/variables";
+
+/*##### RESETS #####*/
+@import "./base/resets-bodystyle";
+/*##### FIN # RESETS #####*/
+
+/*##### ESTILOS DEL HEADER #####*/
+@import "./components/header";
+/*##### FIN # ESTILOS DEL HEADER #####*/
+
+/*##### ESTILOS DEL FOOTER #####*/
+@import "./components/footer";
+/*##### FIN # ESTILOS DEL FOOTER #####*/
+
+
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .contenedor-balance {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        font-size: 22px;
+
+        .seccion-balance {
+            padding: 7px 0;
+            font-weight: bold;
+        }
+
+        .seccion-carga-balance {
+            .btn-group {
+                button {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 22px;
+                    width: 150px;
+
+                    span {
+                        font-weight: 700;
+                        font-size: 22px;
+                    }
+                }
+            }
+        }
+    }
+
+    hr {
+        width: 95%;
+        margin-top: 0;
+    }
+
+    .contenedor-dashboard {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 24px;
+        font-size: 22px;
+
+        .seccion-dashboard {}
+    }
+}
+
+
+
+
+
+
+/*##### MEDIA QUERYS #####*/
+@import "./base/media-querys";
+/*##### FIN # MEDIA QUERYS #####*/

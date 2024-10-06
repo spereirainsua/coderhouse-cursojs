@@ -1,0 +1,138 @@
+@charset "UTF-8";
+/*##### RESETS #####*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Dosis", sans-serif;
+}
+
+body {
+  background-color: #ecf9ff;
+  /* Quitar las decoraciones de los anclajes */
+  /* Quitar viñetas de las listas */
+}
+body a {
+  text-decoration: none;
+}
+body ul {
+  list-style-type: none;
+}
+
+/*##### FIN # RESETS #####*/
+/*##### ESTILOS DEL HEADER #####*/
+header {
+  background-color: white;
+  position: sticky;
+  z-index: 20;
+  top: 0px;
+  box-shadow: 1px 1px 3px gray;
+}
+header nav div .logo {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-family: "Qwitcher Grypen", cursive;
+  font-size: 2.2rem;
+  font-weight: 520;
+  display: flex;
+  align-items: center;
+}
+header nav div div ul {
+  text-align: center;
+}
+header nav div div ul .nav-item a {
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+/*##### FIN # ESTILOS DEL HEADER #####*/
+/*##### ESTILOS DEL FOOTER #####*/
+footer {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  width: 100%;
+}
+footer .pie-de-pagina {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+footer .pie-de-pagina hr {
+  display: none;
+  width: 100%;
+  margin: 10px 0;
+}
+footer hr {
+  width: 95%;
+  margin: 10px 0;
+}
+footer .copyright {
+  padding: 5px 10px;
+  text-align: center;
+}
+
+/*##### FIN # ESTILOS DEL FOOTER #####*/
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .contenedor-balance {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  font-size: 22px;
+}
+main .contenedor-balance .seccion-balance {
+  padding: 7px 0;
+  font-weight: bold;
+}
+main .contenedor-balance .seccion-carga-balance .btn-group button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  width: 150px;
+}
+main .contenedor-balance .seccion-carga-balance .btn-group button span {
+  font-weight: 700;
+  font-size: 22px;
+}
+main hr {
+  width: 95%;
+  margin-top: 0;
+}
+main .contenedor-dashboard {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  font-size: 22px;
+}
+/*##### MEDIA QUERYS #####*/
+@media screen and (max-width: 576px) {
+  main .contenedor-balance {
+    flex-direction: column;
+  }
+  main .contenedor-balance .seccion-carga-balance {
+    width: 100%;
+  }
+  main .contenedor-balance .seccion-carga-balance .btn-group {
+    width: 100%;
+  }
+  main .contenedor-balance .seccion-carga-balance .btn-group button {
+    width: 50%;
+  }
+}
+/*##### FIN # MEDIA QUERYS #####*/
+
+/*# sourceMappingURL=styles.css.map */

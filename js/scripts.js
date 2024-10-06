@@ -103,4 +103,4 @@ const porcentajeGastadoDelSueldo = (sueldo, datos) => {
 const balanceTotal = (datos) => sumarIngresos(datos) + sumarGastos(datos)
 
 //Llamada a la función de test
-testDeFunciones()
+// testDeFunciones()
