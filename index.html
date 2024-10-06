@@ -68,22 +68,41 @@
         </nav>
     </header>
 
-    <main class="container-fluid">
+    <main class="container-lg">
         <div class="container-lg contenedor-balance">
             <section class="seccion-balance">
                 <span>Balance actual: <span id="balance">$0.00</span></span>
             </section>
             <section class="seccion-carga-balance">
                 <div class="btn-group" role="group">
-                    <button class="btn btn-success" type="button">Ingreso<span class="material-symbols-outlined">
+                    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modalCargaIngreso_Gasto">Ingreso<span class="material-symbols-outlined">
                             keyboard_double_arrow_up
                         </span></button>
-                    <button class="btn btn-danger" type="button">Gasto<span class="material-symbols-outlined">
+                    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalCargaIngreso_Gasto">Gasto<span class="material-symbols-outlined">
                             keyboard_double_arrow_down
                         </span></button>
                 </div>
             </section>
-            
+            <!-- Modal -->
+            <div class="modal fade" id="modalCargaIngreso_Gasto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            ...
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <hr>
         <div class="container-lg contenedor-dashboard">
