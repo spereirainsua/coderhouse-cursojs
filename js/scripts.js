@@ -38,26 +38,56 @@ const testDeFunciones = () => {
 }
 
 //Solicitud de datos al usuario y guardarlos en una variable
-const datosIngresosyGastos = []
-const solicitarValores = () => {
-    let continuar = true
-    while (continuar) {
-        let valor = parseInt(prompt("INGRESO DE DATOS PARA LAS PRUEBAS\nIngrese un valor de tipo númerico: "))
-        datosIngresosyGastos.push(valor)
-        let confirmacion = prompt("¿Desea ingresar más datos? (s/n)").toLowerCase()
-        while (confirmacion != "s" && confirmacion != "n") {
-            confirmacion = prompt("Opción erronea, debe ingresar 's' o 'n'.\n¿Desea ingresar más datos? (s/n)").toLowerCase()
-        }
-        if (confirmacion == "n") {
-            continuar = false
-        }
-    }
-}
+
+// const solicitarValores = () => {
+//     let continuar = true
+//     while (continuar) {
+//         let valor = parseInt(prompt("INGRESO DE DATOS PARA LAS PRUEBAS\nIngrese un valor de tipo númerico: "))
+//         datosIngresosyGastos.push(valor)
+//         let confirmacion = prompt("¿Desea ingresar más datos? (s/n)").toLowerCase()
+//         while (confirmacion != "s" && confirmacion != "n") {
+//             confirmacion = prompt("Opción erronea, debe ingresar 's' o 'n'.\n¿Desea ingresar más datos? (s/n)").toLowerCase()
+//         }
+//         if (confirmacion == "n") {
+//             continuar = false
+//         }
+//     }
+// }
 
 //Cargar nuevos montos
-const cargarIngresosOGastos = (datosIngresosyGastos) => {
-    let valor = parseInt(prompt("Ingrese un valor de tipo númerico: "))
-    datosIngresosyGastos.push(valor)
+const datosIngresosyGastos = []
+
+document.addEventListener("DOMContentLoaded", () => {
+    let validarDatos = localStorage.getItem("Montos")
+    if (validarDatos) {
+        JSON.parse(validarDatos).forEach(dato => {
+            datosIngresosyGastos.push(dato)
+        })
+        Registro.id = datosIngresosyGastos.slice(-1)[0].id
+    }
+    console.log(datosIngresosyGastos)
+})
+
+class Registro {
+    static id = 0
+    constructor (concepto, monto, iog) {
+        this.id = ++Registro.id
+        this.concepto = concepto
+        if (iog == "gasto") {
+            this.monto = monto * -1
+        } else {
+            this.monto = monto
+        }
+    }
+    // enPesos = () => {
+    //     return this.precio * precioDolar
+    // }
+}
+
+const cargarIngresosOGastos = (concepto, monto, iog) => {
+    let dato = new Registro(concepto, monto, iog)
+    datosIngresosyGastos.push(dato)
+    localStorage.setItem("Montos", JSON.stringify(datosIngresosyGastos))
 }
 
 //Quitar ultimo monto cargado
@@ -67,7 +97,7 @@ const quitarUltimoMontoCargado = (datosIngresosyGastos) => {
 
 //Mostrar datos almacenados
 const mostrarDatos = (datos) => {
-    console.log(datos.join("\n"))
+    // console.log(datos.join("\n"))
 }
 
 //Sumar valores positivos de un array
@@ -104,3 +134,56 @@ const balanceTotal = (datos) => sumarIngresos(datos) + sumarGastos(datos)
 
 //Llamada a la función de test
 // testDeFunciones()
+
+
+
+
+const collapse = Array.from(document.querySelectorAll('.collapse-carga-balance'))
+const collapse_title = document.getElementById('collapse-title')
+const collapse_body = Array.from(document.querySelectorAll('.collapse-body'))
+const btnCargar = document.getElementById("btnCargar")
+let estadoCollapse = collapse[0].classList.contains("show")
+let btnCargaBalance = Array.from(document.querySelectorAll(".btn-carga-balance"))
+let lastBtn = null
+
+btnCargaBalance.forEach(btn => {
+    btn.onclick = (e) => {
+        estadoCollapse = collapse[0].classList.contains("show")
+        if (estadoCollapse) {
+            if (e.currentTarget.id == lastBtn) {
+                //SI SE HACE CLICK EN EL MISMO BOTON SE OCULTA
+                new bootstrap.Collapse(collapse[0])
+                estadoCollapse = collapse[0].classList.contains("show")
+            } else {
+                //SI SE HACE CLICK MIENTRAS ESTA ABIERTO LA OPCION OPUESTA SE CAMBIA SIN OCULTAR
+                collapse_title.innerHTML = e.currentTarget.id.toUpperCase()
+                lastBtn = e.currentTarget.id
+                btnCargar.name = e.currentTarget.id
+            }
+        } else {
+            //AL DAR CLICK EN UNO DE LOS BOTONES SE MUESTRA CON ESA OPCION
+            new bootstrap.Collapse(collapse[0])
+            estadoCollapse = collapse[0].classList.contains("show")
+            collapse_title.innerHTML = e.currentTarget.id.toUpperCase()
+            lastBtn = e.currentTarget.id
+            btnCargar.name = e.currentTarget.id
+        }
+    }
+})
+
+document.addEventListener("click", (event) => {
+    estadoCollapse = collapse[0].classList.contains("show")
+    if (!collapse[0].contains(event.target) && !btnCargaBalance[0].contains(event.target) && !btnCargaBalance[1].contains(event.target) && estadoCollapse) {  
+        new bootstrap.Collapse(collapse[0])
+        estadoCollapse = collapse[0].classList.contains("show")
+    }
+})
+
+
+//INGRESAR NUEVOS DATOS
+btnCargar.addEventListener("click", (e) =>{
+    let concepto = document.getElementById("concepto").value
+    let monto = document.getElementById("monto").value
+    cargarIngresosOGastos(concepto, monto, e.currentTarget.name)
+})
+    

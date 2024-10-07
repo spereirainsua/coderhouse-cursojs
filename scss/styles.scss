@@ -52,6 +52,31 @@ main {
         }
     }
 
+    .collapse-carga-balance {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .collapse-container {
+            margin: 5px 12px;
+            .collapse-header,
+            .collapse-body,
+            .collapse-footer {
+                display: flex;
+                align-items: center;
+                padding: 10px 0;
+            }
+
+            .collapse-header,
+            .collapse-body {
+                justify-content: left;
+            }
+
+            .collapse-footer {
+                justify-content: space-between;
+            }
+        }
+    }
+
     hr {
         width: 100%;
         margin-top: 0;
@@ -65,7 +90,9 @@ main {
         padding: 20px 24px;
         font-size: 22px;
 
-        .seccion-dashboard {}
+        .seccion-dashboard {
+            
+        }
     }
 }
 

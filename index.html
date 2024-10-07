@@ -16,10 +16,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@400;700&display=swap" rel="stylesheet">
-    <!-- CSS -->
-    <link rel="stylesheet" href="./styles/styles.css">
-    <!-- JS -->
-    <script defer src="./js/scripts.js"></script>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -30,6 +26,10 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="./styles/styles.css">
+    <!-- JS -->
+    <script defer src="./js/scripts.js"></script>
 </head>
 
 <body>
@@ -75,34 +75,35 @@
             </section>
             <section class="seccion-carga-balance">
                 <div class="btn-group" role="group">
-                    <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modalCargaIngreso_Gasto">Ingreso<span class="material-symbols-outlined">
+                    <button class="btn btn-success btn-carga-balance" type="button" id="ingreso"
+                        data-bs-toggle="collapse" data-bs-target="#1collapseCargaBalance">Ingreso<span
+                            class="material-symbols-outlined">
                             keyboard_double_arrow_up
                         </span></button>
-                    <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#modalCargaIngreso_Gasto">Gasto<span class="material-symbols-outlined">
+                    <button class="btn btn-danger btn-carga-balance" type="button" id="gasto" data-bs-toggle="collapse"
+                        data-bs-target="#1collapseCargaBalance">Gasto<span class="material-symbols-outlined">
                             keyboard_double_arrow_down
                         </span></button>
                 </div>
             </section>
-            <!-- Modal -->
-            <div class="modal fade" id="modalCargaIngreso_Gasto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            ...
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Understood</button>
-                        </div>
-                    </div>
+
+
+        </div>
+        <div class="container-lg collapse-carga-balance collapse" id="collapseCargaBalance">
+            <div class="collapse-container">
+                <div class="collapse-header">
+                    <h2 id="collapse-title"></h2>
+                </div>
+                <div class="collapse-body">
+                    <label for="concepto">Concepto:</label><input type="text" id="concepto" name="concepto">
+                    <label for="monto">Monto:</label><input type="text" id="monto" name="monto">
+                </div>
+                <div class="collapse-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
+                        data-bs-target="#collapseCargaBalance">Close</button>
+                    <button type="button" class="btn btn-primary" id="btnCargar">Guardar</button>
                 </div>
             </div>
-
         </div>
         <hr>
         <div class="container-lg contenedor-dashboard">

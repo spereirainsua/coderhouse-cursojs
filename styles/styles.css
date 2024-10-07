@@ -8,7 +8,7 @@
 }
 
 body {
-  background-color: #ecf9ff;
+  background-color: white;
   /* Quitar las decoraciones de los anclajes */
   /* Quitar viñetas de las listas */
 }
@@ -105,6 +105,28 @@ main .contenedor-balance .seccion-carga-balance .btn-group button {
 main .contenedor-balance .seccion-carga-balance .btn-group button span {
   font-weight: 700;
   font-size: 22px;
+}
+main .collapse-carga-balance {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+main .collapse-carga-balance .collapse-container {
+  margin: 5px 12px;
+}
+main .collapse-carga-balance .collapse-container .collapse-header,
+main .collapse-carga-balance .collapse-container .collapse-body,
+main .collapse-carga-balance .collapse-container .collapse-footer {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+main .collapse-carga-balance .collapse-container .collapse-header,
+main .collapse-carga-balance .collapse-container .collapse-body {
+  justify-content: left;
+}
+main .collapse-carga-balance .collapse-container .collapse-footer {
+  justify-content: space-between;
 }
 main hr {
   width: 100%;
