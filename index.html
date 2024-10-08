@@ -86,8 +86,6 @@
                         </span></button>
                 </div>
             </section>
-
-
         </div>
         <div class="container-lg collapse-carga-balance collapse" id="collapseCargaBalance">
             <div class="collapse-container">
@@ -95,8 +93,26 @@
                     <h2 id="collapse-title"></h2>
                 </div>
                 <div class="collapse-body">
-                    <label for="concepto">Concepto:</label><input type="text" id="concepto" name="concepto">
-                    <label for="monto">Monto:</label><input type="text" id="monto" name="monto">
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="concepto" placeholder="Concepto">
+                        <label for="concepto">Concepto</label>
+                        <div class="invalid-feedback" id="validacion-concepto">
+                            <span class="material-symbols-outlined">
+                                error
+                            </span>
+                            Este campo no puede quedar vacio.
+                        </div>
+                    </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="monto" placeholder="Monto">
+                        <label for="monto">Monto</label>
+                        <div class="invalid-feedback" id="validacion-monto">
+                            <span class="material-symbols-outlined">
+                                error
+                            </span>
+                            Debe ingresar un valor númerico.
+                        </div>
+                    </div>
                 </div>
                 <div class="collapse-footer">
                     <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
@@ -109,6 +125,9 @@
         <div class="container-lg contenedor-dashboard">
             <section class="seccion-dashboard">
                 <h1>Dashboard</h1>
+                <table class="table table-hover" id="tabla-dashboard">
+
+                </table>
             </section>
         </div>
 

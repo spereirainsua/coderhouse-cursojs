@@ -75,6 +75,15 @@ main {
                 justify-content: space-between;
             }
         }
+        .mensaje-validacion {
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            span {
+                font-size: 16px;
+                padding-right: 2px;
+            }
+        }
     }
 
     hr {
@@ -88,10 +97,17 @@ main {
         align-items: center;
         justify-content: space-between;
         padding: 20px 24px;
-        font-size: 22px;
+        h1 {
+            font-size: 22px;
+        }
 
         .seccion-dashboard {
-            
+            width: 100%;
+            .centrar-texto-tabla {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
         }
     }
 }

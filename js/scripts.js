@@ -1,55 +1,38 @@
 
 //TEST DE FUNCIONES
-const testDeFunciones = () => {
-    solicitarValores()
-    let continuar = true
-    while (continuar) {
-        let menu = parseInt(prompt("Menu para testear las funciones\nSeleccione la opción deseada: \n   1- mostrarDatos()\n   2- cargarIngresosOGastos()\n   3- sumarIngresos()\n   4- sumarGastos()\n   5- porcentajeGastadoDelSueldo()\n   6- balanceTotal()\n   0- Salir"))
-        switch (menu) {
-            case 1:
-                mostrarDatos(datosIngresosyGastos)
-                break
-            case 2:
-                cargarIngresosOGastos(datosIngresosyGastos)
-                break
-            case 3:
-                console.log("Ingresos registrados: " + sumarIngresos(datosIngresosyGastos))
-                break
-            case 4:
-                console.log("Gastos registrados: " + sumarGastos(datosIngresosyGastos))
-                break
-            case 5:
-                console.log("Gastaste " + Math.round(porcentajeGastadoDelSueldo(30000, datosIngresosyGastos)) + "% de tu sueldo.")
-            case 6:
-                console.log("El balance de tu cuenta es: " + balanceTotal(datosIngresosyGastos))
-            case 0:
-                break
-            default:
-                alert("Opción incorrecta")
-                break
-        }
-        if (menu == 0) {
-            let confirmacion = prompt("¿Seguro desea salir? (si/no)").toLowerCase()
-            if (confirmacion == "si") {
-                continuar = false
-            }
-        }
-    }
-}
-
-//Solicitud de datos al usuario y guardarlos en una variable
-
-// const solicitarValores = () => {
+// const testDeFunciones = () => {
+//     solicitarValores()
 //     let continuar = true
 //     while (continuar) {
-//         let valor = parseInt(prompt("INGRESO DE DATOS PARA LAS PRUEBAS\nIngrese un valor de tipo númerico: "))
-//         datosIngresosyGastos.push(valor)
-//         let confirmacion = prompt("¿Desea ingresar más datos? (s/n)").toLowerCase()
-//         while (confirmacion != "s" && confirmacion != "n") {
-//             confirmacion = prompt("Opción erronea, debe ingresar 's' o 'n'.\n¿Desea ingresar más datos? (s/n)").toLowerCase()
+//         let menu = parseInt(prompt("Menu para testear las funciones\nSeleccione la opción deseada: \n   1- mostrarDatos()\n   2- cargarIngresosOGastos()\n   3- sumarIngresos()\n   4- sumarGastos()\n   5- porcentajeGastadoDelSueldo()\n   6- balanceTotal()\n   0- Salir"))
+//         switch (menu) {
+//             case 1:
+//                 mostrarDatos(datosIngresosyGastos)
+//                 break
+//             case 2:
+//                 cargarIngresosOGastos(datosIngresosyGastos)
+//                 break
+//             case 3:
+//                 console.log("Ingresos registrados: " + sumarIngresos(datosIngresosyGastos))
+//                 break
+//             case 4:
+//                 console.log("Gastos registrados: " + sumarGastos(datosIngresosyGastos))
+//                 break
+//             case 5:
+//                 console.log("Gastaste " + Math.round(porcentajeGastadoDelSueldo(30000, datosIngresosyGastos)) + "% de tu sueldo.")
+//             case 6:
+//                 console.log("El balance de tu cuenta es: " + balanceTotal(datosIngresosyGastos))
+//             case 0:
+//                 break
+//             default:
+//                 alert("Opción incorrecta")
+//                 break
 //         }
-//         if (confirmacion == "n") {
-//             continuar = false
+//         if (menu == 0) {
+//             let confirmacion = prompt("¿Seguro desea salir? (si/no)").toLowerCase()
+//             if (confirmacion == "si") {
+//                 continuar = false
+//             }
 //         }
 //     }
 // }
@@ -65,12 +48,12 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         Registro.id = datosIngresosyGastos.slice(-1)[0].id
     }
-    console.log(datosIngresosyGastos)
+    mostrarDatosEnDashboard(datosIngresosyGastos)
 })
 
 class Registro {
     static id = 0
-    constructor (concepto, monto, iog) {
+    constructor(concepto, monto, iog) {
         this.id = ++Registro.id
         this.concepto = concepto
         if (iog == "gasto") {
@@ -88,6 +71,7 @@ const cargarIngresosOGastos = (concepto, monto, iog) => {
     let dato = new Registro(concepto, monto, iog)
     datosIngresosyGastos.push(dato)
     localStorage.setItem("Montos", JSON.stringify(datosIngresosyGastos))
+    mostrarDatosEnDashboard(datosIngresosyGastos)
 }
 
 //Quitar ultimo monto cargado
@@ -96,8 +80,34 @@ const quitarUltimoMontoCargado = (datosIngresosyGastos) => {
 }
 
 //Mostrar datos almacenados
-const mostrarDatos = (datos) => {
-    // console.log(datos.join("\n"))
+const mostrarDatosEnDashboard = (datos) => {
+    let tabla = document.getElementById("tabla-dashboard")
+    if (datos.length > 0) {
+        if (tabla.classList.contains("centrar-texto-tabla")) {
+            tabla.classList.remove("centrar-texto-tabla")
+        }
+        tabla.innerHTML = `<thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Concepto</th>
+                            <th scope="col">Monto $</th>
+                        </tr>
+                    </thead>`
+        let bodyTabla = document.createElement("tbody")
+        datos.forEach((dato) => {
+            console.log(dato)
+            let fila = document.createElement("tr")
+            fila.innerHTML = `<th scope="row">${dato.id}</th>
+                            <td>${dato.concepto}</td>
+                            <td>${dato.monto}</td>`
+            console.log(fila)
+            bodyTabla.append(fila)
+        })
+        tabla.append(bodyTabla)
+    } else {
+        tabla.innerHTML = 'No se encontraron datos.'
+        tabla.classList.add("centrar-texto-tabla")
+    }
 }
 
 //Sumar valores positivos de un array
@@ -131,6 +141,8 @@ const porcentajeGastadoDelSueldo = (sueldo, datos) => {
 
 //Calcular el total de todos los valores ingresados
 const balanceTotal = (datos) => sumarIngresos(datos) + sumarGastos(datos)
+
+
 
 //Llamada a la función de test
 // testDeFunciones()
@@ -172,18 +184,26 @@ btnCargaBalance.forEach(btn => {
 })
 
 document.addEventListener("click", (event) => {
+    //CERRAR COLLAPSE PARA INGRESO DE DATOS CUANDO SE HACE CLIC FUERA DE ÉL
     estadoCollapse = collapse[0].classList.contains("show")
-    if (!collapse[0].contains(event.target) && !btnCargaBalance[0].contains(event.target) && !btnCargaBalance[1].contains(event.target) && estadoCollapse) {  
+    if (!collapse[0].contains(event.target) && !btnCargaBalance[0].contains(event.target) && !btnCargaBalance[1].contains(event.target) && estadoCollapse) {
         new bootstrap.Collapse(collapse[0])
         estadoCollapse = collapse[0].classList.contains("show")
     }
 })
 
+const validarNoVacio = (dato) => dato.trim() !== '';
+const validarNumerico = (dato) => !isNaN(dato) && dato.trim() !== '';
 
 //INGRESAR NUEVOS DATOS
-btnCargar.addEventListener("click", (e) =>{
+btnCargar.addEventListener("click", (e) => {
     let concepto = document.getElementById("concepto").value
     let monto = document.getElementById("monto").value
-    cargarIngresosOGastos(concepto, monto, e.currentTarget.name)
+    if (validarNoVacio(concepto) && validarNumerico(monto)) {
+        cargarIngresosOGastos(concepto, monto, e.currentTarget.name)
+        document.getElementById("concepto").value = ''
+        document.getElementById("monto").value = ''
+    } else {
+        //GENERAR CODIGO VALIDACION MOSTRANDO LOS DIVs invalid-feedback AGREGANDO LA CLASE mensaje-validacion
+    }
 })
-    

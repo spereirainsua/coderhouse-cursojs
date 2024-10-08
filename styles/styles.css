@@ -26,7 +26,7 @@ header {
   position: sticky;
   z-index: 20;
   top: 0px;
-  box-shadow: 1px 1px 3px gray;
+  box-shadow: 1px 1px 3px;
 }
 header nav div .logo {
   padding-top: 0;
@@ -128,6 +128,15 @@ main .collapse-carga-balance .collapse-container .collapse-body {
 main .collapse-carga-balance .collapse-container .collapse-footer {
   justify-content: space-between;
 }
+main .collapse-carga-balance .mensaje-validacion {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+main .collapse-carga-balance .mensaje-validacion span {
+  font-size: 16px;
+  padding-right: 2px;
+}
 main hr {
   width: 100%;
   margin-top: 0;
@@ -138,8 +147,19 @@ main .contenedor-dashboard {
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
+}
+main .contenedor-dashboard h1 {
   font-size: 22px;
 }
+main .contenedor-dashboard .seccion-dashboard {
+  width: 100%;
+}
+main .contenedor-dashboard .seccion-dashboard .centrar-texto-tabla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*##### MEDIA QUERYS #####*/
 @media screen and (max-width: 576px) {
   main .contenedor-balance {
