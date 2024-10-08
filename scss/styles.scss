@@ -42,7 +42,6 @@ main {
                     align-items: center;
                     font-size: 22px;
                     width: 150px;
-
                     span {
                         font-weight: 700;
                         font-size: 22px;
@@ -103,10 +102,26 @@ main {
 
         .seccion-dashboard {
             width: 100%;
-            .centrar-texto-tabla {
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            table {
+                .fila-positiva {
+                    --bs-table-bg:  rgb(25, 135, 84, 0.2);
+                }
+                .fila-negativa {
+                    --bs-table-bg: rgb(255, 0, 0, 0.2);
+                }
+                .btn-eliminar-registro {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    span {
+                        font-size: 15px;
+                    }
+                }
+                .centrar-texto-tabla {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
             }
         }
     }

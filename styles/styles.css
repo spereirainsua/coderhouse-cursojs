@@ -26,7 +26,7 @@ header {
   position: sticky;
   z-index: 20;
   top: 0px;
-  box-shadow: 1px 1px 3px;
+  box-shadow: 1px 1px 3px gray;
 }
 header nav div .logo {
   padding-top: 0;
@@ -154,7 +154,21 @@ main .contenedor-dashboard h1 {
 main .contenedor-dashboard .seccion-dashboard {
   width: 100%;
 }
-main .contenedor-dashboard .seccion-dashboard .centrar-texto-tabla {
+main .contenedor-dashboard .seccion-dashboard table .fila-positiva {
+  --bs-table-bg: rgb(25, 135, 84, 0.2);
+}
+main .contenedor-dashboard .seccion-dashboard table .fila-negativa {
+  --bs-table-bg: rgb(255, 0, 0, 0.2);
+}
+main .contenedor-dashboard .seccion-dashboard table .btn-eliminar-registro {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+main .contenedor-dashboard .seccion-dashboard table .btn-eliminar-registro span {
+  font-size: 15px;
+}
+main .contenedor-dashboard .seccion-dashboard table .centrar-texto-tabla {
   display: flex;
   justify-content: center;
   align-items: center;
