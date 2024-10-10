@@ -20,7 +20,24 @@ class Registro {
     esSueldo = () => {
         return this.categoria == 1
     }
+    obtenerSemana = () => {
+        let dia = parseInt(this.fecha.split('/')[0]); // Extraer el día de la fecha
+        return Math.ceil(dia / 7); // Dividir por 7 para obtener la semana
+    }
+    // obtenerHora = () => {
+    //     return parseInt(this.fecha.split(' ')[1]); //Divide por el espacio y devuelve la parte con indice 1 DD/MM/AAAA hh:mm  
+    // }
 }
+
+//Devuelve array de objetos con los registros realizados entre las fechas especificadas (formato de fechas Date())
+const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
+    return datos.filter((registro) => convertirAFecha(registro.fecha) >= fechaInicio && convertirAFecha(registro.fecha) <= fechaFin)
+}
+
+// function obtenerSemana(fecha) {
+//     let dia = parseInt(fecha.split('/')[0]); // Extraer el día de la fecha
+//     return Math.ceil(dia / 7); // Dividir por 7 para obtener la semana
+// }
 
 function obtenerRangoMensual(fechaStr) {
     let fecha = convertirAFecha(fechaStr)
@@ -32,72 +49,61 @@ function obtenerRangoMensual(fechaStr) {
     }
 }
 
-const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
-    return datos.filter((registro) => convertirAFecha(registro.fecha) >= fechaInicio && convertirAFecha(registro.fecha) <= fechaFin)
-}
-
-function obtenerSemana(fecha) {
-    let dia = parseInt(fecha.split('/')[0]); // Extraer el día de la fecha
-    return Math.ceil(dia / 7); // Dividir por 7 para obtener la semana
-}
-
 function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
     let resultadoFiltro = {}
-    switch (tipo) {
-        case "mensual":
-            let semanas = [1, 2, 3, 4]
-            let ingresosPorSemana = semanas.map((semana) => {
-                return registrosFiltrados.filter(registro => obtenerSemana(registro.fecha) === semana) // Filtrar por semana
-                    .reduce((acc, registro) => acc + (registro.monto > 0 ? registro.monto : 0), 0) // Sumar solo ingresos
-            })
-            let gastosPorSemana = semanas.map((semana) => {
-                return registrosFiltrados.filter(registro => obtenerSemana(registro.fecha) === semana) // Filtrar por semana
-                    .reduce((acc, registro) => acc + (registro.monto < 0 ? registro.monto : 0), 0) // Sumar solo gastos
-            })
-            resultadoFiltro = {
-                etiquetas: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'], 
-                ingresos: ingresosPorSemana, 
-                gastos: gastosPorSemana 
-            }
-            break
-        case "semanal":
-
-            break
-        case "diario":
-
-            break
-        default:
-            break
+    if (registrosFiltrados) {
+        switch (tipo) {
+            case "mensual":
+                let semanas = [1, 2, 3, 4]
+                let ingresosPorSemana = semanas.map((semana) => {
+                    return registrosFiltrados.filter(registro => registro.obtenerSemana() === semana) // Filtrar por semana
+                        .reduce((acc, registro) => acc + (registro.monto > 0 ? registro.monto : 0), 0) // Sumar solo ingresos
+                })
+                let gastosPorSemana = semanas.map((semana) => {
+                    return registrosFiltrados.filter(registro => registro.obtenerSemana() === semana) // Filtrar por semana
+                        .reduce((acc, registro) => acc + (registro.monto < 0 ? registro.monto * -1 : 0), 0) // Sumar solo gastos
+                })
+                resultadoFiltro = {
+                    etiquetas: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                    ingresos: ingresosPorSemana,
+                    gastos: gastosPorSemana
+                }
+                break
+            case "semanal":
+                // // Agrupar por días de la semana
+                let dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
+                let ingresosPorDia = [] //FALTA DEFINIR
+                let gastosPorDia = [] //FALTA DEFINIR
+                resultadoFiltro = {
+                    etiquetas: dias,
+                    ingresos: ingresosPorDia,
+                    gastos: gastosPorDia
+                }
+                break
+            case "diario":
+                //Agrupar por horas del día
+                let horas = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00']
+                let fechaRef = convertirAFecha(registrosFiltrados[0].fecha)
+                let ingresosPorHora = horas.map((hora, index) => {
+                    return registrosFiltrados.filter(registro => convertirAFecha(registro.fecha) >= fechaRef.setHours(index, 0, 0) && convertirAFecha(registro.fecha) <= fechaRef.setHours(index, 59, 59)) // Filtrar por hora
+                        .reduce((acc, registro) => acc + (registro.monto > 0 ? registro.monto : 0), 0) // Sumar solo ingresos
+                })
+                let gastosPorHora = horas.map((hora, index) => {
+                    return registrosFiltrados.filter(registro => convertirAFecha(registro.fecha) >= fechaRef.setHours(index, 0, 0) && convertirAFecha(registro.fecha) <= fechaRef.setHours(index, 59, 59)) // Filtrar por hora
+                        .reduce((acc, registro) => acc + (registro.monto < 0 ? registro.monto * -1 : 0), 0) // Sumar solo gastos
+                })
+                resultadoFiltro = {
+                    etiquetas: horas,
+                    ingresos: ingresosPorHora,
+                    gastos: gastosPorHora
+                }
+                break
+            default:
+                break
+        }
     }
     return resultadoFiltro
 }
-
-// Función para agrupar por semanas o meses
-function agruparPor(tipo, fechaAFiltrar) {
-    if (tipo === 'mes') {
-        // Agrupar por semanas del mes
-        let semanas = [1, 2, 3, 4];
-        let ingresosPorSemana = semanas.map((semana) => {
-            return registros
-                .filter(registro => obtenerSemana(registro.fecha) === semana) // Filtrar por semana
-                .reduce((acc, registro) => acc + (registro.monto > 0 ? registro.monto : 0), 0); // Sumar solo ingresos
-        });
-        let gastosPorSemana = semanas.map((semana) => {
-            return registros
-                .filter(registro => obtenerSemana(registro.fecha) === semana) // Filtrar por semana
-                .reduce((acc, registro) => acc + (registro.monto < 0 ? registro.monto : 0), 0); // Sumar solo gastos
-        });
-        return { etiquetas: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'], ingresos: ingresosPorSemana, gastos: gastosPorSemana };
-    } else if (tipo === 'semana') {
-        // Agrupar por días de la semana
-        let dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
-        let ingresosPorDia = registros.slice(0, 7).map(reg => reg.monto > 0 ? reg.monto : 0); // Sumar ingresos por día
-        let gastosPorDia = registros.slice(0, 7).map(reg => reg.monto < 0 ? reg.monto : 0); // Sumar gastos por día
-        return { etiquetas: dias, ingresos: ingresosPorDia, gastos: gastosPorDia };
-    }
-}
-
-
 
 //Sumar valores positivos de un array
 const sumarIngresos = (ingresos) => {
@@ -121,16 +127,26 @@ const sumarGastos = (gastos) => {
     return total
 }
 
+function estaEnMismoMes(fechaString) {
+    // Obtener la fecha actual
+    const fechaActual = new Date();
+    const mesActual = fechaActual.getMonth() + 1;
+    const añoActual = fechaActual.getFullYear();
+
+    const [dia, mes, año] = fechaString.split(' ')[0].split('/').map(Number);
+
+    // Comparar el mes y el año
+    return mesActual === mes && añoActual === año;
+}
+
 const obtenerSueldo = (datos) => {
-    //ARREGLAR PARA QUE OBTENGA SOLO SALARIO DE MES ACTUAL
-    let total = 0
-    datos.forEach(registro => {
-        console.log(registro.esSueldo())
-        if (registro.esSueldo()) {
-            total += parseFloat(registro.monto)
+    let sueldo = 0
+    datos.forEach((reg) => {
+        if (reg.esSueldo() && estaEnMismoMes(reg.fecha)) {
+            sueldo += reg.monto
         }
     })
-    return total
+    return sueldo
 }
 
 //Calcular el total de todos los valores ingresados
@@ -208,7 +224,8 @@ const actualizarDatosMostrados = (datos) => {
                     </thead>`
         let bodyTabla = document.createElement("tbody")
         let numerador = 1
-        datos.forEach((dato) => {
+        const ultimos10 = datos.slice(-10).reverse()
+        ultimos10.forEach((dato) => {
             //ARREGLAR PARA QUE SEAN ULTIMAS 10 TRANSACCIONES
             let fila = document.createElement("tr")
             if (dato.monto > 0) {
@@ -233,14 +250,25 @@ const actualizarDatosMostrados = (datos) => {
     let balance = document.getElementById("balance")
     balance.innerHTML = `$${balanceTotal(datos).toFixed(2)}`
 
+    let fechasInicioFin = obtenerRangoMensual(obtenerFechaActual())
     let salario = obtenerSueldo(datos)
-    let gastos = sumarGastos(datos)
+    let gastos = sumarGastos(filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia))
     crearGraficoSalario(salario, gastos)
 
-    crearGraficoPorFecha()
 
-    let fechasInicioFin = obtenerRangoMensual(datos[0].fecha)
+    
+
     console.log(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
+    crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
+    //Mostrar grafico diario, luego con botones llamar nuevamente a la funcion para mostrar otros
+
+    // let fechaInicio = new Date()
+    // fechaInicio.setHours(0, 0, 0)
+    // let fechaFin = new Date()
+    // fechaFin.setHours(23, 59, 59)
+    // let fechaSieteDiasAntes = fechaSieteDiasAntes.setDate(fechaActual.getDate() - 7);
+    //crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechaInicio, fechaFin), fechaFin))
+
 }
 
 let graficoSalario
@@ -278,53 +306,30 @@ function crearGraficoSalario(salario, gastos) {
 }
 
 let graficoPorFecha
-function crearGraficoPorFecha(opcion, datos) {
+function crearGraficoPorFecha(datos) {
     if (graficoPorFecha) {
         graficoPorFecha.destroy()
     }
-    //const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
-    const labelsInferiores = []
-    const ingresos = []
-    const gastos = []
-    switch (opcion) {
-        case "mensual":
-            //mostrar según mes seleccionado 1 seccion por semana
-
-            datos.map(registro => registro.monto)
-            break
-        case "semanal":
-            //mostrar según semana seleccionada 1 seccion por día
-            break
-        case "diario":
-            //mostrar según dia seleccionado 1 seccion por hora del día
-            break
-
-        default:
-            break
-    }
-
-
-
     // Crear el gráfico
     const ctx = document.getElementById('chartIngresosyGastos')
     graficoPorFecha = new Chart(ctx, {
         type: 'bar', // Gráfico de barras
         data: {
-            labels: labelsInferiores,
+            labels: datos.etiquetas,
             datasets: [
                 {
                     label: 'Ingresos',
-                    data: ingresos, // Datos de ingresos
+                    data: datos.ingresos, // Datos de ingresos
                     backgroundColor: 'rgb(25, 135, 84, 0.2)', // Color para las barras de ingresos
                     borderColor: 'rgb(25, 135, 84, 0.8)',
-                    borderWidth: 2
+                    borderWidth: 1.5
                 },
                 {
                     label: 'Gastos',
-                    data: gastos, // Datos de gastos
+                    data: datos.gastos, // Datos de gastos
                     backgroundColor: 'rgb(255, 0, 0, 0.2)', // Color para las barras de gastos
                     borderColor: ' rgb(255, 0, 0, 0.8)',
-                    borderWidth: 2
+                    borderWidth: 1.5
                 }
             ]
         },
@@ -416,47 +421,3 @@ btnCargar.addEventListener("click", (e) => {
         //ERROR - Gasto supera el balance actual
     }
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const data = [
-//     { year: 2010, count: 10 },
-//     { year: 2011, count: 20 },
-//     { year: 2012, count: 15 },
-//     { year: 2013, count: 25 },
-//     { year: 2014, count: 22 },
-//     { year: 2015, count: 30 },
-//     { year: 2016, count: 28 },
-// ]
-// new Chart(
-//     document.getElementById('chartIngresosyGastos'),
-//     {
-//         type: 'bar',
-//         data: {
-//             labels: data.map(row => row.year),
-//             datasets: [
-//                 {
-//                     label: '',
-//                     data: data.map(row => row.count)
-//                 },
-//                 {
-//                     label: '',
-//                     data: data.map(row => row.count)
-//                 }
-//             ]
-//         }
-//     }
-// )
-
-
-
