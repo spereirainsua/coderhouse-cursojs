@@ -68,6 +68,10 @@ main {
             .collapse-header,
             .collapse-body {
                 justify-content: left;
+                
+                .form-select {
+                    height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+                }
             }
 
             .collapse-footer {
@@ -127,7 +131,9 @@ main {
     }
 }
 
-
+.ocultar-elemento {
+    display: none;
+}
 
 
 

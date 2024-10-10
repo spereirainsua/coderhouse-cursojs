@@ -68,6 +68,26 @@ footer .pie-de-pagina hr {
   width: 100%;
   margin: 10px 0;
 }
+footer .pie-de-pagina .redes-sociales {
+  justify-content: center;
+  align-items: center;
+}
+footer .pie-de-pagina .redes-sociales .iconos-redes a {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  width: 45px;
+  height: 45px;
+  line-height: 50px;
+  color: #212529;
+  text-align: center;
+  border-bottom: 3px solid;
+  border-color: #212529;
+}
+footer .pie-de-pagina .redes-sociales .iconos-redes a:hover {
+  color: orange;
+  border-color: orange;
+}
 footer hr {
   width: 95%;
   margin: 10px 0;
@@ -125,6 +145,10 @@ main .collapse-carga-balance .collapse-container .collapse-header,
 main .collapse-carga-balance .collapse-container .collapse-body {
   justify-content: left;
 }
+main .collapse-carga-balance .collapse-container .collapse-header .form-select,
+main .collapse-carga-balance .collapse-container .collapse-body .form-select {
+  height: calc(3.5rem + var(--bs-border-width) * 2);
+}
 main .collapse-carga-balance .collapse-container .collapse-footer {
   justify-content: space-between;
 }
@@ -172,6 +196,10 @@ main .contenedor-dashboard .seccion-dashboard table .centrar-texto-tabla {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.ocultar-elemento {
+  display: none;
 }
 
 /*##### MEDIA QUERYS #####*/

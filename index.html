@@ -26,6 +26,8 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <!-- Charts.js -->
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/styles.css">
     <!-- JS -->
@@ -53,8 +55,11 @@
                         <li class="nav-item">
                             <a class="nav-link" href="./pages/facturas.html">FACTURAS</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./pages/historial.html">HISTORIAL</a>
+                        </li>
                         <!-- <li class="nav-item">
-                            <a class="nav-link" href="./pages/2.html">PAGE2</a>
+                            <a class="nav-link" href="./pages/1.html">PAGE1</a>
                         </li> -->
                     </ul>
                 </div>
@@ -99,6 +104,24 @@
                             </div>
                         </div>
                     </div>
+                    <div class="container-fluid" id="contenedor-categoria">
+                        <div class="form-floating">
+                            <select class="form-select" id="categoria">
+                                <option selected value="-1">Selecciona una opción</option>
+                                <option value="1">Salario</option>
+                                <option value="2">Deposito</option>
+                                <option value="3">Ahorros</option>
+                                <option value="0">Otro</option>
+                            </select>
+                            <label for="categoria">Categoría</label>
+                            <div class="invalid-feedback" id="validacion-categoria">
+                                <span class="material-symbols-outlined">
+                                    error
+                                </span>
+                                Debe seleccionar una opción.
+                            </div>
+                        </div>
+                    </div>
                     <div class="container-fluid">
                         <div class="form-floating">
                             <input type="text" class="form-control" id="monto" placeholder="Monto">
@@ -123,8 +146,13 @@
         <div class="container-lg contenedor-dashboard">
             <section class="seccion-dashboard">
                 <h1>Dashboard</h1>
-                <table class="table table-hover" id="tabla-dashboard">
+                <div class="container-fluid card"><canvas id="chartUsoSueldo"></canvas></div>
+                <div class="container-fluid card"><canvas id="chartAhorros"></canvas></div>
+                <div class="container-fluid card"><canvas id="chartIngresosyGastos"></canvas></div>
 
+
+                <table class="table table-hover" id="tabla-dashboard">
+                    
                 </table>
             </section>
         </div>

@@ -38,30 +38,30 @@ footer {
             margin: 10px 0;
         }
 
-        // .redes-sociales {
-        //     justify-content: center;
-        //     align-items: center;
+        .redes-sociales {
+            justify-content: center;
+            align-items: center;
 
-        //     .iconos-redes {
-        //         a {
-        //             display: inline-block;
-        //             text-align: center;
-        //             text-decoration: none;
-        //             width: 45px;
-        //             height: 45px;
-        //             line-height: 50px;
-        //             color: map-get($paleta-colores, iconos);
-        //             text-align: center;
-        //             border-bottom: 3px solid;
-        //             border-color: map-get($paleta-colores, bordes);
-        //         }
+            .iconos-redes {
+                a {
+                    display: inline-block;
+                    text-align: center;
+                    text-decoration: none;
+                    width: 45px;
+                    height: 45px;
+                    line-height: 50px;
+                    color: map-get($paleta-colores, iconos);
+                    text-align: center;
+                    border-bottom: 3px solid;
+                    border-color: map-get($paleta-colores, bordes);
+                }
 
-        //         a:hover {
-        //             color: map-get($paleta-colores, botones);
-        //             border-color: map-get($paleta-colores, botones);
-        //         }
-        //     }
-        // }
+                a:hover {
+                    color: map-get($paleta-colores, botones);
+                    border-color: map-get($paleta-colores, botones);
+                }
+            }
+        }
     }
 
     hr {
