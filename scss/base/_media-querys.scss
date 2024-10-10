@@ -1,0 +1,24 @@
+@media screen and (min-width:1200px) {}
+
+@media screen and (max-width:992px) {}
+
+@media screen and (max-width:768px) {}
+
+@media screen and (max-width:576px) {
+    main {
+        .contenedor-balance {
+            flex-direction: column;
+            .seccion-carga-balance {
+                width: 100%;
+                .btn-group {
+                    width: 100%;
+                    button {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:480px) {}

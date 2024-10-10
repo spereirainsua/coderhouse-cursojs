@@ -1,0 +1,19 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: $fuentes;
+}
+
+body {   
+    background-color: map-get($paleta-colores, secundario);
+    /* Quitar las decoraciones de los anclajes */
+    a {
+        text-decoration: none;
+    }
+
+    /* Quitar viñetas de las listas */
+    ul {
+        list-style-type: none;
+    }
+}
