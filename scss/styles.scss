@@ -105,7 +105,27 @@ main {
         }
 
         .seccion-dashboard {
+            display: grid;
+            //REALIZAR GRID
             width: 100%;
+            .grafica-sueldo {
+                display: flex;
+                max-width: 30%;
+                max-height: fit-content;
+                padding: 10px;
+            }
+            .grafica-ahorros {
+                display: flex;
+                max-width: 70%;
+                max-height: fit-content;
+                padding: 10px;
+            }
+            .grafica-ingresos-gastos {
+                display: flex;
+                max-width: 100%;
+                max-height: fit-content;
+                padding: 10px;
+            }
             table {
                 .fila-positiva {
                     --bs-table-bg:  rgb(25, 135, 84, 0.2);

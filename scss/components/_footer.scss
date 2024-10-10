@@ -15,10 +15,10 @@ footer {
         padding-bottom: 1rem;
 
         // .footer-logo,
-        // .redes-sociales {
-        //     display: flex;
-        //     flex-direction: column;
-        // }
+        .redes-sociales {
+            display: flex;
+            flex-direction: column;
+        }
 
         // .footer-logo {
         //     justify-content: center;
@@ -32,11 +32,11 @@ footer {
         //     }
         // }
 
-        hr {
-            display: none;
-            width: 100%;
-            margin: 10px 0;
-        }
+        // hr {
+        //     display: none;
+        //     width: 100%;
+        //     margin: 10px 0;
+        // }
 
         .redes-sociales {
             justify-content: center;

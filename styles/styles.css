@@ -63,10 +63,9 @@ footer .pie-de-pagina {
   padding-top: 2rem;
   padding-bottom: 1rem;
 }
-footer .pie-de-pagina hr {
-  display: none;
-  width: 100%;
-  margin: 10px 0;
+footer .pie-de-pagina .redes-sociales {
+  display: flex;
+  flex-direction: column;
 }
 footer .pie-de-pagina .redes-sociales {
   justify-content: center;
@@ -176,7 +175,26 @@ main .contenedor-dashboard h1 {
   font-size: 22px;
 }
 main .contenedor-dashboard .seccion-dashboard {
+  display: grid;
   width: 100%;
+}
+main .contenedor-dashboard .seccion-dashboard .grafica-sueldo {
+  display: flex;
+  max-width: 30%;
+  max-height: fit-content;
+  padding: 10px;
+}
+main .contenedor-dashboard .seccion-dashboard .grafica-ahorros {
+  display: flex;
+  max-width: 70%;
+  max-height: fit-content;
+  padding: 10px;
+}
+main .contenedor-dashboard .seccion-dashboard .grafica-ingresos-gastos {
+  display: flex;
+  max-width: 100%;
+  max-height: fit-content;
+  padding: 10px;
 }
 main .contenedor-dashboard .seccion-dashboard table .fila-positiva {
   --bs-table-bg: rgb(25, 135, 84, 0.2);
