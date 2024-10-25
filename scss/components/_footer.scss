@@ -6,42 +6,16 @@ footer {
     justify-content: center;
     z-index: 1;
     width: 100%;
-
     .pie-de-pagina {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 50px;
         padding-top: 2rem;
         padding-bottom: 1rem;
-
-        // .footer-logo,
         .redes-sociales {
             display: flex;
             flex-direction: column;
         }
-
-        // .footer-logo {
-        //     justify-content: center;
-        //     align-items: start;
-        //     a {
-        //         font-family: "Qwitcher Grypen", cursive;
-        //         font-size: 2.2rem;
-        //         font-weight: 520;
-        //         display: flex;
-        //         align-items: center;
-        //     }
-        // }
-
-        // hr {
-        //     display: none;
-        //     width: 100%;
-        //     margin: 10px 0;
-        // }
-
         .redes-sociales {
             justify-content: center;
             align-items: center;
-
             .iconos-redes {
                 a {
                     display: inline-block;
