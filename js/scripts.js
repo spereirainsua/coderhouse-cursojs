@@ -21,26 +21,28 @@ class Registro {
         return this.categoria == 1
     }
     obtenerSemana = () => {
-        let dia = parseInt(this.fecha.split('/')[0]); // Extraer el día de la fecha
-        return Math.ceil(dia / 7); // Dividir por 7 para obtener la semana
+        let dia = this.fecha.getDate() // Extraer el día de la fecha
+        return Math.ceil(dia / 7) // Dividir por 7 para obtener la semana
     }
-    // obtenerHora = () => {
-    //     return parseInt(this.fecha.split(' ')[1]); //Divide por el espacio y devuelve la parte con indice 1 DD/MM/AAAA hh:mm  
-    // }
+    obtenerDia = () => {
+        return this.fecha.getDate() // Extraer el día de la fecha
+    }
+    obtenerHora = () => {
+        let horas = {
+            hora: this.fecha.getHours(),
+            minutos: this.fecha.getMinutes(),
+            segundos: this.fecha.getSeconds()
+        }
+        return horas
+    }
 }
 
 //Devuelve array de objetos con los registros realizados entre las fechas especificadas (formato de fechas Date())
 const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
-    return datos.filter((registro) => convertirAFecha(registro.fecha) >= fechaInicio && convertirAFecha(registro.fecha) <= fechaFin)
+    return datos.filter((registro) => registro.fecha >= fechaInicio && registro.fecha <= fechaFin)
 }
 
-// function obtenerSemana(fecha) {
-//     let dia = parseInt(fecha.split('/')[0]); // Extraer el día de la fecha
-//     return Math.ceil(dia / 7); // Dividir por 7 para obtener la semana
-// }
-
-function obtenerRangoMensual(fechaStr) {
-    let fecha = convertirAFecha(fechaStr)
+function obtenerRangoMensual(fecha) {
     let primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1, 0, 0)
     let ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0, 23, 59, 59)
     return {
@@ -54,15 +56,28 @@ function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
     if (registrosFiltrados) {
         switch (tipo) {
             case "mensual":
-                let semanas = [1, 2, 3, 4]
-                let ingresosPorSemana = semanas.map((semana) => {
-                    return registrosFiltrados.filter(registro => registro.obtenerSemana() === semana) // Filtrar por semana
-                        .reduce((acc, registro) => acc + (registro.monto > 0 ? registro.monto : 0), 0) // Sumar solo ingresos
+                // Agrupar por registros que se realizaron en el mismo mes
+                // registroFiltrados debe contener los registros que se encuentran entre el primer y ultimo día del mes
+                let ingresosPorSemana = Array(4).fill(0)
+                let gastosPorSemana = Array(4).fill(0)
+                registrosFiltrados.forEach(registro => {
+                    let semana = registro.obtenerSemana()
+                    if (registro.monto > 0) {
+                        ingresosPorSemana[semana-1] += registro.monto
+                    } else {
+                        gastosPorSemana[semana-1] += registro.monto * -1
+                    }
                 })
-                let gastosPorSemana = semanas.map((semana) => {
-                    return registrosFiltrados.filter(registro => registro.obtenerSemana() === semana) // Filtrar por semana
-                        .reduce((acc, registro) => acc + (registro.monto < 0 ? registro.monto * -1 : 0), 0) // Sumar solo gastos
-                })
+
+                // let semanas = [1, 2, 3, 4]
+                // let ingresosPorSemana = semanas.map((semana) => {
+                //     return registrosFiltrados.filter(registro => registro.obtenerSemana() === semana) // Filtrar por semana
+                //         .reduce((acc, registro) => acc + (registro.monto > 0 ? registro.monto : 0), 0) // Sumar solo ingresos
+                // })
+                // let gastosPorSemana = semanas.map((semana) => {
+                //     return registrosFiltrados.filter(registro => registro.obtenerSemana() === semana) // Filtrar por semana
+                //         .reduce((acc, registro) => acc + (registro.monto < 0 ? registro.monto * -1 : 0), 0) // Sumar solo gastos
+                // })
                 resultadoFiltro = {
                     etiquetas: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
                     ingresos: ingresosPorSemana,
@@ -70,7 +85,7 @@ function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
                 }
                 break
             case "semanal":
-                // // Agrupar por días de la semana
+                // Agrupar por días de la semana
                 let dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
                 let ingresosPorDia = [] //FALTA DEFINIR
                 let gastosPorDia = [] //FALTA DEFINIR
@@ -81,19 +96,22 @@ function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
                 }
                 break
             case "diario":
-                //Agrupar por horas del día
-                let horas = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00']
-                let fechaRef = convertirAFecha(registrosFiltrados[0].fecha)
-                let ingresosPorHora = horas.map((hora, index) => {
-                    return registrosFiltrados.filter(registro => convertirAFecha(registro.fecha) >= fechaRef.setHours(index, 0, 0) && convertirAFecha(registro.fecha) <= fechaRef.setHours(index, 59, 59)) // Filtrar por hora
-                        .reduce((acc, registro) => acc + (registro.monto > 0 ? registro.monto : 0), 0) // Sumar solo ingresos
-                })
-                let gastosPorHora = horas.map((hora, index) => {
-                    return registrosFiltrados.filter(registro => convertirAFecha(registro.fecha) >= fechaRef.setHours(index, 0, 0) && convertirAFecha(registro.fecha) <= fechaRef.setHours(index, 59, 59)) // Filtrar por hora
-                        .reduce((acc, registro) => acc + (registro.monto < 0 ? registro.monto * -1 : 0), 0) // Sumar solo gastos
+                // Agrupar por horas del día
+                //  registroFiltrados contiene los registros que se realizaron en un día especifico
+
+                let ingresosPorHora = Array(24).fill(0)
+                let gastosPorHora = Array(24).fill(0)
+
+                registrosFiltrados.forEach(registro => {
+                    let hora = registro.obtenerHora().hora
+                    if (registro.monto > 0) {
+                        ingresosPorHora[hora] += registro.monto
+                    } else {
+                        gastosPorHora[hora] += registro.monto * -1
+                    }
                 })
                 resultadoFiltro = {
-                    etiquetas: horas,
+                    etiquetas: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
                     ingresos: ingresosPorHora,
                     gastos: gastosPorHora
                 }
@@ -127,22 +145,19 @@ const sumarGastos = (gastos) => {
     return total
 }
 
-function estaEnMismoMes(fechaString) {
+function estaEnMesActual(fecha) {
     // Obtener la fecha actual
-    const fechaActual = new Date();
-    const mesActual = fechaActual.getMonth() + 1;
-    const añoActual = fechaActual.getFullYear();
-
-    const [dia, mes, año] = fechaString.split(' ')[0].split('/').map(Number);
-
+    const fechaActual = new Date()
+    const mesActual = fechaActual.getMonth() + 1
+    const añoActual = fechaActual.getFullYear()
     // Comparar el mes y el año
-    return mesActual === mes && añoActual === año;
+    return mesActual === (fecha.getMonth() + 1) && añoActual === fecha.getFullYear()
 }
 
 const obtenerSueldo = (datos) => {
     let sueldo = 0
     datos.forEach((reg) => {
-        if (reg.esSueldo() && estaEnMismoMes(reg.fecha)) {
+        if (reg.esSueldo() && estaEnMesActual(reg.fecha)) {
             sueldo += reg.monto
         }
     })
@@ -155,21 +170,13 @@ const balanceTotal = (datos) => sumarIngresos(datos) + sumarGastos(datos)
 const cargarIngresosOGastos = (fecha, concepto, monto, iog, categoria) => {
     let dato = new Registro(fecha, concepto, monto, iog, categoria)
     datosIngresosyGastos.push(dato)
-    localStorage.setItem("Montos", JSON.stringify(datosIngresosyGastos))
+    let datosParaAlmacenar = datosIngresosyGastos.map(registro => {
+        let copiaRegistro = { ...registro }
+        copiaRegistro.fecha = convertirFechaAStr(copiaRegistro.fecha)
+        return copiaRegistro
+    })
+    localStorage.setItem("Montos", JSON.stringify(datosParaAlmacenar))
     actualizarDatosMostrados(datosIngresosyGastos)
-}
-
-function obtenerFechaActual() {
-    let fechaActual = new Date()
-    let dia = fechaActual.getDate().toString().padStart(2, '0') // Agrega un 0 si es necesario
-    let mes = (fechaActual.getMonth() + 1).toString().padStart(2, '0') // Los meses empiezan en 0
-    let año = fechaActual.getFullYear()
-
-    let horas = fechaActual.getHours().toString().padStart(2, '0')
-    let minutos = fechaActual.getMinutes().toString().padStart(2, '0')
-
-    // Formato DD/MM/AAAA hh:mm
-    return `${dia}/${mes}/${año} ${horas}:${minutos}`
 }
 
 function convertirAFecha(fechaStr) {
@@ -186,20 +193,17 @@ function convertirAFecha(fechaStr) {
     return new Date(anio, mes - 1, dia, horas, minutos)
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    let validarDatos = localStorage.getItem("Montos")
-    if (validarDatos) {
-        JSON.parse(validarDatos).forEach(dato => {
-            datosIngresosyGastos.push(new Registro(dato.fecha, dato.concepto, dato.monto, dato.iog, dato.categoria))
-        })
-        Registro.id = datosIngresosyGastos.slice(-1)[0].id
-    }
-    actualizarDatosMostrados(datosIngresosyGastos)
-})
+function convertirFechaAStr(fechaDate) {
+    let dia = fechaDate.getDate().toString().padStart(2, '0') // Agrega un 0 si es necesario
+    let mes = (fechaDate.getMonth() + 1).toString().padStart(2, '0') // Los meses empiezan en 0
+    let año = fechaDate.getFullYear()
 
+    let horas = fechaDate.getHours().toString().padStart(2, '0')
+    let minutos = fechaDate.getMinutes().toString().padStart(2, '0')
 
-
-
+    // Formato DD/MM/AAAA hh:mm
+    return `${dia}/${mes}/${año} ${horas}:${minutos}`
+}
 
 //Quitar ultimo monto cargado ###AUN NO SE USA
 const quitarUltimoMontoCargado = (datosIngresosyGastos) => {
@@ -208,6 +212,12 @@ const quitarUltimoMontoCargado = (datosIngresosyGastos) => {
 
 //Mostrar datos almacenados
 const actualizarDatosMostrados = (datos) => {
+
+    let fechasInicioFin = obtenerRangoMensual(new Date())
+    let salario = obtenerSueldo(datos)
+    let gastos = sumarGastos(filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia))
+    graficoSalario = crearGraficoSalario(graficoSalario, salario, gastos)
+
     let tabla = document.getElementById("tabla-dashboard")
     if (datos.length > 0) {
         if (tabla.classList.contains("centrar-texto-tabla")) {
@@ -233,12 +243,12 @@ const actualizarDatosMostrados = (datos) => {
             } else {
                 fila.classList.add("fila-negativa")
             }
-            let mostratMonto = parseFloat(dato.monto).toFixed(2)
+            let mostrarMonto = parseFloat(dato.monto).toFixed(2)
             fila.innerHTML = `<th scope="row">${numerador}</th>
-                            <td>${dato.fecha}</td>
+                            <td>${convertirFechaAStr(dato.fecha)}</td>
                             <td>${dato.concepto}</td>
-                            <td>${mostratMonto}</td>
-                            <td><button type="button" class="btn btn-outline-dark btn-eliminar-registro" id="${dato.id}"><span class="material-symbols-outlined">close</span></button></td>`
+                            <td>${mostrarMonto}</td>`
+            //<td><button type="button" class="btn btn-outline-dark btn-eliminar-registro" id="${dato.id}"><span class="material-symbols-outlined">close</span></button></td>`
             bodyTabla.append(fila)
             numerador++
         })
@@ -250,34 +260,39 @@ const actualizarDatosMostrados = (datos) => {
     let balance = document.getElementById("balance")
     balance.innerHTML = `$${balanceTotal(datos).toFixed(2)}`
 
-    let fechasInicioFin = obtenerRangoMensual(obtenerFechaActual())
-    let salario = obtenerSueldo(datos)
-    let gastos = sumarGastos(filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia))
-    crearGraficoSalario(salario, gastos)
-
 
     
 
-    console.log(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
-    crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
+
+ 
+    //Funciona
+    //crearGraficoPorFecha(graficoPorFecha, agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
+    let fecha1 = new Date()
+    fecha1.setDate(5)
+    crearGraficoPorFecha(graficoPorFecha, agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, fecha1.setHours(0, 0, 0), fecha1.setHours(23, 59, 59))))
+
     //Mostrar grafico diario, luego con botones llamar nuevamente a la funcion para mostrar otros
 
     // let fechaInicio = new Date()
     // fechaInicio.setHours(0, 0, 0)
     // let fechaFin = new Date()
     // fechaFin.setHours(23, 59, 59)
-    // let fechaSieteDiasAntes = fechaSieteDiasAntes.setDate(fechaActual.getDate() - 7);
+    // let fechaSieteDiasAntes = fechaSieteDiasAntes.setDate(fechaActual.getDate() - 7)
     //crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechaInicio, fechaFin), fechaFin))
 
 }
 
-let graficoSalario
-function crearGraficoSalario(salario, gastos) {
-    if (graficoSalario) {
-        graficoSalario.destroy()
+function crearGraficoSalario(grafico, salario, gastos) {
+    const contenedor = document.getElementById('chartUsoSueldo')
+    if (grafico) {
+        grafico.destroy()
     }
-    graficoSalario = new Chart(
-        document.getElementById('chartUsoSueldo'),
+    // Si se supera el total del sueldo, que sueldo aparezca siempre en cero y se muestre el total de gastos
+    if (salario + gastos < 0) {
+        salario = gastos * -1
+    }
+    grafico = new Chart(
+        contenedor,
         {
             type: 'doughnut',
             data: {
@@ -303,16 +318,16 @@ function crearGraficoSalario(salario, gastos) {
                 maintainAspectRatio: false  // Permite cambiar el aspecto según el tamaño del contenedor
             }
         })
+    return grafico
 }
 
-let graficoPorFecha
-function crearGraficoPorFecha(datos) {
-    if (graficoPorFecha) {
-        graficoPorFecha.destroy()
+function crearGraficoPorFecha(graficoFecha, datos) {
+    if (graficoFecha) {
+        graficoFecha.destroy()
     }
     // Crear el gráfico
     const ctx = document.getElementById('chartIngresosyGastos')
-    graficoPorFecha = new Chart(ctx, {
+    graficoFecha = new Chart(ctx, {
         type: 'bar', // Gráfico de barras
         data: {
             labels: datos.etiquetas,
@@ -409,7 +424,7 @@ btnCargar.addEventListener("click", (e) => {
     let categoria = document.getElementById("categoria").value
     //FALTA VALIDAR SI TENGO MONTO SUFICIENTE PARA REALIZAR GASTO
     if (validarNoVacio(concepto) && validarNumerico(monto) && categoria != -1) {
-        cargarIngresosOGastos(obtenerFechaActual(), concepto, parseFloat(monto), e.currentTarget.name, categoria)
+        cargarIngresosOGastos(new Date(), concepto, parseFloat(monto), e.currentTarget.name, categoria)
         document.getElementById("concepto").value = ''
         document.getElementById("monto").value = ''
         document.getElementById("categoria").value = -1
@@ -421,3 +436,25 @@ btnCargar.addEventListener("click", (e) => {
         //ERROR - Gasto supera el balance actual
     }
 })
+
+
+
+let validarDatos = localStorage.getItem("Montos")
+if (validarDatos) {
+    JSON.parse(validarDatos).forEach(dato => {
+        datosIngresosyGastos.push(new Registro(convertirAFecha(dato.fecha), dato.concepto, dato.monto, dato.iog, dato.categoria))
+    })
+    Registro.id = datosIngresosyGastos.slice(-1)[0].id
+}
+
+let graficoSalario
+let graficoPorFecha
+
+actualizarDatosMostrados(datosIngresosyGastos)
+
+
+// https://sweetalert2.github.io/ ALERTAS!!!
+
+// https://apvarun.github.io/toastify-js/ Pequeñas notas
+
+// Utilizar API valor del dolar para cambiar en tiempo real
