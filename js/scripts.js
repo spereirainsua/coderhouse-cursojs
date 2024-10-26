@@ -20,6 +20,9 @@ class Registro {
     esSueldo = () => {
         return this.categoria == 1
     }
+    obtenerMes = () => {
+        return this.fecha.getMonth()
+    }
     obtenerSemana = () => {
         let dia = this.fecha.getDate() // Extraer el día de la fecha
         return Math.ceil(dia / 7) // Dividir por 7 para obtener la semana
@@ -42,6 +45,23 @@ const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
     return datos.filter((registro) => registro.fecha >= fechaInicio && registro.fecha <= fechaFin)
 }
 
+const obtenerUltimosMeses = (cantidad) => {
+    const mesesTxt = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+    let mesActual = (new Date()).getMonth()
+    const resultadoMeses = []
+    try {
+        for (let i = 0; i < cantidad; i++) {
+            if (mesActual - i == -1) {
+                mesActual = i + 11
+            }
+            resultadoMeses.push(mesesTxt[mesActual - i])
+        }
+    } catch (error) {
+        console.log(error)
+    }
+    return resultadoMeses
+}
+
 function obtenerRangoMensual(fecha) {
     let primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1, 0, 0)
     let ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0, 23, 59, 59)
@@ -49,6 +69,30 @@ function obtenerRangoMensual(fecha) {
         primerDia: primerDia,
         ultimoDia: ultimoDia
     }
+}
+
+function agruparRegistrosAhorros(registrosFiltrados) {
+    let resultadoFiltro = {}
+    if (registrosFiltrados) {
+        let ahorros = Array(5).fill(0)
+        let mesActual = new Date().getMonth()
+        registrosFiltrados.forEach(registro => {
+            let mes = registro.obtenerMes()
+            let indice = mes - (mesActual - 4)
+            if (indice >= 12) {
+                indice -= 12
+            }
+            ahorros[indice] += registro.monto
+        })
+
+        resultadoFiltro = {
+            etiquetas: obtenerUltimosMeses(5).reverse(),
+            ahorros: ahorros,
+            // ingresos: ingresos,
+            // gastos: gastos
+        }
+    }
+    return resultadoFiltro
 }
 
 function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
@@ -63,21 +107,11 @@ function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
                 registrosFiltrados.forEach(registro => {
                     let semana = registro.obtenerSemana()
                     if (registro.monto > 0) {
-                        ingresosPorSemana[semana-1] += registro.monto
+                        ingresosPorSemana[semana - 1] += registro.monto
                     } else {
-                        gastosPorSemana[semana-1] += registro.monto * -1
+                        gastosPorSemana[semana - 1] += registro.monto * -1
                     }
                 })
-
-                // let semanas = [1, 2, 3, 4]
-                // let ingresosPorSemana = semanas.map((semana) => {
-                //     return registrosFiltrados.filter(registro => registro.obtenerSemana() === semana) // Filtrar por semana
-                //         .reduce((acc, registro) => acc + (registro.monto > 0 ? registro.monto : 0), 0) // Sumar solo ingresos
-                // })
-                // let gastosPorSemana = semanas.map((semana) => {
-                //     return registrosFiltrados.filter(registro => registro.obtenerSemana() === semana) // Filtrar por semana
-                //         .reduce((acc, registro) => acc + (registro.monto < 0 ? registro.monto * -1 : 0), 0) // Sumar solo gastos
-                // })
                 resultadoFiltro = {
                     etiquetas: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
                     ingresos: ingresosPorSemana,
@@ -213,11 +247,6 @@ const quitarUltimoMontoCargado = (datosIngresosyGastos) => {
 //Mostrar datos almacenados
 const actualizarDatosMostrados = (datos) => {
 
-    let fechasInicioFin = obtenerRangoMensual(new Date())
-    let salario = obtenerSueldo(datos)
-    let gastos = sumarGastos(filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia))
-    graficoSalario = crearGraficoSalario(graficoSalario, salario, gastos)
-
     let tabla = document.getElementById("tabla-dashboard")
     if (datos.length > 0) {
         if (tabla.classList.contains("centrar-texto-tabla")) {
@@ -226,17 +255,16 @@ const actualizarDatosMostrados = (datos) => {
         tabla.innerHTML = `<caption class="caption-top">Ultimas 10 transacciones</caption>
                         <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Concepto</th>
-                            <th scope="col">Monto $</th>
+                            <th scope="col" class="col-1">#</th>
+                            <th scope="col" class="col-2">Fecha</th>
+                            <th scope="col" class="col-6">Concepto</th>
+                            <th scope="col" class="col-3">Monto $</th>
                         </tr>
                     </thead>`
         let bodyTabla = document.createElement("tbody")
         let numerador = 1
         const ultimos10 = datos.slice(-10).reverse()
         ultimos10.forEach((dato) => {
-            //ARREGLAR PARA QUE SEAN ULTIMAS 10 TRANSACCIONES
             let fila = document.createElement("tr")
             if (dato.monto > 0) {
                 fila.classList.add("fila-positiva")
@@ -260,16 +288,23 @@ const actualizarDatosMostrados = (datos) => {
     let balance = document.getElementById("balance")
     balance.innerHTML = `$${balanceTotal(datos).toFixed(2)}`
 
+    let fechasInicioFin = obtenerRangoMensual(new Date())
+    let salario = obtenerSueldo(datos)
+    let gastos = sumarGastos(filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia))
+    graficoSalario = crearGraficoSalario(salario, gastos)
 
-    
+    let fechaFiltro1 = new Date()
+    fechaFiltro1.setMonth(fechaFiltro1.getMonth() - 5, 1)
+    fechaFiltro1.setHours(0, 0, 0)
+    let fechaFiltro2 = new Date()
+    crearGraficoAhorros(agruparRegistrosAhorros(filtrarPorRangoFechas(datos, fechaFiltro1, fechaFiltro2)))
 
+    let fecha1 = new Date()
+    crearGraficoPorFecha(agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, fecha1.setHours(0, 0, 0), fecha1.setHours(23, 59, 59))))
 
- 
     //Funciona
     //crearGraficoPorFecha(graficoPorFecha, agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
-    let fecha1 = new Date()
-    fecha1.setDate(5)
-    crearGraficoPorFecha(graficoPorFecha, agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, fecha1.setHours(0, 0, 0), fecha1.setHours(23, 59, 59))))
+
 
     //Mostrar grafico diario, luego con botones llamar nuevamente a la funcion para mostrar otros
 
@@ -282,17 +317,18 @@ const actualizarDatosMostrados = (datos) => {
 
 }
 
-function crearGraficoSalario(grafico, salario, gastos) {
-    const contenedor = document.getElementById('chartUsoSueldo')
-    if (grafico) {
-        grafico.destroy()
-    }
+function crearGraficoSalario(salario, gastos) {
+    let contenedorGrafico = document.getElementById('grafica-sueldo')
+    contenedorGrafico.innerHTML = ''
+
+    let grafico = document.createElement('canvas')
+
     // Si se supera el total del sueldo, que sueldo aparezca siempre en cero y se muestre el total de gastos
     if (salario + gastos < 0) {
         salario = gastos * -1
     }
-    grafico = new Chart(
-        contenedor,
+    new Chart(
+        grafico,
         {
             type: 'doughnut',
             data: {
@@ -314,20 +350,22 @@ function crearGraficoSalario(grafico, salario, gastos) {
                 }]
             },
             options: {
-                responsive: true,  // Asegura la responsividad
-                maintainAspectRatio: false  // Permite cambiar el aspecto según el tamaño del contenedor
+                responsive: true,
+                maintainAspectRatio: false
             }
         })
-    return grafico
+
+    contenedorGrafico.appendChild(grafico)
 }
 
-function crearGraficoPorFecha(graficoFecha, datos) {
-    if (graficoFecha) {
-        graficoFecha.destroy()
-    }
-    // Crear el gráfico
-    const ctx = document.getElementById('chartIngresosyGastos')
-    graficoFecha = new Chart(ctx, {
+function crearGraficoPorFecha(datos) {
+
+    let contenedorGrafico = document.getElementById('grafica-ingresos-gastos')
+    contenedorGrafico.innerHTML = ''
+
+    let grafico = document.createElement('canvas')
+
+    graficoFecha = new Chart(grafico, {
         type: 'bar', // Gráfico de barras
         data: {
             labels: datos.etiquetas,
@@ -349,15 +387,46 @@ function crearGraficoPorFecha(graficoFecha, datos) {
             ]
         },
         options: {
-            responsive: true, // Hace que la gráfica sea responsive
+            responsive: true,
             maintainAspectRatio: false,
             scales: {
                 y: {
-                    beginAtZero: true // La escala Y comienza desde 0
+                    beginAtZero: true
                 }
             }
         }
     })
+
+    contenedorGrafico.appendChild(grafico)
+}
+
+function crearGraficoAhorros(datos) {
+
+    let contenedorGrafico = document.getElementById('grafica-ahorros')
+    contenedorGrafico.innerHTML = ''
+
+    let grafico = document.createElement('canvas')
+
+    new Chart(grafico, {
+        type: 'line', // Gráfico de lineas
+        data: {
+            labels: datos.etiquetas,
+            datasets: [
+                {
+                    label: 'Ahorros',
+                    data: datos.ahorros, // Datos de ahorros
+                    borderWidth: 1.5,
+                    fill: true,
+                    tension: 0,
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    })
+    contenedorGrafico.appendChild(grafico)
 }
 
 // //Calcular porcentaje gastado a partir de un valor de sueldo ###AUN NO SE USA
@@ -447,9 +516,6 @@ if (validarDatos) {
     Registro.id = datosIngresosyGastos.slice(-1)[0].id
 }
 
-let graficoSalario
-let graficoPorFecha
-
 actualizarDatosMostrados(datosIngresosyGastos)
 
 
@@ -458,3 +524,7 @@ actualizarDatosMostrados(datosIngresosyGastos)
 // https://apvarun.github.io/toastify-js/ Pequeñas notas
 
 // Utilizar API valor del dolar para cambiar en tiempo real
+
+// Definir un localStorage para saber si mostrar el precio en pesos o dolares
+
+// Crear pagina con historial de movimientos y poder eliminar registros
