@@ -1,10 +1,3 @@
-//Cargar nuevos montos
-const datosIngresosyGastos = []
-
-//Validación de campos de datos
-const validarNoVacio = (dato) => dato.trim() !== ''
-const validarNumerico = (dato) => !isNaN(dato) && dato.trim() !== ''
-
 class Registro {
     static id = 0
     constructor(fecha, concepto, monto, iog, categoria) {
@@ -39,6 +32,31 @@ class Registro {
         return horas
     }
 }
+
+function validarDatos(almacenamientoLocal) {
+    const datos = JSON.parse(almacenamientoLocal) || []
+    const registros = datos.map(dato => {
+        const registro = new Registro(
+            convertirAFecha(dato.fecha),
+            dato.concepto,
+            dato.monto,
+            dato.iog,
+            dato.categoria
+        )
+        registro.id = dato.id
+        if (Registro.id < dato.id) {
+            Registro.id = dato.id
+        }
+        return registro
+    })
+    return registros
+}
+
+const datosIngresosyGastos = validarDatos(localStorage.getItem("Montos"))
+
+//Validación de campos de datos
+const validarNoVacio = (dato) => dato.trim() !== ''
+const validarNumerico = (dato) => !isNaN(dato) && dato.trim() !== ''
 
 //Devuelve array de objetos con los registros realizados entre las fechas especificadas (formato de fechas Date())
 const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
@@ -240,9 +258,9 @@ function convertirFechaAStr(fechaDate) {
 }
 
 //Quitar ultimo monto cargado ###AUN NO SE USA
-const quitarUltimoMontoCargado = (datosIngresosyGastos) => {
-    datosIngresosyGastos.pop()
-}
+// const quitarUltimoMontoCargado = (datosIngresosyGastos) => {
+//     datosIngresosyGastos.pop()
+// }
 
 //Mostrar datos almacenados
 const actualizarDatosMostrados = (datos) => {
@@ -257,8 +275,8 @@ const actualizarDatosMostrados = (datos) => {
                         <tr>
                             <th scope="col" class="col-1">#</th>
                             <th scope="col" class="col-2">Fecha</th>
-                            <th scope="col" class="col-6">Concepto</th>
-                            <th scope="col" class="col-3">Monto $</th>
+                            <th scope="col" class="col-7">Concepto</th>
+                            <th scope="col" class="col-2">Monto $</th>
                         </tr>
                     </thead>`
         let bodyTabla = document.createElement("tbody")
@@ -276,7 +294,6 @@ const actualizarDatosMostrados = (datos) => {
                             <td>${convertirFechaAStr(dato.fecha)}</td>
                             <td>${dato.concepto}</td>
                             <td>${mostrarMonto}</td>`
-            //<td><button type="button" class="btn btn-outline-dark btn-eliminar-registro" id="${dato.id}"><span class="material-symbols-outlined">close</span></button></td>`
             bodyTabla.append(fila)
             numerador++
         })
@@ -365,7 +382,7 @@ function crearGraficoPorFecha(datos) {
 
     let grafico = document.createElement('canvas')
 
-    graficoFecha = new Chart(grafico, {
+    new Chart(grafico, {
         type: 'bar', // Gráfico de barras
         data: {
             labels: datos.etiquetas,
@@ -428,13 +445,6 @@ function crearGraficoAhorros(datos) {
     })
     contenedorGrafico.appendChild(grafico)
 }
-
-// //Calcular porcentaje gastado a partir de un valor de sueldo ###AUN NO SE USA
-// const porcentajeGastadoDelSueldo = (sueldo, datos) => {
-//     let gastos = sumarGastos(datos) * -1
-//     let porcentaje = (gastos * 100) / sueldo
-//     return porcentaje
-// }
 
 const collapse = Array.from(document.querySelectorAll('.collapse-carga-balance'))
 const collapse_title = document.getElementById('collapse-title')
@@ -506,16 +516,6 @@ btnCargar.addEventListener("click", (e) => {
     }
 })
 
-
-
-let validarDatos = localStorage.getItem("Montos")
-if (validarDatos) {
-    JSON.parse(validarDatos).forEach(dato => {
-        datosIngresosyGastos.push(new Registro(convertirAFecha(dato.fecha), dato.concepto, dato.monto, dato.iog, dato.categoria))
-    })
-    Registro.id = datosIngresosyGastos.slice(-1)[0].id
-}
-
 actualizarDatosMostrados(datosIngresosyGastos)
 
 
@@ -523,8 +523,10 @@ actualizarDatosMostrados(datosIngresosyGastos)
 
 // https://apvarun.github.io/toastify-js/ Pequeñas notas
 
-// Utilizar API valor del dolar para cambiar en tiempo real
+// Utilizar API valor del dolar para cambiar en tiempo real con una función que se ejecute cada cierto tiempo
 
 // Definir un localStorage para saber si mostrar el precio en pesos o dolares
 
 // Crear pagina con historial de movimientos y poder eliminar registros
+
+// Crear JSON con objetos que correspondan a determinados servicios a pagar

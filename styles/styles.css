@@ -206,24 +206,25 @@ main .contenedor-dashboard .seccion-dashboard table {
   grid-column: 1/4;
   grid-row: 4/5;
 }
-main .contenedor-dashboard .seccion-dashboard table .fila-positiva {
-  --bs-table-bg: rgb(25, 135, 84, 0.2);
+
+table .centrar-texto-tabla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-main .contenedor-dashboard .seccion-dashboard table .fila-negativa {
-  --bs-table-bg: rgb(255, 0, 0, 0.2);
-}
-main .contenedor-dashboard .seccion-dashboard table .btn-eliminar-registro {
+table .btn-eliminar-registro {
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
-main .contenedor-dashboard .seccion-dashboard table .btn-eliminar-registro span {
+table .btn-eliminar-registro span {
   font-size: 15px;
 }
-main .contenedor-dashboard .seccion-dashboard table .centrar-texto-tabla {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+table .fila-positiva {
+  --bs-table-bg: rgb(25, 135, 84, 0.2);
+}
+table .fila-negativa {
+  --bs-table-bg: rgb(255, 0, 0, 0.2);
 }
 
 .ocultar-elemento {
