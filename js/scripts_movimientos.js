@@ -33,6 +33,8 @@ class Registro {
     }
 }
 
+const cantidadFilas = 12
+
 function validarDatos(almacenamientoLocal) {
     const datos = JSON.parse(almacenamientoLocal) || []
     const registros = datos.map(dato => {
@@ -102,7 +104,8 @@ function eliminarUnRegistro(id, datos) {
                 return copiaRegistro
             })
             localStorage.setItem("Montos", JSON.stringify(datosParaAlmacenar))
-            
+            actualizarDatosMostrados(datos, paginaActual, cantidadFilas)
+
             Swal.fire({
                 title: "Eliminado!",
                 text: "Tu registro se ha eliminado correctamente.",
@@ -132,7 +135,7 @@ const actualizarDatosMostrados = (datos, paginaActual, cantidadFilas) => {
         let bodyTabla = document.createElement("tbody")
         let numerador = 1 + ((paginaActual - 1) * cantidadFilas)
 
-        const datosMostrados = datos.slice((-1*cantidadFilas) * paginaActual, datos.length - ((paginaActual - 1) * cantidadFilas)).reverse()
+        const datosMostrados = datos.slice((-1 * cantidadFilas) * paginaActual, datos.length - ((paginaActual - 1) * cantidadFilas)).reverse()
         // console.log(datosMostrados)
         datosMostrados.forEach((dato) => {
             let fila = document.createElement("tr")
@@ -156,7 +159,7 @@ const actualizarDatosMostrados = (datos, paginaActual, cantidadFilas) => {
         tabla.classList.add("centrar-texto-tabla")
     }
 
-    let cantidadPaginas = Math.ceil(datosIngresosyGastos.length / 12)
+    let cantidadPaginas = Math.ceil(datosIngresosyGastos.length / cantidadFilas)
     let contenedorPaginacion = document.getElementById('paginas')
     generarPaginas(cantidadPaginas, contenedorPaginacion, paginaActual)
 
@@ -164,28 +167,26 @@ const actualizarDatosMostrados = (datos, paginaActual, cantidadFilas) => {
     btnEliminarRegistro.forEach(btn => {
         btn.addEventListener("click", (e) => {
             eliminarUnRegistro(parseInt(e.currentTarget.id), datos)
-            actualizarDatosMostrados(datos, paginaActual, 12)
+            actualizarDatosMostrados(datos, paginaActual, cantidadFilas)
         })
     })
 }
 
 let paginaActual = 1
-
-actualizarDatosMostrados(datosIngresosyGastos, paginaActual, 12)
+actualizarDatosMostrados(datosIngresosyGastos, paginaActual, cantidadFilas)
 
 function generarPaginas(cantidad, contenedor, paginaActual) {
     contenedor.innerHTML = ''
 
     let primerPagina = document.createElement('li')
     primerPagina.classList.add('page-item')
-    primerPagina.innerHTML = '<a class="page-link" href="#" aria-label="Primera" id="1"><span aria-hidden="true">&laquo;</span></a>'
+    primerPagina.innerHTML = '<a class="page-link cambiar-de-pagina" href="#" aria-label="Primera" id="1"><span aria-hidden="true">&laquo;</span></a>'
     contenedor.appendChild(primerPagina)
 
     let paginaAnterior = document.createElement('li')
     paginaAnterior.classList.add('page-item')
-    paginaAnterior.innerHTML = '<a class="page-link" href="#" id="-1">Anterior</a>'
+    paginaAnterior.innerHTML = '<a class="page-link cambiar-de-pagina" href="#" id="-1">Anterior</a>'
     contenedor.appendChild(paginaAnterior)
-    console.log(cantidad)
     const maxPaginasVisibles = 5
     let inicio = Math.max(1, paginaActual - Math.floor(maxPaginasVisibles / 2))
     let fin = Math.min(cantidad, inicio + maxPaginasVisibles - 1)
@@ -201,22 +202,22 @@ function generarPaginas(cantidad, contenedor, paginaActual) {
         if (indice == paginaActual) {
             pagina.classList.add('active')
         }
-        pagina.innerHTML = `<a class="page-link" href="#" id="${indice}">${indice}</a>`
+        pagina.innerHTML = `<a class="page-link cambiar-de-pagina" href="#" id="${indice}">${indice}</a>`
         contenedor.appendChild(pagina)
         indice++
     }
 
     let paginaSiguiente = document.createElement('li')
     paginaSiguiente.classList.add('page-item')
-    paginaSiguiente.innerHTML = '<a class="page-link" href="#" id="0">Siguiente</a>'
+    paginaSiguiente.innerHTML = '<a class="page-link cambiar-de-pagina" href="#" id="0">Siguiente</a>'
     contenedor.appendChild(paginaSiguiente)
 
     let ultimaPagina = document.createElement('li')
     ultimaPagina.classList.add('page-item')
-    ultimaPagina.innerHTML = `<a class="page-link" href="#" aria-label="Primera" id="${cantidad}"><span aria-hidden="true">&raquo;</span></a>`
+    ultimaPagina.innerHTML = `<a class="page-link cambiar-de-pagina" href="#" aria-label="Primera" id="${cantidad}"><span aria-hidden="true">&raquo;</span></a>`
     contenedor.appendChild(ultimaPagina)
 
-    let linkPaginas = Array.from(document.getElementsByClassName('page-link'))
+    let linkPaginas = Array.from(document.getElementsByClassName('cambiar-de-pagina'))
     linkPaginas.forEach(link => {
         link.addEventListener("click", (e) => {
             switch (parseInt(e.currentTarget.id)) {
@@ -234,8 +235,32 @@ function generarPaginas(cantidad, contenedor, paginaActual) {
                     paginaActual = e.currentTarget.id
                     break;
             }
-            actualizarDatosMostrados(datosIngresosyGastos, paginaActual, 12)
+            actualizarDatosMostrados(datosIngresosyGastos, paginaActual, cantidadFilas)
             // linkPaginas = Array.from(document.getElementsByClassName('page-link'))
         })
     })
 }
+
+let filtroIOG = Array.from(document.getElementsByClassName('filtro-iog'))
+
+filtroIOG.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        Array.from(btn.parentElement.parentElement.children).forEach(contenedor => contenedor.classList.remove("active"))
+        btn.parentElement.classList.add("active")
+        console.log(e.currentTarget.id)
+        switch (e.currentTarget.id) {
+            case "filtroIngresos":
+
+                actualizarDatosMostrados(datosIngresosyGastos.filter(registro => registro.monto > 0), 1, cantidadFilas)
+                break;
+            case "filtroGastos":
+
+                actualizarDatosMostrados(datosIngresosyGastos.filter(registro => registro.monto < 0), 1, cantidadFilas)
+                break;
+            default:
+                
+                actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
+                break;
+        }
+    })
+})

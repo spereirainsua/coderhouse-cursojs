@@ -101,7 +101,7 @@ main {
         justify-content: space-between;
         padding: 20px 24px;
         h1 {
-            font-size: 22px;
+            font-size: 32px;
         }
 
         .seccion-dashboard {
@@ -139,6 +139,19 @@ main {
                 grid-column: 1 / 4;
                 grid-row: 4 / 5;
             }
+        }
+    }
+
+    .contenedor-movimientos { 
+        display: flex;
+        flex-direction: column;
+        
+        padding: 20px 24px;
+        h1 {
+            font-size: 32px;
+        }
+        .nav-paginas {
+            align-self: flex-end;
         }
     }
 }

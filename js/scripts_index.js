@@ -17,8 +17,12 @@ class Registro {
         return this.fecha.getMonth()
     }
     obtenerSemana = () => {
-        let dia = this.fecha.getDate() // Extraer el día de la fecha
-        return Math.ceil(dia / 7) // Dividir por 7 para obtener la semana
+        let dia = this.fecha.getDate()
+        let resultado = Math.ceil(dia / 7)
+        if (resultado == 5) {
+            resultado = 4
+        }
+        return resultado
     }
     obtenerDia = () => {
         return this.fecha.getDate() // Extraer el día de la fecha
@@ -83,6 +87,7 @@ const obtenerUltimosMeses = (cantidad) => {
 function obtenerRangoMensual(fecha) {
     let primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1, 0, 0)
     let ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0, 23, 59, 59)
+    
     return {
         primerDia: primerDia,
         ultimoDia: ultimoDia
@@ -138,11 +143,10 @@ function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
                 break
             case "semanal":
                 // Agrupar por días de la semana
-                let dias = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo']
                 let ingresosPorDia = [] //FALTA DEFINIR
                 let gastosPorDia = [] //FALTA DEFINIR
                 resultadoFiltro = {
-                    etiquetas: dias,
+                    etiquetas: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
                     ingresos: ingresosPorDia,
                     gastos: gastosPorDia
                 }
@@ -316,11 +320,11 @@ const actualizarDatosMostrados = (datos) => {
     let fechaFiltro2 = new Date()
     crearGraficoAhorros(agruparRegistrosAhorros(filtrarPorRangoFechas(datos, fechaFiltro1, fechaFiltro2)))
 
-    let fecha1 = new Date()
-    crearGraficoPorFecha(agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, fecha1.setHours(0, 0, 0), fecha1.setHours(23, 59, 59))))
+    // let fecha1 = new Date()
+    // crearGraficoPorFecha(agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, fecha1.setHours(0, 0, 0), fecha1.setHours(23, 59, 59))))
 
     //Funciona
-    //crearGraficoPorFecha(graficoPorFecha, agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
+    crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
 
 
     //Mostrar grafico diario, luego con botones llamar nuevamente a la funcion para mostrar otros

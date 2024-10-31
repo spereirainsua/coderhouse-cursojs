@@ -73,16 +73,23 @@
     <main class="container-lg">
 
         <div class="container-lg">
-            <section class="">
+            <section class="contenedor-movimientos">
                 <h1>Movimientos</h1>
+                <nav aria-label="Filtro por ingreso o gasto">
+                    <ul class="pagination">
+                      <li class="page-item contenedor-filtro-iog active"><a class="page-link filtro-iog" href="#" id="filtroTodos">Todos</a></li>
+                      <li class="page-item contenedor-filtro-iog"><a class="page-link filtro-iog" href="#" id="filtroIngresos">Ingresos</a></li>
+                      <li class="page-item contenedor-filtro-iog"><a class="page-link filtro-iog" href="#" id="filtroGastos">Gastos</a></li>
+                    </ul>
+                  </nav>
                 <table class="table table-hover" id="tabla-movimientos">
                 </table>
+                <nav class="nav-paginas" aria-label="Navegación de tabla-movimientos">
+                    <ul class="pagination" id="paginas">
+                    </ul>
+                </nav>
             </section>
-            <nav aria-label="Navegación de tabla-movimientos">
-                <ul class="pagination" id="paginas">
-
-                </ul>
-            </nav>
+            
         </div>
 
     </main>

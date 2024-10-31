@@ -169,7 +169,7 @@ main .contenedor-dashboard {
   padding: 20px 24px;
 }
 main .contenedor-dashboard h1 {
-  font-size: 22px;
+  font-size: 32px;
 }
 main .contenedor-dashboard .seccion-dashboard {
   display: grid;
@@ -205,6 +205,17 @@ main .contenedor-dashboard .seccion-dashboard .grafica-ingresos-gastos {
 main .contenedor-dashboard .seccion-dashboard table {
   grid-column: 1/4;
   grid-row: 4/5;
+}
+main .contenedor-movimientos {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
+}
+main .contenedor-movimientos h1 {
+  font-size: 32px;
+}
+main .contenedor-movimientos .nav-paginas {
+  align-self: flex-end;
 }
 
 table .centrar-texto-tabla {
