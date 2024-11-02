@@ -127,17 +127,26 @@ main {
                 grid-column: 2 / 4;
                 grid-row: 2 / 3;
             }
+            .filtro-grafica-iog {
+                padding-top: 20px;
+                justify-self: center;
+                grid-column: 1 / 4;
+                grid-row: 3 / 4;
+                .pagination {
+                    margin: 0;
+                }
+            }
             .grafica-ingresos-gastos {
                 display: flex;
                 max-width: 100%;
                 max-height: fit-content;
                 padding: 10px;
                 grid-column: 1 / 4;
-                grid-row: 3 / 4;
+                grid-row: 4 / 5;
             }
             table {
                 grid-column: 1 / 4;
-                grid-row: 4 / 5;
+                grid-row: 5 / 6;
             }
         }
     }

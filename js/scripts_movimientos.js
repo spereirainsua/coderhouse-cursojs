@@ -34,88 +34,31 @@ class Registro {
 }
 
 const cantidadFilas = 12
-
-function validarDatos(almacenamientoLocal) {
-    const datos = JSON.parse(almacenamientoLocal) || []
-    const registros = datos.map(dato => {
-        const registro = new Registro(
-            convertirAFecha(dato.fecha),
-            dato.concepto,
-            dato.monto,
-            dato.iog,
-            dato.categoria
-        )
-        registro.id = dato.id
-        if (Registro.id < dato.id) {
-            Registro.id = dato.id
-        }
-        return registro
-    })
-    return registros
-}
-
 const datosIngresosyGastos = validarDatos(localStorage.getItem("Montos"))
+localStorage.removeItem("filtroMovimientos")
 
-
-function convertirAFecha(fechaStr) {
-    // Dividir la fecha y la hora
-    let [fecha, hora] = fechaStr.split(' ')
-
-    // Dividir día, mes, año
-    let [dia, mes, anio] = fecha.split('/')
-
-    // Dividir hora y minutos
-    let [horas, minutos] = hora.split(':')
-
-    // Crear un objeto Date (meses empiezan en 0 en JavaScript, así que restamos 1 al mes)
-    return new Date(anio, mes - 1, dia, horas, minutos)
-}
-
-function convertirFechaAStr(fechaDate) {
-    let dia = fechaDate.getDate().toString().padStart(2, '0') // Agrega un 0 si es necesario
-    let mes = (fechaDate.getMonth() + 1).toString().padStart(2, '0') // Los meses empiezan en 0
-    let año = fechaDate.getFullYear()
-
-    let horas = fechaDate.getHours().toString().padStart(2, '0')
-    let minutos = fechaDate.getMinutes().toString().padStart(2, '0')
-
-    // Formato DD/MM/AAAA hh:mm
-    return `${dia}/${mes}/${año} ${horas}:${minutos}`
-}
-
-function eliminarUnRegistro(id, datos) {
-    const registro = datos.find(registro => registro.id === id)
-    Swal.fire({
-        title: "Seguro deseas eliminar este registro?",
-        text: "No sera posible revertir esta acción",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#198754",
-        cancelButtonColor: "#dc3545",
-        confirmButtonText: "Confirmar",
-        cancelButtonText: "Cancelar"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            let indice = datos.indexOf(registro)
-            datos.splice(indice, 1)
-            const datosParaAlmacenar = datos.map(registro => {
-                let copiaRegistro = { ...registro }
-                copiaRegistro.fecha = convertirFechaAStr(copiaRegistro.fecha)
-                return copiaRegistro
-            })
-            localStorage.setItem("Montos", JSON.stringify(datosParaAlmacenar))
-            actualizarDatosMostrados(datos, paginaActual, cantidadFilas)
-
-            Swal.fire({
-                title: "Eliminado!",
-                text: "Tu registro se ha eliminado correctamente.",
-                icon: "success"
-            })
+const filtrarRegistros = (registros) => {
+    let filtro = localStorage.getItem("filtroMovimientos")
+    const registrosFiltrados = registros.filter(registro => { 
+        if (filtro === "ingreso") {
+            return registro.monto > 0
+        } else if (filtro === "gasto") {
+            return registro.monto < 0
+        } else {
+            return registro
         }
     })
+    return registrosFiltrados
 }
 
-const actualizarDatosMostrados = (datos, paginaActual, cantidadFilas) => {
+const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
+    return datos.filter((registro) => registro.fecha >= fechaInicio && registro.fecha <= fechaFin)
+}
+
+const actualizarDatosMostrados = (registros, paginaActual, cantidadFilas) => {
+
+    
+    const datos = filtrarRegistros(registros)
 
     let tabla = document.getElementById("tabla-movimientos")
     if (datos.length > 0) {
@@ -159,21 +102,94 @@ const actualizarDatosMostrados = (datos, paginaActual, cantidadFilas) => {
         tabla.classList.add("centrar-texto-tabla")
     }
 
-    let cantidadPaginas = Math.ceil(datosIngresosyGastos.length / cantidadFilas)
+    let cantidadPaginas = Math.ceil(datos.length / cantidadFilas)
     let contenedorPaginacion = document.getElementById('paginas')
     generarPaginas(cantidadPaginas, contenedorPaginacion, paginaActual)
 
     let btnEliminarRegistro = Array.from(document.getElementsByClassName('btn-eliminar-registro'))
     btnEliminarRegistro.forEach(btn => {
         btn.addEventListener("click", (e) => {
-            eliminarUnRegistro(parseInt(e.currentTarget.id), datos)
-            actualizarDatosMostrados(datos, paginaActual, cantidadFilas)
+            eliminarUnRegistro(parseInt(e.currentTarget.id), datosIngresosyGastos, paginaActual)
         })
     })
 }
 
-let paginaActual = 1
-actualizarDatosMostrados(datosIngresosyGastos, paginaActual, cantidadFilas)
+function eliminarUnRegistro(id, datos, pagina) {
+    const registro = datos.find(registro => registro.id === id)
+    Swal.fire({
+        title: "Seguro deseas eliminar este registro?",
+        text: "No sera posible revertir esta acción",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#198754",
+        cancelButtonColor: "#dc3545",
+        confirmButtonText: "Confirmar",
+        cancelButtonText: "Cancelar"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let indice = datos.indexOf(registro)
+            datos.splice(indice, 1)
+            const datosParaAlmacenar = datos.map(registro => {
+                let copiaRegistro = { ...registro }
+                copiaRegistro.fecha = convertirFechaAStr(copiaRegistro.fecha)
+                return copiaRegistro
+            })
+            localStorage.setItem("Montos", JSON.stringify(datosParaAlmacenar))
+            actualizarDatosMostrados(datos, pagina, cantidadFilas)
+
+            Swal.fire({
+                title: "Eliminado!",
+                text: "Tu registro se ha eliminado correctamente.",
+                icon: "success"
+            })
+        }
+    })
+}
+
+function validarDatos(almacenamientoLocal) {
+    const datos = JSON.parse(almacenamientoLocal) || []
+    const registros = datos.map(dato => {
+        const registro = new Registro(
+            convertirAFecha(dato.fecha),
+            dato.concepto,
+            dato.monto,
+            dato.iog,
+            dato.categoria
+        )
+        registro.id = dato.id
+        if (Registro.id < dato.id) {
+            Registro.id = dato.id
+        }
+        return registro
+    })
+    return registros
+}
+
+function convertirAFecha(fechaStr) {
+    // Dividir la fecha y la hora
+    let [fecha, hora] = fechaStr.split(' ')
+
+    // Dividir día, mes, año
+    let [dia, mes, anio] = fecha.split('/')
+
+    // Dividir hora y minutos
+    let [horas, minutos] = hora.split(':')
+
+    // Crear un objeto Date (meses empiezan en 0 en JavaScript, así que restamos 1 al mes)
+    return new Date(anio, mes - 1, dia, horas, minutos)
+}
+
+function convertirFechaAStr(fechaDate) {
+    let dia = fechaDate.getDate().toString().padStart(2, '0') // Agrega un 0 si es necesario
+    let mes = (fechaDate.getMonth() + 1).toString().padStart(2, '0') // Los meses empiezan en 0
+    let año = fechaDate.getFullYear()
+
+    let horas = fechaDate.getHours().toString().padStart(2, '0')
+    let minutos = fechaDate.getMinutes().toString().padStart(2, '0')
+
+    // Formato DD/MM/AAAA hh:mm
+    return `${dia}/${mes}/${año} ${horas}:${minutos}`
+}
 
 function generarPaginas(cantidad, contenedor, paginaActual) {
     contenedor.innerHTML = ''
@@ -242,25 +258,26 @@ function generarPaginas(cantidad, contenedor, paginaActual) {
 }
 
 let filtroIOG = Array.from(document.getElementsByClassName('filtro-iog'))
-
 filtroIOG.forEach(btn => {
     btn.addEventListener("click", (e) => {
         Array.from(btn.parentElement.parentElement.children).forEach(contenedor => contenedor.classList.remove("active"))
         btn.parentElement.classList.add("active")
-        console.log(e.currentTarget.id)
         switch (e.currentTarget.id) {
             case "filtroIngresos":
-
-                actualizarDatosMostrados(datosIngresosyGastos.filter(registro => registro.monto > 0), 1, cantidadFilas)
+                localStorage.setItem("filtroMovimientos", "ingreso")
+                actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
                 break;
             case "filtroGastos":
-
-                actualizarDatosMostrados(datosIngresosyGastos.filter(registro => registro.monto < 0), 1, cantidadFilas)
+                localStorage.setItem("filtroMovimientos", "gasto")
+                actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
                 break;
             default:
-                
+                localStorage.removeItem("filtroMovimientos")
                 actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
                 break;
         }
     })
 })
+
+let paginaActual = 1
+actualizarDatosMostrados(datosIngresosyGastos, paginaActual, cantidadFilas)

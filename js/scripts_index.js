@@ -491,10 +491,21 @@ btnCargaBalance.forEach(btn => {
     }
 })
 
-document.addEventListener("click", (event) => {
+function desplazar(pixeles) {
+    window.scrollTo({ top: pixeles, behavior: 'smooth' })
+}
+
+let btnFiltroDashboard = Array.from(document.getElementsByClassName("filtro-dashboard"))
+btnFiltroDashboard.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        
+    })
+})
+
+document.addEventListener("click", (e) => {
     //CERRAR COLLAPSE PARA INGRESO DE DATOS CUANDO SE HACE CLIC FUERA DE ÉL
     estadoCollapse = collapse[0].classList.contains("show")
-    if (!collapse[0].contains(event.target) && !btnCargaBalance[0].contains(event.target) && !btnCargaBalance[1].contains(event.target) && estadoCollapse) {
+    if (!collapse[0].contains(e.target) && !btnCargaBalance[0].contains(e.target) && !btnCargaBalance[1].contains(e.target) && estadoCollapse) {
         new bootstrap.Collapse(collapse[0])
         estadoCollapse = collapse[0].classList.contains("show")
     }
