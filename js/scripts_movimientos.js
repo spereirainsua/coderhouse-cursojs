@@ -33,8 +33,38 @@ class Registro {
     }
 }
 
+function convertirARegistros(datos) {
+    return datos.map(dato => {
+        const registro = new Registro(
+            convertirAFecha(dato.fecha),
+            dato.concepto,
+            dato.monto,
+            dato.iog,
+            dato.categoria
+        )
+        registro.id = dato.id
+
+        if (Registro.id < dato.id) {
+            Registro.id = dato.id;
+        }
+        return registro
+    })
+}
+
+async function datosDesdeJSON() {
+    try {
+        const response = await fetch("../db/data.JSON")
+        if (!response.ok) {
+            throw new Error("Error al cargar los datos")
+        }
+        return await response.json()
+    } catch (error) {
+        console.error("Error al cargar los datos:", error)
+        return []
+    }
+}
+
 const cantidadFilas = 12
-const datosIngresosyGastos = validarDatos(localStorage.getItem("Montos"))
 localStorage.removeItem("filtroMovimientos")
 
 const filtrarRegistros = (registros) => {
@@ -56,7 +86,6 @@ const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
 }
 
 const actualizarDatosMostrados = (registros, paginaActual, cantidadFilas) => {
-
     
     const datos = filtrarRegistros(registros)
 
@@ -114,6 +143,31 @@ const actualizarDatosMostrados = (registros, paginaActual, cantidadFilas) => {
     })
 }
 
+function cargarDatos() {
+    return new Promise((resolve, reject) => {
+        const datosGuardados = JSON.parse(localStorage.getItem("Montos"))
+        if (datosGuardados) {
+            const registros = convertirARegistros(datosGuardados)
+            actualizarDatosMostrados(registros, 1, cantidadFilas)
+            resolve(registros)
+        } else {
+            datosDesdeJSON()
+                .then(data => {
+                    const registros = convertirARegistros(data)
+                    let datosParaAlmacenar = registros.map(registro => {
+                        let copiaRegistro = { ...registro }
+                        copiaRegistro.fecha = convertirFechaAStr(copiaRegistro.fecha)
+                        return copiaRegistro
+                    })
+                    localStorage.setItem("Montos", JSON.stringify(datosParaAlmacenar))
+                    actualizarDatosMostrados(registros, 1, cantidadFilas)
+                    resolve(registros)
+                })
+                .catch(error => reject(error))
+        }
+    })
+}
+
 function eliminarUnRegistro(id, datos, pagina) {
     const registro = datos.find(registro => registro.id === id)
     Swal.fire({
@@ -146,24 +200,24 @@ function eliminarUnRegistro(id, datos, pagina) {
     })
 }
 
-function validarDatos(almacenamientoLocal) {
-    const datos = JSON.parse(almacenamientoLocal) || []
-    const registros = datos.map(dato => {
-        const registro = new Registro(
-            convertirAFecha(dato.fecha),
-            dato.concepto,
-            dato.monto,
-            dato.iog,
-            dato.categoria
-        )
-        registro.id = dato.id
-        if (Registro.id < dato.id) {
-            Registro.id = dato.id
-        }
-        return registro
-    })
-    return registros
-}
+// function validarDatos(almacenamientoLocal) {
+//     const datos = JSON.parse(almacenamientoLocal) || []
+//     const registros = datos.map(dato => {
+//         const registro = new Registro(
+//             convertirAFecha(dato.fecha),
+//             dato.concepto,
+//             dato.monto,
+//             dato.iog,
+//             dato.categoria
+//         )
+//         registro.id = dato.id
+//         if (Registro.id < dato.id) {
+//             Registro.id = dato.id
+//         }
+//         return registro
+//     })
+//     return registros
+// }
 
 function convertirAFecha(fechaStr) {
     // Dividir la fecha y la hora
@@ -280,4 +334,8 @@ filtroIOG.forEach(btn => {
 })
 
 let paginaActual = 1
-actualizarDatosMostrados(datosIngresosyGastos, paginaActual, cantidadFilas)
+
+const datosIngresosyGastos = []
+cargarDatos().then(result => {
+    result.forEach(dato => datosIngresosyGastos.push(dato))
+})

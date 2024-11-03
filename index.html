@@ -28,6 +28,9 @@
         crossorigin="anonymous"></script>
     <!-- Charts.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- SweetAlert -->
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/styles.css">
     <!-- JS -->
@@ -137,7 +140,7 @@
                 </div>
                 <div class="collapse-footer">
                     <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
-                        data-bs-target="#collapseCargaBalance">Close</button>
+                        data-bs-target="#collapseCargaBalance">Cerrar</button>
                     <button type="button" class="btn btn-primary" id="btnCargar">Guardar</button>
                 </div>
             </div>
@@ -152,17 +155,17 @@
                 </div>
                 <nav aria-label="Filtro por rango de fechas" class="filtro-grafica-iog">
                     <ul class="pagination">
-                        <li class="page-item contenedor-filtro-dashboard"><a class="page-link filtro-dashboard" href="#"
+                        <li class="page-item contenedor-filtro-dashboard active"><a class="page-link filtro-dashboard"
                                 id="mensual">Mensual</a></li>
-                        <li class="page-item contenedor-filtro-dashboard active"><a class="page-link filtro-dashboard" href="#"
+                        <li class="page-item contenedor-filtro-dashboard"><a class="page-link filtro-dashboard"
                                 id="semanal">Semanal</a></li>
-                        <li class="page-item contenedor-filtro-dashboard"><a class="page-link filtro-dashboard" href="#"
+                        <li class="page-item contenedor-filtro-dashboard"><a class="page-link filtro-dashboard"
                                 id="diario">Diario</a></li>
                     </ul>
                 </nav>
                 <div class="container-fluid card grafica-ingresos-gastos" id="grafica-ingresos-gastos">
                 </div>
-                
+
                 <table class="table table-hover" id="tabla-dashboard">
                 </table>
             </section>

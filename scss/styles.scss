@@ -121,7 +121,6 @@ main {
             }
             .grafica-ahorros {
                 display: flex;
-                // max-width: 70%;
                 max-height: fit-content;
                 padding: 10px;
                 grid-column: 2 / 4;
@@ -134,6 +133,9 @@ main {
                 grid-row: 3 / 4;
                 .pagination {
                     margin: 0;
+                    li a {
+                        cursor: pointer;
+                    }
                 }
             }
             .grafica-ingresos-gastos {

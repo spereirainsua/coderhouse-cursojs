@@ -203,6 +203,9 @@ main .contenedor-dashboard .seccion-dashboard .filtro-grafica-iog {
 main .contenedor-dashboard .seccion-dashboard .filtro-grafica-iog .pagination {
   margin: 0;
 }
+main .contenedor-dashboard .seccion-dashboard .filtro-grafica-iog .pagination li a {
+  cursor: pointer;
+}
 main .contenedor-dashboard .seccion-dashboard .grafica-ingresos-gastos {
   display: flex;
   max-width: 100%;

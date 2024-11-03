@@ -2,16 +2,16 @@ class Registro {
     static id = 0
     constructor(fecha, concepto, monto, iog, categoria) {
         this.id = ++Registro.id
-        this.fecha = fecha
-        this.concepto = concepto
+        this.fecha = fecha //A partir de 5 meses atras hasta hoy con entre 5 y 10 registros diarios
+        this.concepto = concepto //Descripcion del ingreso o gasto
         if (iog == "gasto") {
             monto = monto * -1
         }
-        this.monto = monto
-        this.categoria = categoria
+        this.monto = monto //Valores entre 2000 y 7000
+        this.categoria = categoria //Si es gasto la categoria es 0
     }
     esSueldo = () => {
-        return this.categoria == 1
+        return this.categoria == 1 //Solo generar un regsitro de tipo salario por mes y que tenga un valor fijo
     }
     obtenerMes = () => {
         return this.fecha.getMonth()
@@ -37,9 +37,8 @@ class Registro {
     }
 }
 
-function validarDatos(almacenamientoLocal) {
-    const datos = JSON.parse(almacenamientoLocal) || []
-    const registros = datos.map(dato => {
+function convertirARegistros(datos) {
+    return datos.map(dato => {
         const registro = new Registro(
             convertirAFecha(dato.fecha),
             dato.concepto,
@@ -48,15 +47,26 @@ function validarDatos(almacenamientoLocal) {
             dato.categoria
         )
         registro.id = dato.id
+
         if (Registro.id < dato.id) {
-            Registro.id = dato.id
+            Registro.id = dato.id;
         }
         return registro
     })
-    return registros
 }
 
-const datosIngresosyGastos = validarDatos(localStorage.getItem("Montos"))
+async function datosDesdeJSON() {
+    try {
+        const response = await fetch("./db/data.JSON")
+        if (!response.ok) {
+            throw new Error("Error al cargar los datos")
+        }
+        return await response.json()
+    } catch (error) {
+        console.error("Error al cargar los datos:", error)
+        return []
+    }
+}
 
 //Validación de campos de datos
 const validarNoVacio = (dato) => dato.trim() !== ''
@@ -87,7 +97,7 @@ const obtenerUltimosMeses = (cantidad) => {
 function obtenerRangoMensual(fecha) {
     let primerDia = new Date(fecha.getFullYear(), fecha.getMonth(), 1, 0, 0)
     let ultimoDia = new Date(fecha.getFullYear(), fecha.getMonth() + 1, 0, 23, 59, 59)
-    
+
     return {
         primerDia: primerDia,
         ultimoDia: ultimoDia
@@ -118,6 +128,11 @@ function agruparRegistrosAhorros(registrosFiltrados) {
     return resultadoFiltro
 }
 
+function restarFechas(fechaInicio, fechaFin) {
+    const dia = 24 * 60 * 60 * 1000
+    return Math.floor((fechaFin - fechaInicio) / dia)
+}
+
 function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
     let resultadoFiltro = {}
     if (registrosFiltrados) {
@@ -143,10 +158,28 @@ function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
                 break
             case "semanal":
                 // Agrupar por días de la semana
-                let ingresosPorDia = [] //FALTA DEFINIR
-                let gastosPorDia = [] //FALTA DEFINIR
+                let ingresosPorDia = Array(7).fill(0)
+                let gastosPorDia = Array(7).fill(0)
+                const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+                const etiquetas = Array(7).fill("")
+                let fechaActual = new Date()
+                let diaActual = fechaActual.getDay()
+                for (let i = 0; i <= 6; i++) {
+                    let pos = diaActual - (6 - i)
+                    if (pos < 0) pos += 7
+                    etiquetas[i] = dias[pos]
+                }
+                registrosFiltrados.forEach(registro => {
+                    let diasDeDiferencia = restarFechas(registro.fecha, fechaActual)
+                    let indice = 6 - diasDeDiferencia
+                    if (registro.monto > 0) {
+                        ingresosPorDia[indice] += registro.monto
+                    } else {
+                        gastosPorDia[indice] += registro.monto * -1
+                    }
+                })
                 resultadoFiltro = {
-                    etiquetas: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
+                    etiquetas: etiquetas,
                     ingresos: ingresosPorDia,
                     gastos: gastosPorDia
                 }
@@ -261,11 +294,6 @@ function convertirFechaAStr(fechaDate) {
     return `${dia}/${mes}/${año} ${horas}:${minutos}`
 }
 
-//Quitar ultimo monto cargado ###AUN NO SE USA
-// const quitarUltimoMontoCargado = (datosIngresosyGastos) => {
-//     datosIngresosyGastos.pop()
-// }
-
 //Mostrar datos almacenados
 const actualizarDatosMostrados = (datos) => {
 
@@ -306,6 +334,7 @@ const actualizarDatosMostrados = (datos) => {
         tabla.innerHTML = 'No se encontraron datos.'
         tabla.classList.add("centrar-texto-tabla")
     }
+
     let balance = document.getElementById("balance")
     balance.innerHTML = `$${balanceTotal(datos).toFixed(2)}`
 
@@ -320,22 +349,74 @@ const actualizarDatosMostrados = (datos) => {
     let fechaFiltro2 = new Date()
     crearGraficoAhorros(agruparRegistrosAhorros(filtrarPorRangoFechas(datos, fechaFiltro1, fechaFiltro2)))
 
-    // let fecha1 = new Date()
-    // crearGraficoPorFecha(agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, fecha1.setHours(0, 0, 0), fecha1.setHours(23, 59, 59))))
+
 
     //Funciona
     crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
 
+    let btnFiltroDashboard = Array.from(document.getElementsByClassName("filtro-dashboard"))
+    btnFiltroDashboard.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            let pixeles = (btn.getBoundingClientRect().top
+                + window.scrollY
+                - (document.getElementsByTagName("header")[0].getBoundingClientRect().height + 20))
+            window.scrollTo({ top: pixeles, behavior: 'smooth' })
 
-    //Mostrar grafico diario, luego con botones llamar nuevamente a la funcion para mostrar otros
+            btnFiltroDashboard.forEach(btn => btn.parentElement.classList.remove("active"))
+            btn.parentElement.classList.add("active")
 
-    // let fechaInicio = new Date()
-    // fechaInicio.setHours(0, 0, 0)
-    // let fechaFin = new Date()
-    // fechaFin.setHours(23, 59, 59)
-    // let fechaSieteDiasAntes = fechaSieteDiasAntes.setDate(fechaActual.getDate() - 7)
-    //crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechaInicio, fechaFin), fechaFin))
+            // Array.from(document.getElementsByClassName("contenedor-filtro-dashboard")).forEach(contenedor => contenedor.classList.remove("active"))
+            // btn.parentElement.classList.add("active")
+            switch (e.currentTarget.id) {
+                case "diario":
+                    let hoy = new Date()
+                    crearGraficoPorFecha(agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, hoy.setHours(0, 0, 0), hoy.setHours(23, 59, 59))))
+                    break;
+                case "semanal":
+                    let fechaInicio = new Date()
+                    fechaInicio.setDate(fechaInicio.getDate() - 7)
+                    fechaInicio.setHours(0, 0, 0)
+                    let fechaFin = new Date()
+                    fechaFin.setHours(23, 59, 59)
+                    crearGraficoPorFecha(agruparRegistrosPorFecha("semanal", filtrarPorRangoFechas(datos, fechaInicio, fechaFin)))
+                    break;
+                default:
+                    crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
+                    break;
+            }
 
+        })
+    })
+}
+
+const datosIngresosyGastos = []
+cargarDatos().then(result => {
+    result.forEach(dato => datosIngresosyGastos.push(dato))
+})
+
+function cargarDatos() {
+    return new Promise((resolve, reject) => {
+        const datosGuardados = JSON.parse(localStorage.getItem("Montos"))
+        if (datosGuardados) {
+            const registros = convertirARegistros(datosGuardados)
+            actualizarDatosMostrados(registros)
+            resolve(registros)
+        } else {
+            datosDesdeJSON()
+                .then(data => {
+                    const registros = convertirARegistros(data)
+                    let datosParaAlmacenar = registros.map(registro => {
+                        let copiaRegistro = { ...registro }
+                        copiaRegistro.fecha = convertirFechaAStr(copiaRegistro.fecha)
+                        return copiaRegistro
+                    })
+                    localStorage.setItem("Montos", JSON.stringify(datosParaAlmacenar))
+                    actualizarDatosMostrados(registros)
+                    resolve(registros)
+                })
+                .catch(error => reject(error))
+        }
+    })
 }
 
 function crearGraficoSalario(salario, gastos) {
@@ -495,43 +576,56 @@ function desplazar(pixeles) {
     window.scrollTo({ top: pixeles, behavior: 'smooth' })
 }
 
-let btnFiltroDashboard = Array.from(document.getElementsByClassName("filtro-dashboard"))
-btnFiltroDashboard.forEach(btn => {
-    btn.addEventListener("click", (e) => {
-        
-    })
-})
-
-document.addEventListener("click", (e) => {
-    //CERRAR COLLAPSE PARA INGRESO DE DATOS CUANDO SE HACE CLIC FUERA DE ÉL
-    estadoCollapse = collapse[0].classList.contains("show")
-    if (!collapse[0].contains(e.target) && !btnCargaBalance[0].contains(e.target) && !btnCargaBalance[1].contains(e.target) && estadoCollapse) {
-        new bootstrap.Collapse(collapse[0])
-        estadoCollapse = collapse[0].classList.contains("show")
-    }
-})
+// document.addEventListener("click", (e) => {
+//     //CERRAR COLLAPSE PARA INGRESO DE DATOS CUANDO SE HACE CLIC FUERA DE ÉL
+//     estadoCollapse = collapse[0].classList.contains("show")
+//     if (!collapse[0].contains(e.target) && !btnCargaBalance[0].contains(e.target) && !btnCargaBalance[1].contains(e.target) && estadoCollapse) {
+//         new bootstrap.Collapse(collapse[0])
+//         estadoCollapse = collapse[0].classList.contains("show")
+//     }
+// })
 
 //INGRESAR NUEVOS DATOS
 btnCargar.addEventListener("click", (e) => {
-    let concepto = document.getElementById("concepto").value
-    let monto = document.getElementById("monto").value
-    let categoria = document.getElementById("categoria").value
-    //FALTA VALIDAR SI TENGO MONTO SUFICIENTE PARA REALIZAR GASTO
-    if (validarNoVacio(concepto) && validarNumerico(monto) && categoria != -1) {
-        cargarIngresosOGastos(new Date(), concepto, parseFloat(monto), e.currentTarget.name, categoria)
-        document.getElementById("concepto").value = ''
-        document.getElementById("monto").value = ''
-        document.getElementById("categoria").value = -1
-    } else {
-        //GENERAR CODIGO VALIDACION MOSTRANDO LOS DIVs invalid-feedback AGREGANDO LA CLASE mensaje-validacion
-        //ERROR - Error campo Concepto
-        //ERROR - Error no ingresar categoria
-        //ERROR - Error monto no valido
-        //ERROR - Gasto supera el balance actual
+    try {
+        let concepto = document.getElementById("concepto").value
+        let monto = document.getElementById("monto").value
+        let categoria = document.getElementById("categoria").value
+        //FALTA VALIDAR SI TENGO MONTO SUFICIENTE PARA REALIZAR GASTO
+        if (validarNoVacio(concepto) && validarNumerico(monto) && categoria != -1) {
+            cargarIngresosOGastos(new Date(), concepto, parseFloat(monto), e.currentTarget.name, categoria)
+            document.getElementById("concepto").value = ''
+            document.getElementById("monto").value = ''
+            document.getElementById("categoria").value = -1
+        } else {
+            if (!validarNoVacio(concepto)) {
+                throw new Error("El campo Concepto no puede quedar vacio.")
+            }
+            if (categoria == -1) {
+                throw new Error("Debe seleccionar un valor en Categoría.")
+            }
+            if (!validarNumerico(monto)) {
+                throw new Error("El monto debe ser un valor numerico.")
+            }
+            //GENERAR CODIGO VALIDACION MOSTRANDO LOS DIVs invalid-feedback AGREGANDO LA CLASE mensaje-validacion
+            //ERROR - Error campo Concepto
+            //ERROR - Error no ingresar categoria
+            //ERROR - Error monto no valido
+            //ERROR - Gasto supera el balance actual
+        }
+    } catch (error) {
+        Swal.fire({
+            title: "Error",
+            text: error,
+            icon: "error"
+          });
+        console.log(error)
+    } finally {
+        
     }
+
 })
 
-actualizarDatosMostrados(datosIngresosyGastos)
 
 
 // https://sweetalert2.github.io/ ALERTAS!!!
@@ -542,6 +636,7 @@ actualizarDatosMostrados(datosIngresosyGastos)
 
 // Definir un localStorage para saber si mostrar el precio en pesos o dolares
 
-// Crear pagina con historial de movimientos y poder eliminar registros
+// Crear pagina con historial de movimientos y poder eliminar registros HECHO - faltaría agregar más filtros
 
 // Crear JSON con objetos que correspondan a determinados servicios a pagar
+
