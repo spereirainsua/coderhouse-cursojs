@@ -95,46 +95,31 @@
                     <h2 id="collapse-title"></h2>
                 </div>
                 <div class="collapse-body">
-                    <div class="container-fluid">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="concepto" placeholder="Concepto">
-                            <label for="concepto">Concepto</label>
-                            <div class="invalid-feedback" id="validacion-concepto">
-                                <span class="material-symbols-outlined">
-                                    error
-                                </span>
-                                Este campo no puede quedar vacio.
-                            </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="concepto" placeholder="Concepto">
+                        <label for="concepto">Concepto</label>
+                        <div class="invalid-feedback" id="validacion-concepto">
+                            Este campo no puede quedar vacio.
                         </div>
                     </div>
-                    <div class="container-fluid" id="contenedor-categoria">
-                        <div class="form-floating">
-                            <select class="form-select" id="categoria">
-                                <option selected value="-1">Selecciona una opción</option>
-                                <option value="1">Salario</option>
-                                <option value="2">Deposito</option>
-                                <option value="3">Ahorros</option>
-                                <option value="0">Otro</option>
-                            </select>
-                            <label for="categoria">Categoría</label>
-                            <div class="invalid-feedback" id="validacion-categoria">
-                                <span class="material-symbols-outlined">
-                                    error
-                                </span>
-                                Debe seleccionar una opción.
-                            </div>
+                    <div class="form-floating" id="contenedor-categoria">
+                        <select class="form-select" id="categoria">
+                            <option selected value="-1">Selecciona una opción</option>
+                            <option value="1">Salario</option>
+                            <option value="2">Deposito</option>
+                            <option value="3">Ahorros</option>
+                            <option value="0">Otro</option>
+                        </select>
+                        <label for="categoria">Categoría</label>
+                        <div class="invalid-feedback" id="validacion-categoria">
+                            Debe seleccionar una opción.
                         </div>
                     </div>
-                    <div class="container-fluid">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="monto" placeholder="Monto">
-                            <label for="monto">Monto</label>
-                            <div class="invalid-feedback" id="validacion-monto">
-                                <span class="material-symbols-outlined">
-                                    error
-                                </span>
-                                Debe ingresar un valor númerico.
-                            </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="monto" placeholder="Monto">
+                        <label for="monto">Monto</label>
+                        <div class="invalid-feedback" id="validacion-monto">
+                            Dato ingresado no valido o supera el balance.
                         </div>
                     </div>
                 </div>
@@ -144,6 +129,8 @@
                     <button type="button" class="btn btn-primary" id="btnCargar">Guardar</button>
                 </div>
             </div>
+            
+        </div>
         </div>
         <hr>
         <div class="container-lg contenedor-dashboard">

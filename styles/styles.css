@@ -145,17 +145,24 @@ main .collapse-carga-balance .collapse-container .collapse-header .form-select,
 main .collapse-carga-balance .collapse-container .collapse-body .form-select {
   height: calc(3.5rem + var(--bs-border-width) * 2);
 }
+main .collapse-carga-balance .collapse-container .collapse-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+main .collapse-carga-balance .collapse-container .collapse-body .form-floating {
+  width: 100%;
+  margin-bottom: 20px;
+}
+main .collapse-carga-balance .collapse-container .collapse-body .form-floating .invalid-feedback {
+  position: absolute;
+}
+main .collapse-carga-balance .collapse-container .grid2fr {
+  grid-template-columns: repeat(2, 1fr);
+}
 main .collapse-carga-balance .collapse-container .collapse-footer {
   justify-content: space-between;
-}
-main .collapse-carga-balance .mensaje-validacion {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-main .collapse-carga-balance .mensaje-validacion span {
-  font-size: 16px;
-  padding-right: 2px;
 }
 main hr {
   width: 100%;
@@ -267,6 +274,9 @@ table .fila-negativa {
   }
   main .contenedor-balance .seccion-carga-balance .btn-group button {
     width: 50%;
+  }
+  main .collapse-carga-balance .collapse-container .collapse-body {
+    grid-template-columns: 1fr;
   }
 }
 /*##### FIN # MEDIA QUERYS #####*/

@@ -45,7 +45,7 @@ function convertirARegistros(datos) {
         registro.id = dato.id
 
         if (Registro.id < dato.id) {
-            Registro.id = dato.id;
+            Registro.id = dato.id
         }
         return registro
     })
@@ -295,15 +295,15 @@ function generarPaginas(cantidad, contenedor, paginaActual) {
                     if (paginaActual > 1) {
                         paginaActual--
                     }
-                    break;
+                    break
                 case 0:
                     if (paginaActual < cantidad) {
                         paginaActual++
                     }
-                    break;
+                    break
                 default:
                     paginaActual = e.currentTarget.id
-                    break;
+                    break
             }
             actualizarDatosMostrados(datosIngresosyGastos, paginaActual, cantidadFilas)
             // linkPaginas = Array.from(document.getElementsByClassName('page-link'))
@@ -320,15 +320,15 @@ filtroIOG.forEach(btn => {
             case "filtroIngresos":
                 localStorage.setItem("filtroMovimientos", "ingreso")
                 actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
-                break;
+                break
             case "filtroGastos":
                 localStorage.setItem("filtroMovimientos", "gasto")
                 actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
-                break;
+                break
             default:
                 localStorage.removeItem("filtroMovimientos")
                 actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
-                break;
+                break
         }
     })
 })

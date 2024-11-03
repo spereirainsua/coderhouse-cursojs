@@ -8,13 +8,24 @@
     main {
         .contenedor-balance {
             flex-direction: column;
+
             .seccion-carga-balance {
                 width: 100%;
+
                 .btn-group {
                     width: 100%;
+
                     button {
                         width: 50%;
                     }
+                }
+            }
+        }
+
+        .collapse-carga-balance {
+            .collapse-container {
+                .collapse-body {
+                    grid-template-columns: 1fr;
                 }
             }
         }

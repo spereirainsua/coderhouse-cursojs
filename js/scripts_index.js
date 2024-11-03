@@ -49,7 +49,7 @@ function convertirARegistros(datos) {
         registro.id = dato.id
 
         if (Registro.id < dato.id) {
-            Registro.id = dato.id;
+            Registro.id = dato.id
         }
         return registro
     })
@@ -70,7 +70,7 @@ async function datosDesdeJSON() {
 
 //Validación de campos de datos
 const validarNoVacio = (dato) => dato.trim() !== ''
-const validarNumerico = (dato) => !isNaN(dato) && dato.trim() !== ''
+const validarNumerico = (dato) => !isNaN(dato) && dato.trim() !== '' && dato > 0
 
 //Devuelve array de objetos con los registros realizados entre las fechas especificadas (formato de fechas Date())
 const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
@@ -120,9 +120,7 @@ function agruparRegistrosAhorros(registrosFiltrados) {
 
         resultadoFiltro = {
             etiquetas: obtenerUltimosMeses(5).reverse(),
-            ahorros: ahorros,
-            // ingresos: ingresos,
-            // gastos: gastos
+            ahorros: ahorros
         }
     }
     return resultadoFiltro
@@ -365,13 +363,11 @@ const actualizarDatosMostrados = (datos) => {
             btnFiltroDashboard.forEach(btn => btn.parentElement.classList.remove("active"))
             btn.parentElement.classList.add("active")
 
-            // Array.from(document.getElementsByClassName("contenedor-filtro-dashboard")).forEach(contenedor => contenedor.classList.remove("active"))
-            // btn.parentElement.classList.add("active")
             switch (e.currentTarget.id) {
                 case "diario":
                     let hoy = new Date()
                     crearGraficoPorFecha(agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, hoy.setHours(0, 0, 0), hoy.setHours(23, 59, 59))))
-                    break;
+                    break
                 case "semanal":
                     let fechaInicio = new Date()
                     fechaInicio.setDate(fechaInicio.getDate() - 7)
@@ -379,10 +375,10 @@ const actualizarDatosMostrados = (datos) => {
                     let fechaFin = new Date()
                     fechaFin.setHours(23, 59, 59)
                     crearGraficoPorFecha(agruparRegistrosPorFecha("semanal", filtrarPorRangoFechas(datos, fechaInicio, fechaFin)))
-                    break;
+                    break
                 default:
                     crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
-                    break;
+                    break
             }
 
         })
@@ -531,22 +527,25 @@ function crearGraficoAhorros(datos) {
     contenedorGrafico.appendChild(grafico)
 }
 
-const collapse = Array.from(document.querySelectorAll('.collapse-carga-balance'))
+const collapse = Array.from(document.getElementsByClassName('collapse-carga-balance'))
 const collapse_title = document.getElementById('collapse-title')
-const collapse_body = Array.from(document.querySelectorAll('.collapse-body'))
+
 const btnCargar = document.getElementById("btnCargar")
 let estadoCollapse = collapse[0].classList.contains("show")
-let btnCargaBalance = Array.from(document.querySelectorAll(".btn-carga-balance"))
+let btnCargaBalance = Array.from(document.getElementsByClassName("btn-carga-balance"))
 let lastBtn = null
 
 
 const toggleCategoria = (tipo) => {
+    const collapse_body = Array.from(document.getElementsByClassName('collapse-body'))
     let contenedorCategoria = document.getElementById("contenedor-categoria")
     if (tipo == "gasto") {
         contenedorCategoria.classList.add("ocultar-elemento")
+        collapse_body[0].classList.add("grid2fr")
         document.getElementById("categoria").value = 0
     } else {
         contenedorCategoria.classList.remove("ocultar-elemento")
+        collapse_body[0].classList.remove("grid2fr")
         document.getElementById("categoria").value = -1
     }
 }
@@ -576,56 +575,122 @@ function desplazar(pixeles) {
     window.scrollTo({ top: pixeles, behavior: 'smooth' })
 }
 
-// document.addEventListener("click", (e) => {
-//     //CERRAR COLLAPSE PARA INGRESO DE DATOS CUANDO SE HACE CLIC FUERA DE ÉL
-//     estadoCollapse = collapse[0].classList.contains("show")
-//     if (!collapse[0].contains(e.target) && !btnCargaBalance[0].contains(e.target) && !btnCargaBalance[1].contains(e.target) && estadoCollapse) {
-//         new bootstrap.Collapse(collapse[0])
-//         estadoCollapse = collapse[0].classList.contains("show")
-//     }
-// })
-
 //INGRESAR NUEVOS DATOS
 btnCargar.addEventListener("click", (e) => {
     try {
-        let concepto = document.getElementById("concepto").value
-        let monto = document.getElementById("monto").value
-        let categoria = document.getElementById("categoria").value
-        //FALTA VALIDAR SI TENGO MONTO SUFICIENTE PARA REALIZAR GASTO
-        if (validarNoVacio(concepto) && validarNumerico(monto) && categoria != -1) {
-            cargarIngresosOGastos(new Date(), concepto, parseFloat(monto), e.currentTarget.name, categoria)
-            document.getElementById("concepto").value = ''
-            document.getElementById("monto").value = ''
-            document.getElementById("categoria").value = -1
+        const campos = [
+            document.getElementById("concepto"),
+            document.getElementById("categoria"),
+            document.getElementById("monto")
+        ]
+        let hayBalanceSuficiente = e.currentTarget.name !== "gasto" ? true : balanceTotal(datosIngresosyGastos) >= campos[2].value
+        if (validarNoVacio(campos[0].value) &&
+            validarNumerico(campos[2].value) &&
+            campos[1].value != -1 && hayBalanceSuficiente) {
+
+            for (let input of campos) {
+                input.classList.add("is-valid")
+            }
+
+            cargarIngresosOGastos(new Date(), campos[0].value, parseFloat(campos[2].value), e.currentTarget.name, campos[1].value)
+            campos[0].value = ''
+            campos[1].value = -1
+            campos[2].value = ''
+            // for (let input of campos) {
+            //     input.classList.remove("is-valid")
+            //     input.classList.remove("is-invalid")
+            // }
+            // campos[0].classList.remove("is-invalid")
+            // campos[1].classList.remove("is-invalid")
+            // campos[2].classList.remove("is-invalid")
         } else {
-            if (!validarNoVacio(concepto)) {
-                throw new Error("El campo Concepto no puede quedar vacio.")
+            if (!hayBalanceSuficiente) {
+                throw new Error("No hay suficiente balance para cubrir el monto ingresado.")
+            } else {
+                throw new Error("Los datos ingresados no son validos")
             }
-            if (categoria == -1) {
-                throw new Error("Debe seleccionar un valor en Categoría.")
-            }
-            if (!validarNumerico(monto)) {
-                throw new Error("El monto debe ser un valor numerico.")
-            }
-            //GENERAR CODIGO VALIDACION MOSTRANDO LOS DIVs invalid-feedback AGREGANDO LA CLASE mensaje-validacion
-            //ERROR - Error campo Concepto
-            //ERROR - Error no ingresar categoria
-            //ERROR - Error monto no valido
-            //ERROR - Gasto supera el balance actual
         }
     } catch (error) {
         Swal.fire({
-            title: "Error",
+            title: "No se pudo cargar el monto",
             text: error,
             icon: "error"
-          });
-        console.log(error)
+        })
     } finally {
-        
+        const campos = [
+            document.getElementById("concepto"),
+            document.getElementById("categoria"),
+            document.getElementById("monto")
+        ]
+        let esGasto = document.getElementById("btnCargar").name === "gasto"
+        let hayBalanceSuficiente = !esGasto ? true : balanceTotal(datosIngresosyGastos) >= campos[2].value
+        if (campos[0].classList.contains("is-valid") && (campos[1].classList.contains("is-valid") || esGasto) && campos[2].classList.contains("is-valid")) {
+            if (!hayBalanceSuficiente)  {
+                campos[2].classList.remove("is-valid")
+                campos[2].classList.add("is-invalid")
+            } else {
+                for (let input of campos) {
+                    input.classList.remove("is-valid")
+                }
+            }
+        } else if (campos[0].classList.contains("is-invalid") || campos[1].classList.contains("is-invalid") || campos[2].classList.contains("is-invalid")) {
+            if (!validarNoVacio(campos[0].value)) {
+                campos[0].classList.add("is-invalid")
+            }
+            if (campos[1].value == -1) {
+                campos[1].classList.add("is-invalid")
+            }
+            if (!validarNumerico(campos[2].value)) {
+                campos[2].classList.add("is-invalid")
+            }
+        }
     }
-
 })
 
+let campoConcepto = document.getElementById("concepto")
+campoConcepto.addEventListener("keyup", () => {
+    if (!validarNoVacio(campoConcepto.value)) {
+        if (campoConcepto.classList.contains("is-valid")) {
+            campoConcepto.classList.remove("is-valid")
+        }
+        campoConcepto.classList.add("is-invalid")
+    } else {
+        if (campoConcepto.classList.contains("is-invalid")) {
+            campoConcepto.classList.remove("is-invalid")
+        }
+        campoConcepto.classList.add("is-valid")
+    }
+})
+
+let campoCategoria = document.getElementById("categoria")
+campoCategoria.addEventListener("change", () => {
+    if (campoCategoria.value == -1) {
+        if (campoCategoria.classList.contains("is-valid")) {
+            campoCategoria.classList.remove("is-valid")
+        }
+        campoCategoria.classList.add("is-invalid")
+    } else {
+        if (campoCategoria.classList.contains("is-invalid")) {
+            campoCategoria.classList.remove("is-invalid")
+        }
+        campoCategoria.classList.add("is-valid")
+    }
+})
+
+let campoMonto = document.getElementById("monto")
+campoMonto.addEventListener("keyup", () => {
+    if (!validarNumerico(campoMonto.value)) {
+        if (campoMonto.classList.contains("is-valid")) {
+            campoMonto.classList.remove("is-valid")
+        }
+        campoMonto.classList.add("is-invalid")
+    } else {
+        if (campoMonto.classList.contains("is-invalid")) {
+            campoMonto.classList.remove("is-invalid")
+        }
+        campoMonto.classList.add("is-valid")
+    }
+})
 
 
 // https://sweetalert2.github.io/ ALERTAS!!!
