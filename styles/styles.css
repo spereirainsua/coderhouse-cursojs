@@ -44,6 +44,14 @@ header nav div div ul .nav-item a {
   font-size: 18px;
   letter-spacing: 2px;
 }
+header nav div div ul .switch-cambio-moneda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav div div ul .img-uy {
+  margin-right: 6px;
+}
 
 /*##### FIN # ESTILOS DEL HEADER #####*/
 /*##### ESTILOS DEL FOOTER #####*/
@@ -191,12 +199,13 @@ main .contenedor-dashboard .seccion-dashboard h1 {
 main .contenedor-dashboard .seccion-dashboard .grafica-sueldo {
   display: flex;
   padding: 10px;
+  min-height: 300px;
   grid-column: 1/2;
   grid-row: 2/3;
 }
 main .contenedor-dashboard .seccion-dashboard .grafica-ahorros {
   display: flex;
-  max-height: fit-content;
+  min-height: 300px;
   padding: 10px;
   grid-column: 2/4;
   grid-row: 2/3;

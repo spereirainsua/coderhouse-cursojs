@@ -38,21 +38,34 @@ class Registro {
 }
 
 function convertirARegistros(datos) {
-    return datos.map(dato => {
-        const registro = new Registro(
-            convertirAFecha(dato.fecha),
-            dato.concepto,
-            dato.monto,
-            dato.iog,
-            dato.categoria
-        )
-        registro.id = dato.id
+    try {
+        const respuesta = datos.map(dato => {
+            const registro = new Registro(
+                convertirAFecha(dato.fecha),
+                dato.concepto,
+                dato.monto,
+                dato.iog,
+                dato.categoria
+            )
+            registro.id = dato.id
 
-        if (Registro.id < dato.id) {
-            Registro.id = dato.id
+            if (Registro.id < dato.id) {
+                Registro.id = dato.id
+            }
+            return registro
+        })
+        if (respuesta) {
+            return respuesta
+        } else {
+            throw new Error("No se pudo converir a Registro.")
         }
-        return registro
-    })
+    } catch (error) {
+        Swal.fire({
+            title: "Error inesperado",
+            text: error,
+            icon: "error"
+        })
+    }
 }
 
 async function datosDesdeJSON() {
@@ -106,22 +119,36 @@ function obtenerRangoMensual(fecha) {
 
 function agruparRegistrosAhorros(registrosFiltrados) {
     let resultadoFiltro = {}
-    if (registrosFiltrados) {
-        let ahorros = Array(5).fill(0)
-        let mesActual = new Date().getMonth()
-        registrosFiltrados.forEach(registro => {
-            let mes = registro.obtenerMes()
-            let indice = mes - (mesActual - 4)
-            if (indice >= 12) {
-                indice -= 12
-            }
-            ahorros[indice] += registro.monto
-        })
+    try {
+        let precioDolar = localStorage.getItem("Dolar")
+        let enUsd = localStorage.getItem("enUSD")
+        if (registrosFiltrados) {
+            let ahorros = Array(5).fill(0)
+            let mesActual = new Date().getMonth()
+            registrosFiltrados.forEach(registro => {
+                let mes = registro.obtenerMes()
+                let indice = mes - (mesActual - 4)
+                if (indice >= 12) {
+                    indice -= 12
+                }
+                if (enUsd === "true") {
+                    ahorros[indice] += (registro.monto / precioDolar)
+                } else {
+                    ahorros[indice] += registro.monto
+                }
+            })
 
-        resultadoFiltro = {
-            etiquetas: obtenerUltimosMeses(5).reverse(),
-            ahorros: ahorros
+            resultadoFiltro = {
+                etiquetas: obtenerUltimosMeses(5).reverse(),
+                ahorros: ahorros
+            }
         }
+    } catch (error) {
+        Swal.fire({
+            title: "No se pudieron procesar los datos",
+            text: error,
+            icon: "error"
+        })
     }
     return resultadoFiltro
 }
@@ -133,79 +160,89 @@ function restarFechas(fechaInicio, fechaFin) {
 
 function agruparRegistrosPorFecha(tipo, registrosFiltrados) {
     let resultadoFiltro = {}
-    if (registrosFiltrados) {
-        switch (tipo) {
-            case "mensual":
-                // Agrupar por registros que se realizaron en el mismo mes
-                // registroFiltrados debe contener los registros que se encuentran entre el primer y ultimo día del mes
-                let ingresosPorSemana = Array(4).fill(0)
-                let gastosPorSemana = Array(4).fill(0)
-                registrosFiltrados.forEach(registro => {
-                    let semana = registro.obtenerSemana()
-                    if (registro.monto > 0) {
-                        ingresosPorSemana[semana - 1] += registro.monto
-                    } else {
-                        gastosPorSemana[semana - 1] += registro.monto * -1
+    try {
+        if (registrosFiltrados) {
+            let precioDolar = localStorage.getItem("Dolar")
+            let enUsd = localStorage.getItem("enUSD")
+            switch (tipo) {
+                case "mensual":
+                    // Agrupar por registros que se realizaron en el mismo mes
+                    // registroFiltrados debe contener los registros que se encuentran entre el primer y ultimo día del mes
+                    let ingresosPorSemana = Array(4).fill(0)
+                    let gastosPorSemana = Array(4).fill(0)
+                    registrosFiltrados.forEach(registro => {
+                        let semana = registro.obtenerSemana()
+                        if (registro.monto > 0) {
+                            ingresosPorSemana[semana - 1] += (enUsd === "true") ? registro.monto / precioDolar : registro.monto
+                        } else {
+                            gastosPorSemana[semana - 1] += (enUsd === "true") ? (registro.monto * -1) / precioDolar : registro.monto * -1
+                        }
+                    })
+                    resultadoFiltro = {
+                        etiquetas: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
+                        ingresos: ingresosPorSemana,
+                        gastos: gastosPorSemana
                     }
-                })
-                resultadoFiltro = {
-                    etiquetas: ['Semana 1', 'Semana 2', 'Semana 3', 'Semana 4'],
-                    ingresos: ingresosPorSemana,
-                    gastos: gastosPorSemana
-                }
-                break
-            case "semanal":
-                // Agrupar por días de la semana
-                let ingresosPorDia = Array(7).fill(0)
-                let gastosPorDia = Array(7).fill(0)
-                const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
-                const etiquetas = Array(7).fill("")
-                let fechaActual = new Date()
-                let diaActual = fechaActual.getDay()
-                for (let i = 0; i <= 6; i++) {
-                    let pos = diaActual - (6 - i)
-                    if (pos < 0) pos += 7
-                    etiquetas[i] = dias[pos]
-                }
-                registrosFiltrados.forEach(registro => {
-                    let diasDeDiferencia = restarFechas(registro.fecha, fechaActual)
-                    let indice = 6 - diasDeDiferencia
-                    if (registro.monto > 0) {
-                        ingresosPorDia[indice] += registro.monto
-                    } else {
-                        gastosPorDia[indice] += registro.monto * -1
+                    break
+                case "semanal":
+                    // Agrupar por días de la semana
+                    let ingresosPorDia = Array(7).fill(0)
+                    let gastosPorDia = Array(7).fill(0)
+                    const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"]
+                    const etiquetas = Array(7).fill("")
+                    let fechaActual = new Date()
+                    let diaActual = fechaActual.getDay()
+                    for (let i = 0; i <= 6; i++) {
+                        let pos = diaActual - (6 - i)
+                        if (pos < 0) pos += 7
+                        etiquetas[i] = dias[pos]
                     }
-                })
-                resultadoFiltro = {
-                    etiquetas: etiquetas,
-                    ingresos: ingresosPorDia,
-                    gastos: gastosPorDia
-                }
-                break
-            case "diario":
-                // Agrupar por horas del día
-                //  registroFiltrados contiene los registros que se realizaron en un día especifico
+                    registrosFiltrados.forEach(registro => {
+                        let diasDeDiferencia = restarFechas(registro.fecha, fechaActual)
+                        let indice = 6 - diasDeDiferencia
+                        if (registro.monto > 0) {
+                            ingresosPorDia[indice] += (enUsd === "true") ? registro.monto / precioDolar : registro.monto
+                        } else {
+                            gastosPorDia[indice] += (enUsd === "true") ? (registro.monto * -1) / precioDolar : registro.monto * -1
+                        }
+                    })
+                    resultadoFiltro = {
+                        etiquetas: etiquetas,
+                        ingresos: ingresosPorDia,
+                        gastos: gastosPorDia
+                    }
+                    break
+                case "diario":
+                    // Agrupar por horas del día
+                    //  registroFiltrados contiene los registros que se realizaron en un día especifico
 
-                let ingresosPorHora = Array(24).fill(0)
-                let gastosPorHora = Array(24).fill(0)
+                    let ingresosPorHora = Array(24).fill(0)
+                    let gastosPorHora = Array(24).fill(0)
 
-                registrosFiltrados.forEach(registro => {
-                    let hora = registro.obtenerHora().hora
-                    if (registro.monto > 0) {
-                        ingresosPorHora[hora] += registro.monto
-                    } else {
-                        gastosPorHora[hora] += registro.monto * -1
+                    registrosFiltrados.forEach(registro => {
+                        let hora = registro.obtenerHora().hora
+                        if (registro.monto > 0) {
+                            ingresosPorHora[hora] += (enUsd === "true") ? registro.monto / precioDolar : registro.monto
+                        } else {
+                            gastosPorHora[hora] += (enUsd === "true") ? (registro.monto * -1) / precioDolar : registro.monto * -1
+                        }
+                    })
+                    resultadoFiltro = {
+                        etiquetas: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
+                        ingresos: ingresosPorHora,
+                        gastos: gastosPorHora
                     }
-                })
-                resultadoFiltro = {
-                    etiquetas: ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00'],
-                    ingresos: ingresosPorHora,
-                    gastos: gastosPorHora
-                }
-                break
-            default:
-                break
+                    break
+                default:
+                    break
+            }
         }
+    } catch (error) {
+        Swal.fire({
+            title: "No se pudieron procesar los datos",
+            text: error,
+            icon: "error"
+        })
     }
     return resultadoFiltro
 }
@@ -292,15 +329,42 @@ function convertirFechaAStr(fechaDate) {
     return `${dia}/${mes}/${año} ${horas}:${minutos}`
 }
 
+fetch("https://uy.dolarapi.com/v1/cotizaciones/usd")
+    .then(response => response.json())
+    .then(data => {
+        // console.log(`$${data.venta}`)
+        localStorage.setItem("Dolar", (data.venta + data.compra) / 2)
+    })
+
+let enUsd = localStorage.getItem("enUSD")
+if (enUsd == null) {
+    localStorage.setItem("enUSD", false)
+} else if (enUsd == "true") {
+    document.getElementById("switchUsd").checked = true
+}
+
+document.getElementById("switchUsd").addEventListener("change", (e) => {
+    // console.log(e.target.checked)
+    if (e.target.checked) {
+        localStorage.setItem("enUSD", true)
+        actualizarDatosMostrados(datosIngresosyGastos)
+    } else {
+        localStorage.setItem("enUSD", false)
+        actualizarDatosMostrados(datosIngresosyGastos)
+    }
+})
+
 //Mostrar datos almacenados
 const actualizarDatosMostrados = (datos) => {
-
-    let tabla = document.getElementById("tabla-dashboard")
-    if (datos.length > 0) {
-        if (tabla.classList.contains("centrar-texto-tabla")) {
-            tabla.classList.remove("centrar-texto-tabla")
-        }
-        tabla.innerHTML = `<caption class="caption-top">Ultimas 10 transacciones</caption>
+    try {
+        let tabla = document.getElementById("tabla-dashboard")
+        let precioDolar = localStorage.getItem("Dolar")
+        let enUsd = localStorage.getItem("enUSD")
+        if (datos.length > 0) {
+            if (tabla.classList.contains("centrar-texto-tabla")) {
+                tabla.classList.remove("centrar-texto-tabla")
+            }
+            tabla.innerHTML = `<caption class="caption-top">Ultimas 10 transacciones</caption>
                         <thead>
                         <tr>
                             <th scope="col" class="col-1">#</th>
@@ -309,80 +373,99 @@ const actualizarDatosMostrados = (datos) => {
                             <th scope="col" class="col-2">Monto $</th>
                         </tr>
                     </thead>`
-        let bodyTabla = document.createElement("tbody")
-        let numerador = 1
-        const ultimos10 = datos.slice(-10).reverse()
-        ultimos10.forEach((dato) => {
-            let fila = document.createElement("tr")
-            if (dato.monto > 0) {
-                fila.classList.add("fila-positiva")
-            } else {
-                fila.classList.add("fila-negativa")
-            }
-            let mostrarMonto = parseFloat(dato.monto).toFixed(2)
-            fila.innerHTML = `<th scope="row">${numerador}</th>
+            let bodyTabla = document.createElement("tbody")
+            let numerador = 1
+            const ultimos10 = datos.slice(-10).reverse()
+            ultimos10.forEach((dato) => {
+                let fila = document.createElement("tr")
+                if (dato.monto > 0) {
+                    fila.classList.add("fila-positiva")
+                } else {
+                    fila.classList.add("fila-negativa")
+                }
+
+                let mostrarMonto = 0
+                if (enUsd === "true") {
+                    mostrarMonto = (parseFloat(dato.monto) / precioDolar).toFixed(2)
+                } else {
+                    mostrarMonto = parseFloat(dato.monto).toFixed(2)
+                }
+                fila.innerHTML = `<th scope="row">${numerador}</th>
                             <td>${convertirFechaAStr(dato.fecha)}</td>
                             <td>${dato.concepto}</td>
                             <td>${mostrarMonto}</td>`
-            bodyTabla.append(fila)
-            numerador++
+                bodyTabla.append(fila)
+                numerador++
+            })
+            tabla.append(bodyTabla)
+        } else {
+            tabla.innerHTML = 'No se encontraron datos.'
+            tabla.classList.add("centrar-texto-tabla")
+        }
+
+        let balance = document.getElementById("balance")
+
+        if (enUsd === "true") {
+            balance.innerHTML = `$${(balanceTotal(datos) / precioDolar).toFixed(2)}`
+        } else {
+            balance.innerHTML = `$${balanceTotal(datos).toFixed(2)}`
+        }
+
+        let fechasInicioFin = obtenerRangoMensual(new Date())
+        let salario = (enUsd === "true") ? obtenerSueldo(datos) / precioDolar : obtenerSueldo(datos)
+        let gastos = sumarGastos(filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia))
+        if (enUsd === "true") {
+            gastos = gastos / precioDolar
+        }
+        crearGraficoSalario(salario, gastos)
+
+        let fechaFiltro1 = new Date()
+        fechaFiltro1.setMonth(fechaFiltro1.getMonth() - 5, 1)
+        fechaFiltro1.setHours(0, 0, 0)
+        let fechaFiltro2 = new Date()
+
+        crearGraficoAhorros(agruparRegistrosAhorros(filtrarPorRangoFechas(datos, fechaFiltro1, fechaFiltro2)))
+
+        crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
+
+        let btnFiltroDashboard = Array.from(document.getElementsByClassName("filtro-dashboard"))
+        btnFiltroDashboard.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                let pixeles = (btn.getBoundingClientRect().top
+                    + window.scrollY
+                    - (document.getElementsByTagName("header")[0].getBoundingClientRect().height + 20))
+                window.scrollTo({ top: pixeles, behavior: 'smooth' })
+
+                btnFiltroDashboard.forEach(btn => btn.parentElement.classList.remove("active"))
+                btn.parentElement.classList.add("active")
+
+                switch (e.currentTarget.id) {
+                    case "diario":
+                        let hoy = new Date()
+                        crearGraficoPorFecha(agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, hoy.setHours(0, 0, 0), hoy.setHours(23, 59, 59))))
+                        break
+                    case "semanal":
+                        let fechaInicio = new Date()
+                        fechaInicio.setDate(fechaInicio.getDate() - 7)
+                        fechaInicio.setHours(0, 0, 0)
+                        let fechaFin = new Date()
+                        fechaFin.setHours(23, 59, 59)
+                        crearGraficoPorFecha(agruparRegistrosPorFecha("semanal", filtrarPorRangoFechas(datos, fechaInicio, fechaFin)))
+                        break
+                    default:
+                        crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
+                        break
+                }
+
+            })
         })
-        tabla.append(bodyTabla)
-    } else {
-        tabla.innerHTML = 'No se encontraron datos.'
-        tabla.classList.add("centrar-texto-tabla")
+    } catch (error) {
+        Swal.fire({
+            title: "No se pudo cargar los registros.",
+            text: error,
+            icon: "error"
+        })
     }
-
-    let balance = document.getElementById("balance")
-    balance.innerHTML = `$${balanceTotal(datos).toFixed(2)}`
-
-    let fechasInicioFin = obtenerRangoMensual(new Date())
-    let salario = obtenerSueldo(datos)
-    let gastos = sumarGastos(filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia))
-    graficoSalario = crearGraficoSalario(salario, gastos)
-
-    let fechaFiltro1 = new Date()
-    fechaFiltro1.setMonth(fechaFiltro1.getMonth() - 5, 1)
-    fechaFiltro1.setHours(0, 0, 0)
-    let fechaFiltro2 = new Date()
-    crearGraficoAhorros(agruparRegistrosAhorros(filtrarPorRangoFechas(datos, fechaFiltro1, fechaFiltro2)))
-
-
-
-    //Funciona
-    crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
-
-    let btnFiltroDashboard = Array.from(document.getElementsByClassName("filtro-dashboard"))
-    btnFiltroDashboard.forEach(btn => {
-        btn.addEventListener("click", (e) => {
-            let pixeles = (btn.getBoundingClientRect().top
-                + window.scrollY
-                - (document.getElementsByTagName("header")[0].getBoundingClientRect().height + 20))
-            window.scrollTo({ top: pixeles, behavior: 'smooth' })
-
-            btnFiltroDashboard.forEach(btn => btn.parentElement.classList.remove("active"))
-            btn.parentElement.classList.add("active")
-
-            switch (e.currentTarget.id) {
-                case "diario":
-                    let hoy = new Date()
-                    crearGraficoPorFecha(agruparRegistrosPorFecha("diario", filtrarPorRangoFechas(datos, hoy.setHours(0, 0, 0), hoy.setHours(23, 59, 59))))
-                    break
-                case "semanal":
-                    let fechaInicio = new Date()
-                    fechaInicio.setDate(fechaInicio.getDate() - 7)
-                    fechaInicio.setHours(0, 0, 0)
-                    let fechaFin = new Date()
-                    fechaFin.setHours(23, 59, 59)
-                    crearGraficoPorFecha(agruparRegistrosPorFecha("semanal", filtrarPorRangoFechas(datos, fechaInicio, fechaFin)))
-                    break
-                default:
-                    crearGraficoPorFecha(agruparRegistrosPorFecha("mensual", filtrarPorRangoFechas(datos, fechasInicioFin.primerDia, fechasInicioFin.ultimoDia)))
-                    break
-            }
-
-        })
-    })
 }
 
 const datosIngresosyGastos = []
@@ -410,121 +493,143 @@ function cargarDatos() {
                     actualizarDatosMostrados(registros)
                     resolve(registros)
                 })
-                .catch(error => reject(error))
+                .catch(error => {
+                    Swal.fire({
+                        title: "No se pudo cargar los registros.",
+                        text: error,
+                        icon: "error"
+                    })
+                    reject(error)
+                })
         }
     })
 }
 
 function crearGraficoSalario(salario, gastos) {
-    let contenedorGrafico = document.getElementById('grafica-sueldo')
-    contenedorGrafico.innerHTML = ''
+    try {
+        let contenedorGrafico = document.getElementById('grafica-sueldo')
+        contenedorGrafico.innerHTML = ''
 
-    let grafico = document.createElement('canvas')
+        let grafico = document.createElement('canvas')
 
-    // Si se supera el total del sueldo, que sueldo aparezca siempre en cero y se muestre el total de gastos
-    if (salario + gastos < 0) {
-        salario = gastos * -1
+        // Si se supera el total del sueldo, que sueldo aparezca siempre en cero y se muestre el total de gastos
+        if (salario + gastos < 0) {
+            salario = gastos * -1
+        }
+        new Chart(
+            grafico,
+            {
+                type: 'doughnut',
+                data: {
+                    labels: [
+                        'Sueldo disponible',
+                        'Sueldo gastado'
+                    ],
+                    datasets: [{
+                        data: [salario + gastos, gastos], // pasar cantidad de sueldo de un lado a otro
+                        backgroundColor: [
+                            'rgba(25, 135, 84, 0.8)',
+                            'rgb(240, 240, 240, 0.3)'
+                        ],
+                        borderColor: [
+                            'rgba(25, 135, 84)',
+                            'rgb(230, 230, 230)'
+                        ],
+                        hoverOffset: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            })
+        contenedorGrafico.appendChild(grafico)
+    } catch (error) {
+        let contenedorGrafico = document.getElementById('grafica-sueldo')
+        let elemento = document.createElement("p")
+        elemento.innerHTML = "No se pudieron cargar los datos."
+        contenedorGrafico.appendChild(elemento)
     }
-    new Chart(
-        grafico,
-        {
-            type: 'doughnut',
+}
+
+function crearGraficoPorFecha(datos) {
+    try {
+        let contenedorGrafico = document.getElementById('grafica-ingresos-gastos')
+        contenedorGrafico.innerHTML = ''
+        let grafico = document.createElement('canvas')
+        new Chart(grafico, {
+            type: 'bar', // Gráfico de barras
             data: {
-                labels: [
-                    'Sueldo disponible',
-                    'Sueldo gastado'
-                ],
-                datasets: [{
-                    data: [salario + gastos, gastos], // pasar cantidad de sueldo de un lado a otro
-                    backgroundColor: [
-                        'rgba(25, 135, 84, 0.8)',
-                        'rgb(240, 240, 240, 0.3)'
-                    ],
-                    borderColor: [
-                        'rgba(25, 135, 84)',
-                        'rgb(230, 230, 230)'
-                    ],
-                    hoverOffset: 5
-                }]
+                labels: datos.etiquetas,
+                datasets: [
+                    {
+                        label: 'Ingresos',
+                        data: datos.ingresos, // Datos de ingresos
+                        backgroundColor: 'rgb(25, 135, 84, 0.2)', // Color para las barras de ingresos
+                        borderColor: 'rgb(25, 135, 84, 0.8)',
+                        borderWidth: 1.5
+                    },
+                    {
+                        label: 'Gastos',
+                        data: datos.gastos, // Datos de gastos
+                        backgroundColor: 'rgb(255, 0, 0, 0.2)', // Color para las barras de gastos
+                        borderColor: ' rgb(255, 0, 0, 0.8)',
+                        borderWidth: 1.5
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        })
+        contenedorGrafico.appendChild(grafico)
+    } catch (error) {
+        let contenedorGrafico = document.getElementById('grafica-ingresos-gastos')
+        let elemento = document.createElement("p")
+        elemento.innerHTML = "No se pudieron cargar los datos."
+        contenedorGrafico.appendChild(elemento)
+    }
+}
+
+function crearGraficoAhorros(datos) {
+    try {
+        let contenedorGrafico = document.getElementById('grafica-ahorros')
+        contenedorGrafico.innerHTML = ''
+
+        let grafico = document.createElement('canvas')
+
+        new Chart(grafico, {
+            type: 'line', // Gráfico de lineas
+            data: {
+                labels: datos.etiquetas,
+                datasets: [
+                    {
+                        label: 'Ahorros',
+                        data: datos.ahorros, // Datos de ahorros
+                        borderWidth: 1.5,
+                        fill: true,
+                        tension: 0,
+                    }
+                ]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false
             }
         })
-
-    contenedorGrafico.appendChild(grafico)
-}
-
-function crearGraficoPorFecha(datos) {
-
-    let contenedorGrafico = document.getElementById('grafica-ingresos-gastos')
-    contenedorGrafico.innerHTML = ''
-
-    let grafico = document.createElement('canvas')
-
-    new Chart(grafico, {
-        type: 'bar', // Gráfico de barras
-        data: {
-            labels: datos.etiquetas,
-            datasets: [
-                {
-                    label: 'Ingresos',
-                    data: datos.ingresos, // Datos de ingresos
-                    backgroundColor: 'rgb(25, 135, 84, 0.2)', // Color para las barras de ingresos
-                    borderColor: 'rgb(25, 135, 84, 0.8)',
-                    borderWidth: 1.5
-                },
-                {
-                    label: 'Gastos',
-                    data: datos.gastos, // Datos de gastos
-                    backgroundColor: 'rgb(255, 0, 0, 0.2)', // Color para las barras de gastos
-                    borderColor: ' rgb(255, 0, 0, 0.8)',
-                    borderWidth: 1.5
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-    })
-
-    contenedorGrafico.appendChild(grafico)
-}
-
-function crearGraficoAhorros(datos) {
-
-    let contenedorGrafico = document.getElementById('grafica-ahorros')
-    contenedorGrafico.innerHTML = ''
-
-    let grafico = document.createElement('canvas')
-
-    new Chart(grafico, {
-        type: 'line', // Gráfico de lineas
-        data: {
-            labels: datos.etiquetas,
-            datasets: [
-                {
-                    label: 'Ahorros',
-                    data: datos.ahorros, // Datos de ahorros
-                    borderWidth: 1.5,
-                    fill: true,
-                    tension: 0,
-                }
-            ]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    })
-    contenedorGrafico.appendChild(grafico)
+        contenedorGrafico.appendChild(grafico)
+    } catch (error) {
+        let contenedorGrafico = document.getElementById('grafica-ahorros')
+        let elemento = document.createElement("p")
+        elemento.innerHTML = "No se pudieron cargar los datos."
+        contenedorGrafico.appendChild(elemento)
+    }
 }
 
 const collapse = Array.from(document.getElementsByClassName('collapse-carga-balance'))
@@ -571,10 +676,6 @@ btnCargaBalance.forEach(btn => {
     }
 })
 
-function desplazar(pixeles) {
-    window.scrollTo({ top: pixeles, behavior: 'smooth' })
-}
-
 //INGRESAR NUEVOS DATOS
 btnCargar.addEventListener("click", (e) => {
     try {
@@ -583,26 +684,21 @@ btnCargar.addEventListener("click", (e) => {
             document.getElementById("categoria"),
             document.getElementById("monto")
         ]
-        let hayBalanceSuficiente = e.currentTarget.name !== "gasto" ? true : balanceTotal(datosIngresosyGastos) >= campos[2].value
+        let precioDolar = localStorage.getItem("Dolar")
+        let enUsd = localStorage.getItem("enUSD")
+        let hayBalanceSuficiente = e.currentTarget.name !== "gasto" ? true : (enUsd === "true") ?
+            balanceTotal(datosIngresosyGastos) / precioDolar >= campos[2].value : balanceTotal(datosIngresosyGastos) >= campos[2].value
+
         if (validarNoVacio(campos[0].value) &&
             validarNumerico(campos[2].value) &&
             campos[1].value != -1 && hayBalanceSuficiente) {
-
             for (let input of campos) {
                 input.classList.add("is-valid")
             }
-
-            cargarIngresosOGastos(new Date(), campos[0].value, parseFloat(campos[2].value), e.currentTarget.name, campos[1].value)
+            cargarIngresosOGastos(new Date(), campos[0].value, (enUsd === "true") ? parseFloat(campos[2].value) * precioDolar : parseFloat(campos[2].value), e.currentTarget.name, campos[1].value)
             campos[0].value = ''
             campos[1].value = -1
             campos[2].value = ''
-            // for (let input of campos) {
-            //     input.classList.remove("is-valid")
-            //     input.classList.remove("is-invalid")
-            // }
-            // campos[0].classList.remove("is-invalid")
-            // campos[1].classList.remove("is-invalid")
-            // campos[2].classList.remove("is-invalid")
         } else {
             if (!hayBalanceSuficiente) {
                 throw new Error("No hay suficiente balance para cubrir el monto ingresado.")
@@ -625,7 +721,7 @@ btnCargar.addEventListener("click", (e) => {
         let esGasto = document.getElementById("btnCargar").name === "gasto"
         let hayBalanceSuficiente = !esGasto ? true : balanceTotal(datosIngresosyGastos) >= campos[2].value
         if (campos[0].classList.contains("is-valid") && (campos[1].classList.contains("is-valid") || esGasto) && campos[2].classList.contains("is-valid")) {
-            if (!hayBalanceSuficiente)  {
+            if (!hayBalanceSuficiente) {
                 campos[2].classList.remove("is-valid")
                 campos[2].classList.add("is-invalid")
             } else {
@@ -692,8 +788,6 @@ campoMonto.addEventListener("keyup", () => {
     }
 })
 
-
-// https://sweetalert2.github.io/ ALERTAS!!!
 
 // https://apvarun.github.io/toastify-js/ Pequeñas notas
 

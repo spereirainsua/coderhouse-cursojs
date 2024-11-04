@@ -59,7 +59,11 @@ async function datosDesdeJSON() {
         }
         return await response.json()
     } catch (error) {
-        console.error("Error al cargar los datos:", error)
+        Swal.fire({
+            title: "Error",
+            text: error,
+            icon: "error"
+        })
         return []
     }
 }
@@ -69,7 +73,7 @@ localStorage.removeItem("filtroMovimientos")
 
 const filtrarRegistros = (registros) => {
     let filtro = localStorage.getItem("filtroMovimientos")
-    const registrosFiltrados = registros.filter(registro => { 
+    const registrosFiltrados = registros.filter(registro => {
         if (filtro === "ingreso") {
             return registro.monto > 0
         } else if (filtro === "gasto") {
@@ -85,8 +89,34 @@ const filtrarPorRangoFechas = (datos, fechaInicio, fechaFin) => {
     return datos.filter((registro) => registro.fecha >= fechaInicio && registro.fecha <= fechaFin)
 }
 
+
+fetch("https://uy.dolarapi.com/v1/cotizaciones/usd")
+    .then(response => response.json())
+    .then(data => {
+        // console.log(`$${data.venta}`)
+        localStorage.setItem("Dolar", (data.venta + data.compra) / 2)
+    })
+
+let enUsd = localStorage.getItem("enUSD")
+if (enUsd == null) {
+    localStorage.setItem("enUSD", false)
+} else if (enUsd == "true") {
+    document.getElementById("switchUsd").checked = true
+}
+
+document.getElementById("switchUsd").addEventListener("change", (e) => {
+    // console.log(e.target.checked)
+    if (e.target.checked) {
+        localStorage.setItem("enUSD", true)
+        actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
+    } else {
+        localStorage.setItem("enUSD", false)
+        actualizarDatosMostrados(datosIngresosyGastos, 1, cantidadFilas)
+    }
+})
+
 const actualizarDatosMostrados = (registros, paginaActual, cantidadFilas) => {
-    
+
     const datos = filtrarRegistros(registros)
 
     let tabla = document.getElementById("tabla-movimientos")
@@ -116,7 +146,14 @@ const actualizarDatosMostrados = (registros, paginaActual, cantidadFilas) => {
             } else {
                 fila.classList.add("fila-negativa")
             }
-            let mostrarMonto = parseFloat(dato.monto).toFixed(2)
+            let precioDolar = localStorage.getItem("Dolar")
+            let enUsd = localStorage.getItem("enUSD")
+            let mostrarMonto = 0
+            if (enUsd === "true") {
+                mostrarMonto = (parseFloat(dato.monto) / precioDolar).toFixed(2)
+            } else {
+                mostrarMonto = parseFloat(dato.monto).toFixed(2)
+            }
             fila.innerHTML = `<th scope="row">${numerador}</th>
                             <td>${convertirFechaAStr(dato.fecha)}</td>
                             <td>${dato.concepto}</td>
@@ -250,7 +287,7 @@ function generarPaginas(cantidad, contenedor, paginaActual) {
 
     let primerPagina = document.createElement('li')
     primerPagina.classList.add('page-item')
-    primerPagina.innerHTML = '<a class="page-link cambiar-de-pagina" href="#" aria-label="Primera" id="1"><span aria-hidden="true">&laquo;</span></a>'
+    primerPagina.innerHTML = '<a class="page-link cambiar-de-pagina" href="#" aria-label="Primera" id="-2"><span aria-hidden="true">&laquo;</span></a>'
     contenedor.appendChild(primerPagina)
 
     let paginaAnterior = document.createElement('li')
@@ -284,13 +321,15 @@ function generarPaginas(cantidad, contenedor, paginaActual) {
 
     let ultimaPagina = document.createElement('li')
     ultimaPagina.classList.add('page-item')
-    ultimaPagina.innerHTML = `<a class="page-link cambiar-de-pagina" href="#" aria-label="Primera" id="${cantidad}"><span aria-hidden="true">&raquo;</span></a>`
+    ultimaPagina.innerHTML = `<a class="page-link cambiar-de-pagina" href="#" aria-label="Ultima" id="${cantidad}"><span aria-hidden="true">&raquo;</span></a>`
     contenedor.appendChild(ultimaPagina)
 
     let linkPaginas = Array.from(document.getElementsByClassName('cambiar-de-pagina'))
     linkPaginas.forEach(link => {
         link.addEventListener("click", (e) => {
             switch (parseInt(e.currentTarget.id)) {
+                case -2:
+                    paginaActual = 1
                 case -1:
                     if (paginaActual > 1) {
                         paginaActual--

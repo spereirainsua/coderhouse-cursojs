@@ -130,13 +130,14 @@ main {
             .grafica-sueldo {
                 display: flex;
                 padding: 10px;
+                min-height: 300px;
                 grid-column: 1 / 2;
                 grid-row: 2 / 3;
             }
 
             .grafica-ahorros {
                 display: flex;
-                max-height: fit-content;
+                min-height: 300px;
                 padding: 10px;
                 grid-column: 2 / 4;
                 grid-row: 2 / 3;
@@ -219,13 +220,9 @@ table {
         --bs-table-bg: rgb(255, 0, 0, 0.2);
     }
 }
-
-
-
 .ocultar-elemento {
     display: none;
 }
-
 
 
 

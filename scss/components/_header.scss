@@ -27,6 +27,19 @@ header {
                             letter-spacing: 2px;
                         }
                     }
+
+                    .switch-cambio-moneda {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        // div {
+                        //     margin-bottom: 0;
+                        // }
+                    }
+
+                    .img-uy {
+                        margin-right: 6px;
+                    }
                 }
             }
         }
