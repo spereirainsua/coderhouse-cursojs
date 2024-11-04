@@ -44,6 +44,14 @@ header nav div div ul .nav-item a {
   font-size: 18px;
   letter-spacing: 2px;
 }
+header nav div div ul .switch-cambio-moneda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav div div ul .img-uy {
+  margin-right: 6px;
+}
 
 /*##### FIN # ESTILOS DEL HEADER #####*/
 /*##### ESTILOS DEL FOOTER #####*/
@@ -145,17 +153,24 @@ main .collapse-carga-balance .collapse-container .collapse-header .form-select,
 main .collapse-carga-balance .collapse-container .collapse-body .form-select {
   height: calc(3.5rem + var(--bs-border-width) * 2);
 }
+main .collapse-carga-balance .collapse-container .collapse-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+main .collapse-carga-balance .collapse-container .collapse-body .form-floating {
+  width: 100%;
+  margin-bottom: 20px;
+}
+main .collapse-carga-balance .collapse-container .collapse-body .form-floating .invalid-feedback {
+  position: absolute;
+}
+main .collapse-carga-balance .collapse-container .grid2fr {
+  grid-template-columns: repeat(2, 1fr);
+}
 main .collapse-carga-balance .collapse-container .collapse-footer {
   justify-content: space-between;
-}
-main .collapse-carga-balance .mensaje-validacion {
-  display: flex;
-  align-items: center;
-  justify-content: left;
-}
-main .collapse-carga-balance .mensaje-validacion span {
-  font-size: 16px;
-  padding-right: 2px;
 }
 main hr {
   width: 100%;
@@ -169,7 +184,7 @@ main .contenedor-dashboard {
   padding: 20px 24px;
 }
 main .contenedor-dashboard h1 {
-  font-size: 22px;
+  font-size: 32px;
 }
 main .contenedor-dashboard .seccion-dashboard {
   display: grid;
@@ -184,15 +199,28 @@ main .contenedor-dashboard .seccion-dashboard h1 {
 main .contenedor-dashboard .seccion-dashboard .grafica-sueldo {
   display: flex;
   padding: 10px;
+  min-height: 300px;
   grid-column: 1/2;
   grid-row: 2/3;
 }
 main .contenedor-dashboard .seccion-dashboard .grafica-ahorros {
   display: flex;
-  max-height: fit-content;
+  min-height: 300px;
   padding: 10px;
   grid-column: 2/4;
   grid-row: 2/3;
+}
+main .contenedor-dashboard .seccion-dashboard .filtro-grafica-iog {
+  padding-top: 20px;
+  justify-self: center;
+  grid-column: 1/4;
+  grid-row: 3/4;
+}
+main .contenedor-dashboard .seccion-dashboard .filtro-grafica-iog .pagination {
+  margin: 0;
+}
+main .contenedor-dashboard .seccion-dashboard .filtro-grafica-iog .pagination li a {
+  cursor: pointer;
 }
 main .contenedor-dashboard .seccion-dashboard .grafica-ingresos-gastos {
   display: flex;
@@ -200,30 +228,42 @@ main .contenedor-dashboard .seccion-dashboard .grafica-ingresos-gastos {
   max-height: fit-content;
   padding: 10px;
   grid-column: 1/4;
-  grid-row: 3/4;
+  grid-row: 4/5;
 }
 main .contenedor-dashboard .seccion-dashboard table {
   grid-column: 1/4;
-  grid-row: 4/5;
+  grid-row: 5/6;
 }
-main .contenedor-dashboard .seccion-dashboard table .fila-positiva {
-  --bs-table-bg: rgb(25, 135, 84, 0.2);
+main .contenedor-movimientos {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 24px;
 }
-main .contenedor-dashboard .seccion-dashboard table .fila-negativa {
-  --bs-table-bg: rgb(255, 0, 0, 0.2);
+main .contenedor-movimientos h1 {
+  font-size: 32px;
 }
-main .contenedor-dashboard .seccion-dashboard table .btn-eliminar-registro {
+main .contenedor-movimientos .nav-paginas {
+  align-self: flex-end;
+}
+
+table .centrar-texto-tabla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+table .btn-eliminar-registro {
   display: inline-flex;
   justify-content: center;
   align-items: center;
 }
-main .contenedor-dashboard .seccion-dashboard table .btn-eliminar-registro span {
+table .btn-eliminar-registro span {
   font-size: 15px;
 }
-main .contenedor-dashboard .seccion-dashboard table .centrar-texto-tabla {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+table .fila-positiva {
+  --bs-table-bg: rgb(25, 135, 84, 0.2);
+}
+table .fila-negativa {
+  --bs-table-bg: rgb(255, 0, 0, 0.2);
 }
 
 .ocultar-elemento {
@@ -243,6 +283,9 @@ main .contenedor-dashboard .seccion-dashboard table .centrar-texto-tabla {
   }
   main .contenedor-balance .seccion-carga-balance .btn-group button {
     width: 50%;
+  }
+  main .collapse-carga-balance .collapse-container .collapse-body {
+    grid-template-columns: 1fr;
   }
 }
 /*##### FIN # MEDIA QUERYS #####*/

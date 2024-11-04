@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio | FinancialApp</title>
-    <link rel="shortcut icon" href="./multimedia/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
     <!-- Meta Description -->
     <meta name="description" content="Aplicación web para gestión de finanzas personales.">
     <!-- Meta Keywords -->
@@ -28,10 +28,13 @@
         crossorigin="anonymous"></script>
     <!-- Charts.js -->
     <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- SweetAlert -->
+    <script defer src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="./styles/styles.css">
     <!-- JS -->
-    <script defer src="./js/scripts.js"></script>
+    <script defer src="./js/scripts_index.js"></script>
 </head>
 
 <body>
@@ -39,7 +42,7 @@
         <nav class="navbar navbar-expand-md">
             <div class="container-lg">
                 <a class="navbar-brand logo" href="./index.html">
-                    <img src="./multimedia/logo.png" width="35" height="35" alt="Logo de la aplicación"
+                    <img src="./assets/logo.png" width="35" height="35" alt="Logo de la aplicación"
                         class="d-inline-block align-text-bottom">
                     FinancialApp
                 </a>
@@ -47,6 +50,7 @@
                     aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse justify-content-end" id="navbarMenu">
                     <ul class="navbar-nav mb-2 mb-md-0">
                         <li class="nav-item">
@@ -54,13 +58,18 @@
                         </li>
                         <!-- <li class="nav-item">
                             <a class="nav-link" href="./pages/facturas.html">FACTURAS</a>
-                        </li>
+                        </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="./pages/historial.html">HISTORIAL</a>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="./pages/1.html">PAGE1</a>
-                        </li> -->
+                            <a class="nav-link" href="./pages/movimientos.html">MOVIMIENTOS</a>
+                        </li>
+                        <li class="nav-item switch-cambio-moneda">
+                            <img class="img-uy" src="./assets/bandera-uruguay.ico" alt="Bandera de Uruguay" width="18" height="16">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" role="switch"
+                                    id="switchUsd">
+                            </div>
+                            <img class="img-usa" src="./assets/bandera-usa.ico" alt="Bandera de USA" width="18" height="16">
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -92,75 +101,68 @@
                     <h2 id="collapse-title"></h2>
                 </div>
                 <div class="collapse-body">
-                    <div class="container-fluid">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="concepto" placeholder="Concepto">
-                            <label for="concepto">Concepto</label>
-                            <div class="invalid-feedback" id="validacion-concepto">
-                                <span class="material-symbols-outlined">
-                                    error
-                                </span>
-                                Este campo no puede quedar vacio.
-                            </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="concepto" placeholder="Concepto">
+                        <label for="concepto">Concepto</label>
+                        <div class="invalid-feedback" id="validacion-concepto">
+                            Este campo no puede quedar vacio.
                         </div>
                     </div>
-                    <div class="container-fluid" id="contenedor-categoria">
-                        <div class="form-floating">
-                            <select class="form-select" id="categoria">
-                                <option selected value="-1">Selecciona una opción</option>
-                                <option value="1">Salario</option>
-                                <option value="2">Deposito</option>
-                                <option value="3">Ahorros</option>
-                                <option value="0">Otro</option>
-                            </select>
-                            <label for="categoria">Categoría</label>
-                            <div class="invalid-feedback" id="validacion-categoria">
-                                <span class="material-symbols-outlined">
-                                    error
-                                </span>
-                                Debe seleccionar una opción.
-                            </div>
+                    <div class="form-floating" id="contenedor-categoria">
+                        <select class="form-select" id="categoria">
+                            <option selected value="-1">Selecciona una opción</option>
+                            <option value="1">Salario</option>
+                            <option value="2">Deposito</option>
+                            <option value="3">Ahorros</option>
+                            <option value="0">Otro</option>
+                        </select>
+                        <label for="categoria">Categoría</label>
+                        <div class="invalid-feedback" id="validacion-categoria">
+                            Debe seleccionar una opción.
                         </div>
                     </div>
-                    <div class="container-fluid">
-                        <div class="form-floating">
-                            <input type="text" class="form-control" id="monto" placeholder="Monto">
-                            <label for="monto">Monto</label>
-                            <div class="invalid-feedback" id="validacion-monto">
-                                <span class="material-symbols-outlined">
-                                    error
-                                </span>
-                                Debe ingresar un valor númerico.
-                            </div>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="monto" placeholder="Monto">
+                        <label for="monto">Monto</label>
+                        <div class="invalid-feedback" id="validacion-monto">
+                            Dato ingresado no valido o supera el balance.
                         </div>
                     </div>
                 </div>
                 <div class="collapse-footer">
                     <button type="button" class="btn btn-secondary" data-bs-toggle="collapse"
-                        data-bs-target="#collapseCargaBalance">Close</button>
+                        data-bs-target="#collapseCargaBalance">Cerrar</button>
                     <button type="button" class="btn btn-primary" id="btnCargar">Guardar</button>
                 </div>
             </div>
+
+        </div>
         </div>
         <hr>
         <div class="container-lg contenedor-dashboard">
             <section class="seccion-dashboard">
-                
                 <h1>Dashboard</h1>
-                
-                    <div class="container-fluid card grafica-sueldo"><canvas id="chartUsoSueldo"></canvas></div>
-                    <div class="container-fluid card grafica-ahorros"><canvas id="chartAhorros"></canvas></div>
-                
-                
-                    <div class="container-fluid card grafica-ingresos-gastos"><canvas
-                            id="chartIngresosyGastos"></canvas></div>
-                
-                <table class="table table-hover" id="tabla-dashboard">
+                <div class="container-fluid card grafica-sueldo" id="grafica-sueldo">
+                </div>
+                <div class="container-fluid card grafica-ahorros" id="grafica-ahorros">
+                </div>
+                <nav aria-label="Filtro por rango de fechas" class="filtro-grafica-iog">
+                    <ul class="pagination">
+                        <li class="page-item contenedor-filtro-dashboard active"><a class="page-link filtro-dashboard"
+                                id="mensual">Mensual</a></li>
+                        <li class="page-item contenedor-filtro-dashboard"><a class="page-link filtro-dashboard"
+                                id="semanal">Semanal</a></li>
+                        <li class="page-item contenedor-filtro-dashboard"><a class="page-link filtro-dashboard"
+                                id="diario">Diario</a></li>
+                    </ul>
+                </nav>
+                <div class="container-fluid card grafica-ingresos-gastos" id="grafica-ingresos-gastos">
+                </div>
 
+                <table class="table table-hover" id="tabla-dashboard">
                 </table>
             </section>
         </div>
-
 
     </main>
 

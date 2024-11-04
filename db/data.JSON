@@ -1,0 +1,5189 @@
+[
+    {
+        "id": 5316,
+        "fecha": "05/06/2024 19:27",
+        "concepto": "Comida",
+        "monto": -1242,
+        "categoria": 0
+    },
+    {
+        "id": 5317,
+        "fecha": "05/06/2024 23:24",
+        "concepto": "Compras",
+        "monto": -863,
+        "categoria": 0
+    },
+    {
+        "id": 5318,
+        "fecha": "05/06/2024 05:23",
+        "concepto": "Servicios",
+        "monto": -112,
+        "categoria": 0
+    },
+    {
+        "id": 5319,
+        "fecha": "05/06/2024 05:36",
+        "concepto": "Entretenimiento",
+        "monto": -118,
+        "categoria": 0
+    },
+    {
+        "id": 5320,
+        "fecha": "05/06/2024 19:09",
+        "concepto": "Servicios",
+        "monto": -114,
+        "categoria": 0
+    },
+    {
+        "id": 5321,
+        "fecha": "06/06/2024 09:14",
+        "concepto": "Entretenimiento",
+        "monto": -1578,
+        "categoria": 0
+    },
+    {
+        "id": 5322,
+        "fecha": "06/06/2024 20:34",
+        "concepto": "Servicios",
+        "monto": -335,
+        "categoria": 0
+    },
+    {
+        "id": 5323,
+        "fecha": "06/06/2024 16:14",
+        "concepto": "Transporte",
+        "monto": -514,
+        "categoria": 0
+    },
+    {
+        "id": 5324,
+        "fecha": "06/06/2024 22:00",
+        "concepto": "Transporte",
+        "monto": -764,
+        "categoria": 0
+    },
+    {
+        "id": 5325,
+        "fecha": "06/06/2024 04:47",
+        "concepto": "Comida",
+        "monto": -659,
+        "categoria": 0
+    },
+    {
+        "id": 5326,
+        "fecha": "07/06/2024 02:09",
+        "concepto": "Entretenimiento",
+        "monto": -678,
+        "categoria": 0
+    },
+    {
+        "id": 5327,
+        "fecha": "07/06/2024 16:48",
+        "concepto": "Comida",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5328,
+        "fecha": "07/06/2024 17:24",
+        "concepto": "Compras",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5329,
+        "fecha": "07/06/2024 01:16",
+        "concepto": "Servicios",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5330,
+        "fecha": "07/06/2024 21:32",
+        "concepto": "Compras",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5331,
+        "fecha": "08/06/2024 22:29",
+        "concepto": "Entretenimiento",
+        "monto": -2125,
+        "categoria": 0
+    },
+    {
+        "id": 5332,
+        "fecha": "08/06/2024 10:05",
+        "concepto": "Compras",
+        "monto": -721,
+        "categoria": 0
+    },
+    {
+        "id": 5333,
+        "fecha": "08/06/2024 12:30",
+        "concepto": "Transporte",
+        "monto": -415,
+        "categoria": 0
+    },
+    {
+        "id": 5334,
+        "fecha": "08/06/2024 17:27",
+        "concepto": "Compras",
+        "monto": -112,
+        "categoria": 0
+    },
+    {
+        "id": 5335,
+        "fecha": "08/06/2024 04:31",
+        "concepto": "Comida",
+        "monto": -125,
+        "categoria": 0
+    },
+    {
+        "id": 5336,
+        "fecha": "09/06/2024 18:01",
+        "concepto": "Entretenimiento",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5337,
+        "fecha": "09/06/2024 07:14",
+        "concepto": "Servicios",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5338,
+        "fecha": "09/06/2024 12:58",
+        "concepto": "Servicios",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5339,
+        "fecha": "09/06/2024 03:37",
+        "concepto": "Transporte",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5340,
+        "fecha": "09/06/2024 16:18",
+        "concepto": "Servicios",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5341,
+        "fecha": "10/06/2024 14:31",
+        "concepto": "Compras",
+        "monto": -385,
+        "categoria": 0
+    },
+    {
+        "id": 5342,
+        "fecha": "10/06/2024 15:55",
+        "concepto": "Compras",
+        "monto": -2291,
+        "categoria": 0
+    },
+    {
+        "id": 5343,
+        "fecha": "10/06/2024 01:09",
+        "concepto": "Comida",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5344,
+        "fecha": "10/06/2024 18:57",
+        "concepto": "Servicios",
+        "monto": -507,
+        "categoria": 0
+    },
+    {
+        "id": 5345,
+        "fecha": "10/06/2024 03:52",
+        "concepto": "Entretenimiento",
+        "monto": -285,
+        "categoria": 0
+    },
+    {
+        "id": 5346,
+        "fecha": "11/06/2024 04:54",
+        "concepto": "Comida",
+        "monto": -254,
+        "categoria": 0
+    },
+    {
+        "id": 5347,
+        "fecha": "11/06/2024 20:22",
+        "concepto": "Servicios",
+        "monto": -138,
+        "categoria": 0
+    },
+    {
+        "id": 5348,
+        "fecha": "11/06/2024 07:38",
+        "concepto": "Comida",
+        "monto": -120,
+        "categoria": 0
+    },
+    {
+        "id": 5349,
+        "fecha": "11/06/2024 17:45",
+        "concepto": "Comida",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5350,
+        "fecha": "11/06/2024 23:01",
+        "concepto": "Servicios",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5351,
+        "fecha": "12/06/2024 14:22",
+        "concepto": "Compras",
+        "monto": -568,
+        "categoria": 0
+    },
+    {
+        "id": 5352,
+        "fecha": "12/06/2024 03:39",
+        "concepto": "Comida",
+        "monto": -964,
+        "categoria": 0
+    },
+    {
+        "id": 5353,
+        "fecha": "12/06/2024 11:40",
+        "concepto": "Transporte",
+        "monto": -847,
+        "categoria": 0
+    },
+    {
+        "id": 5354,
+        "fecha": "12/06/2024 17:19",
+        "concepto": "Transporte",
+        "monto": -366,
+        "categoria": 0
+    },
+    {
+        "id": 5355,
+        "fecha": "12/06/2024 05:38",
+        "concepto": "Comida",
+        "monto": -150,
+        "categoria": 0
+    },
+    {
+        "id": 5356,
+        "fecha": "13/06/2024 01:43",
+        "concepto": "Servicios",
+        "monto": -1976,
+        "categoria": 0
+    },
+    {
+        "id": 5357,
+        "fecha": "13/06/2024 14:53",
+        "concepto": "Transporte",
+        "monto": -343,
+        "categoria": 0
+    },
+    {
+        "id": 5358,
+        "fecha": "13/06/2024 00:17",
+        "concepto": "Comida",
+        "monto": -252,
+        "categoria": 0
+    },
+    {
+        "id": 5359,
+        "fecha": "13/06/2024 20:16",
+        "concepto": "Compras",
+        "monto": -309,
+        "categoria": 0
+    },
+    {
+        "id": 5360,
+        "fecha": "13/06/2024 21:13",
+        "concepto": "Compras",
+        "monto": -247,
+        "categoria": 0
+    },
+    {
+        "id": 5361,
+        "fecha": "14/06/2024 02:27",
+        "concepto": "Comida",
+        "monto": -12,
+        "categoria": 0
+    },
+    {
+        "id": 5362,
+        "fecha": "14/06/2024 15:48",
+        "concepto": "Entretenimiento",
+        "monto": -24,
+        "categoria": 0
+    },
+    {
+        "id": 5363,
+        "fecha": "14/06/2024 10:55",
+        "concepto": "Transporte",
+        "monto": -33,
+        "categoria": 0
+    },
+    {
+        "id": 5364,
+        "fecha": "14/06/2024 03:44",
+        "concepto": "Comida",
+        "monto": -47,
+        "categoria": 0
+    },
+    {
+        "id": 5365,
+        "fecha": "14/06/2024 00:56",
+        "concepto": "Compras",
+        "monto": -62,
+        "categoria": 0
+    },
+    {
+        "id": 5366,
+        "fecha": "15/06/2024 13:59",
+        "concepto": "Servicios",
+        "monto": -77,
+        "categoria": 0
+    },
+    {
+        "id": 5367,
+        "fecha": "15/06/2024 18:35",
+        "concepto": "Transporte",
+        "monto": -94,
+        "categoria": 0
+    },
+    {
+        "id": 5368,
+        "fecha": "15/06/2024 09:40",
+        "concepto": "Servicios",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5369,
+        "fecha": "15/06/2024 14:52",
+        "concepto": "Servicios",
+        "monto": -87,
+        "categoria": 0
+    },
+    {
+        "id": 5370,
+        "fecha": "15/06/2024 00:21",
+        "concepto": "Transporte",
+        "monto": -85,
+        "categoria": 0
+    },
+    {
+        "id": 5371,
+        "fecha": "16/06/2024 17:58",
+        "concepto": "Transporte",
+        "monto": -2783,
+        "categoria": 0
+    },
+    {
+        "id": 5372,
+        "fecha": "16/06/2024 15:16",
+        "concepto": "Entretenimiento",
+        "monto": -761,
+        "categoria": 0
+    },
+    {
+        "id": 5373,
+        "fecha": "16/06/2024 17:50",
+        "concepto": "Servicios",
+        "monto": -117,
+        "categoria": 0
+    },
+    {
+        "id": 5374,
+        "fecha": "16/06/2024 01:25",
+        "concepto": "Servicios",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5375,
+        "fecha": "16/06/2024 05:21",
+        "concepto": "Entretenimiento",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5377,
+        "fecha": "17/06/2024 06:43",
+        "concepto": "Servicios",
+        "monto": -28,
+        "categoria": 0
+    },
+    {
+        "id": 5378,
+        "fecha": "17/06/2024 18:51",
+        "concepto": "Compras",
+        "monto": -90,
+        "categoria": 0
+    },
+    {
+        "id": 5379,
+        "fecha": "17/06/2024 03:58",
+        "concepto": "Comida",
+        "monto": -44,
+        "categoria": 0
+    },
+    {
+        "id": 5380,
+        "fecha": "17/06/2024 17:13",
+        "concepto": "Transporte",
+        "monto": -20,
+        "categoria": 0
+    },
+    {
+        "id": 5381,
+        "fecha": "18/06/2024 00:22",
+        "concepto": "Servicios",
+        "monto": -2963,
+        "categoria": 0
+    },
+    {
+        "id": 5382,
+        "fecha": "18/06/2024 04:13",
+        "concepto": "Transporte",
+        "monto": -789,
+        "categoria": 0
+    },
+    {
+        "id": 5383,
+        "fecha": "18/06/2024 00:40",
+        "concepto": "Entretenimiento",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5384,
+        "fecha": "18/06/2024 00:51",
+        "concepto": "Entretenimiento",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5385,
+        "fecha": "18/06/2024 00:53",
+        "concepto": "Comida",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5387,
+        "fecha": "19/06/2024 10:24",
+        "concepto": "Entretenimiento",
+        "monto": -17,
+        "categoria": 0
+    },
+    {
+        "id": 5388,
+        "fecha": "19/06/2024 14:45",
+        "concepto": "Servicios",
+        "monto": -43,
+        "categoria": 0
+    },
+    {
+        "id": 5390,
+        "fecha": "19/06/2024 18:21",
+        "concepto": "Entretenimiento",
+        "monto": -96,
+        "categoria": 0
+    },
+    {
+        "id": 5391,
+        "fecha": "20/06/2024 15:21",
+        "concepto": "Servicios",
+        "monto": -623,
+        "categoria": 0
+    },
+    {
+        "id": 5392,
+        "fecha": "20/06/2024 00:26",
+        "concepto": "Entretenimiento",
+        "monto": -123,
+        "categoria": 0
+    },
+    {
+        "id": 5393,
+        "fecha": "20/06/2024 00:22",
+        "concepto": "Entretenimiento",
+        "monto": -114,
+        "categoria": 0
+    },
+    {
+        "id": 5394,
+        "fecha": "20/06/2024 06:41",
+        "concepto": "Comida",
+        "monto": -113,
+        "categoria": 0
+    },
+    {
+        "id": 5395,
+        "fecha": "20/06/2024 01:49",
+        "concepto": "Comida",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5396,
+        "fecha": "21/06/2024 14:19",
+        "concepto": "Transporte",
+        "monto": -446,
+        "categoria": 0
+    },
+    {
+        "id": 5397,
+        "fecha": "21/06/2024 03:23",
+        "concepto": "Compras",
+        "monto": -1486,
+        "categoria": 0
+    },
+    {
+        "id": 5398,
+        "fecha": "21/06/2024 13:05",
+        "concepto": "Servicios",
+        "monto": -227,
+        "categoria": 0
+    },
+    {
+        "id": 5399,
+        "fecha": "21/06/2024 00:02",
+        "concepto": "Entretenimiento",
+        "monto": -791,
+        "categoria": 0
+    },
+    {
+        "id": 5400,
+        "fecha": "21/06/2024 01:41",
+        "concepto": "Servicios",
+        "monto": -291,
+        "categoria": 0
+    },
+    {
+        "id": 5402,
+        "fecha": "22/06/2024 21:36",
+        "concepto": "Compras",
+        "monto": -70,
+        "categoria": 0
+    },
+    {
+        "id": 5403,
+        "fecha": "22/06/2024 07:42",
+        "concepto": "Servicios",
+        "monto": -28,
+        "categoria": 0
+    },
+    {
+        "id": 5404,
+        "fecha": "22/06/2024 15:29",
+        "concepto": "Servicios",
+        "monto": -89,
+        "categoria": 0
+    },
+    {
+        "id": 5405,
+        "fecha": "22/06/2024 12:37",
+        "concepto": "Comida",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5406,
+        "fecha": "23/06/2024 13:30",
+        "concepto": "Compras",
+        "monto": -1336,
+        "categoria": 0
+    },
+    {
+        "id": 5407,
+        "fecha": "23/06/2024 21:46",
+        "concepto": "Transporte",
+        "monto": -1680,
+        "categoria": 0
+    },
+    {
+        "id": 5408,
+        "fecha": "23/06/2024 15:20",
+        "concepto": "Comida",
+        "monto": -129,
+        "categoria": 0
+    },
+    {
+        "id": 5409,
+        "fecha": "23/06/2024 01:09",
+        "concepto": "Comida",
+        "monto": -205,
+        "categoria": 0
+    },
+    {
+        "id": 5410,
+        "fecha": "23/06/2024 11:50",
+        "concepto": "Compras",
+        "monto": -191,
+        "categoria": 0
+    },
+    {
+        "id": 5411,
+        "fecha": "24/06/2024 11:55",
+        "concepto": "Comida",
+        "monto": -1522,
+        "categoria": 0
+    },
+    {
+        "id": 5412,
+        "fecha": "24/06/2024 21:23",
+        "concepto": "Servicios",
+        "monto": -2033,
+        "categoria": 0
+    },
+    {
+        "id": 5413,
+        "fecha": "24/06/2024 05:38",
+        "concepto": "Comida",
+        "monto": -140,
+        "categoria": 0
+    },
+    {
+        "id": 5414,
+        "fecha": "24/06/2024 12:55",
+        "concepto": "Comida",
+        "monto": -157,
+        "categoria": 0
+    },
+    {
+        "id": 5415,
+        "fecha": "24/06/2024 07:58",
+        "concepto": "Entretenimiento",
+        "monto": -177,
+        "categoria": 0
+    },
+    {
+        "id": 5416,
+        "fecha": "25/06/2024 17:35",
+        "concepto": "Entretenimiento",
+        "monto": -370,
+        "categoria": 0
+    },
+    {
+        "id": 5417,
+        "fecha": "25/06/2024 16:36",
+        "concepto": "Servicios",
+        "monto": -1676,
+        "categoria": 0
+    },
+    {
+        "id": 5418,
+        "fecha": "25/06/2024 09:29",
+        "concepto": "Transporte",
+        "monto": -265,
+        "categoria": 0
+    },
+    {
+        "id": 5419,
+        "fecha": "25/06/2024 06:34",
+        "concepto": "Transporte",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5420,
+        "fecha": "25/06/2024 15:30",
+        "concepto": "Entretenimiento",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5421,
+        "fecha": "26/06/2024 18:47",
+        "concepto": "Comida",
+        "monto": -2568,
+        "categoria": 0
+    },
+    {
+        "id": 5422,
+        "fecha": "26/06/2024 11:50",
+        "concepto": "Compras",
+        "monto": -695,
+        "categoria": 0
+    },
+    {
+        "id": 5423,
+        "fecha": "26/06/2024 16:36",
+        "concepto": "Entretenimiento",
+        "monto": -130,
+        "categoria": 0
+    },
+    {
+        "id": 5424,
+        "fecha": "26/06/2024 12:57",
+        "concepto": "Comida",
+        "monto": -335,
+        "categoria": 0
+    },
+    {
+        "id": 5425,
+        "fecha": "26/06/2024 17:38",
+        "concepto": "Compras",
+        "monto": -409,
+        "categoria": 0
+    },
+    {
+        "id": 5426,
+        "fecha": "27/06/2024 04:43",
+        "concepto": "Servicios",
+        "monto": -969,
+        "categoria": 0
+    },
+    {
+        "id": 5427,
+        "fecha": "27/06/2024 13:54",
+        "concepto": "Comida",
+        "monto": -793,
+        "categoria": 0
+    },
+    {
+        "id": 5428,
+        "fecha": "27/06/2024 17:09",
+        "concepto": "Comida",
+        "monto": -145,
+        "categoria": 0
+    },
+    {
+        "id": 5429,
+        "fecha": "27/06/2024 11:08",
+        "concepto": "Transporte",
+        "monto": -113,
+        "categoria": 0
+    },
+    {
+        "id": 5430,
+        "fecha": "27/06/2024 16:54",
+        "concepto": "Servicios",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5431,
+        "fecha": "28/06/2024 22:55",
+        "concepto": "Comida",
+        "monto": -1106,
+        "categoria": 0
+    },
+    {
+        "id": 5432,
+        "fecha": "28/06/2024 03:22",
+        "concepto": "Entretenimiento",
+        "monto": -786,
+        "categoria": 0
+    },
+    {
+        "id": 5433,
+        "fecha": "28/06/2024 22:22",
+        "concepto": "Entretenimiento",
+        "monto": -702,
+        "categoria": 0
+    },
+    {
+        "id": 5434,
+        "fecha": "28/06/2024 01:06",
+        "concepto": "Transporte",
+        "monto": -1242,
+        "categoria": 0
+    },
+    {
+        "id": 5435,
+        "fecha": "28/06/2024 04:57",
+        "concepto": "Servicios",
+        "monto": -503,
+        "categoria": 0
+    },
+    {
+        "id": 5436,
+        "fecha": "29/06/2024 13:32",
+        "concepto": "Entretenimiento",
+        "monto": -534,
+        "categoria": 0
+    },
+    {
+        "id": 5437,
+        "fecha": "29/06/2024 17:05",
+        "concepto": "Compras",
+        "monto": -291,
+        "categoria": 0
+    },
+    {
+        "id": 5438,
+        "fecha": "29/06/2024 22:41",
+        "concepto": "Servicios",
+        "monto": -399,
+        "categoria": 0
+    },
+    {
+        "id": 5439,
+        "fecha": "29/06/2024 02:37",
+        "concepto": "Comida",
+        "monto": -144,
+        "categoria": 0
+    },
+    {
+        "id": 5440,
+        "fecha": "29/06/2024 09:29",
+        "concepto": "Compras",
+        "monto": -279,
+        "categoria": 0
+    },
+    {
+        "id": 5441,
+        "fecha": "30/06/2024 00:58",
+        "concepto": "Servicios",
+        "monto": -1677,
+        "categoria": 0
+    },
+    {
+        "id": 5442,
+        "fecha": "30/06/2024 03:17",
+        "concepto": "Compras",
+        "monto": -329,
+        "categoria": 0
+    },
+    {
+        "id": 5443,
+        "fecha": "30/06/2024 04:21",
+        "concepto": "Transporte",
+        "monto": -1608,
+        "categoria": 0
+    },
+    {
+        "id": 5444,
+        "fecha": "30/06/2024 07:21",
+        "concepto": "Comida",
+        "monto": -120,
+        "categoria": 0
+    },
+    {
+        "id": 5445,
+        "fecha": "30/06/2024 14:28",
+        "concepto": "Comida",
+        "monto": -174,
+        "categoria": 0
+    },
+    {
+        "id": 5446,
+        "fecha": "01/07/2024 21:13",
+        "concepto": "Salario",
+        "monto": 90000,
+        "categoria": 1
+    },
+    {
+        "id": 5447,
+        "fecha": "01/07/2024 07:09",
+        "concepto": "Transporte",
+        "monto": -1460,
+        "categoria": 0
+    },
+    {
+        "id": 5448,
+        "fecha": "01/07/2024 18:20",
+        "concepto": "Entretenimiento",
+        "monto": -1421,
+        "categoria": 0
+    },
+    {
+        "id": 5449,
+        "fecha": "01/07/2024 17:37",
+        "concepto": "Servicios",
+        "monto": -401,
+        "categoria": 0
+    },
+    {
+        "id": 5450,
+        "fecha": "01/07/2024 17:25",
+        "concepto": "Compras",
+        "monto": -110,
+        "categoria": 0
+    },
+    {
+        "id": 5451,
+        "fecha": "01/07/2024 17:48",
+        "concepto": "Compras",
+        "monto": -113,
+        "categoria": 0
+    },
+    {
+        "id": 5452,
+        "fecha": "02/07/2024 17:52",
+        "concepto": "Compras",
+        "monto": -1169,
+        "categoria": 0
+    },
+    {
+        "id": 5453,
+        "fecha": "02/07/2024 00:58",
+        "concepto": "Compras",
+        "monto": -852,
+        "categoria": 0
+    },
+    {
+        "id": 5454,
+        "fecha": "02/07/2024 16:42",
+        "concepto": "Transporte",
+        "monto": -193,
+        "categoria": 0
+    },
+    {
+        "id": 5455,
+        "fecha": "02/07/2024 21:52",
+        "concepto": "Transporte",
+        "monto": -265,
+        "categoria": 0
+    },
+    {
+        "id": 5456,
+        "fecha": "02/07/2024 06:28",
+        "concepto": "Servicios",
+        "monto": -128,
+        "categoria": 0
+    },
+    {
+        "id": 5457,
+        "fecha": "03/07/2024 12:45",
+        "concepto": "Compras",
+        "monto": -431,
+        "categoria": 0
+    },
+    {
+        "id": 5458,
+        "fecha": "03/07/2024 14:14",
+        "concepto": "Entretenimiento",
+        "monto": -195,
+        "categoria": 0
+    },
+    {
+        "id": 5459,
+        "fecha": "03/07/2024 05:10",
+        "concepto": "Comida",
+        "monto": -1023,
+        "categoria": 0
+    },
+    {
+        "id": 5460,
+        "fecha": "03/07/2024 13:23",
+        "concepto": "Compras",
+        "monto": -110,
+        "categoria": 0
+    },
+    {
+        "id": 5461,
+        "fecha": "03/07/2024 10:33",
+        "concepto": "Servicios",
+        "monto": -105,
+        "categoria": 0
+    },
+    {
+        "id": 5462,
+        "fecha": "04/07/2024 22:54",
+        "concepto": "Servicios",
+        "monto": -2358,
+        "categoria": 0
+    },
+    {
+        "id": 5463,
+        "fecha": "04/07/2024 10:16",
+        "concepto": "Servicios",
+        "monto": -1043,
+        "categoria": 0
+    },
+    {
+        "id": 5464,
+        "fecha": "04/07/2024 18:35",
+        "concepto": "Transporte",
+        "monto": -353,
+        "categoria": 0
+    },
+    {
+        "id": 5465,
+        "fecha": "04/07/2024 00:27",
+        "concepto": "Entretenimiento",
+        "monto": -409,
+        "categoria": 0
+    },
+    {
+        "id": 5466,
+        "fecha": "04/07/2024 14:55",
+        "concepto": "Entretenimiento",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5467,
+        "fecha": "05/07/2024 00:17",
+        "concepto": "Transporte",
+        "monto": -1370,
+        "categoria": 0
+    },
+    {
+        "id": 5468,
+        "fecha": "05/07/2024 05:46",
+        "concepto": "Compras",
+        "monto": -318,
+        "categoria": 0
+    },
+    {
+        "id": 5469,
+        "fecha": "05/07/2024 18:51",
+        "concepto": "Transporte",
+        "monto": -423,
+        "categoria": 0
+    },
+    {
+        "id": 5470,
+        "fecha": "05/07/2024 18:00",
+        "concepto": "Compras",
+        "monto": -143,
+        "categoria": 0
+    },
+    {
+        "id": 5471,
+        "fecha": "05/07/2024 11:03",
+        "concepto": "Comida",
+        "monto": -331,
+        "categoria": 0
+    },
+    {
+        "id": 5472,
+        "fecha": "06/07/2024 01:38",
+        "concepto": "Comida",
+        "monto": -1259,
+        "categoria": 0
+    },
+    {
+        "id": 5473,
+        "fecha": "06/07/2024 09:17",
+        "concepto": "Servicios",
+        "monto": -222,
+        "categoria": 0
+    },
+    {
+        "id": 5474,
+        "fecha": "06/07/2024 15:06",
+        "concepto": "Entretenimiento",
+        "monto": -207,
+        "categoria": 0
+    },
+    {
+        "id": 5475,
+        "fecha": "06/07/2024 17:00",
+        "concepto": "Comida",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5476,
+        "fecha": "06/07/2024 01:44",
+        "concepto": "Entretenimiento",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5477,
+        "fecha": "07/07/2024 23:49",
+        "concepto": "Transporte",
+        "monto": -183,
+        "categoria": 0
+    },
+    {
+        "id": 5478,
+        "fecha": "07/07/2024 09:10",
+        "concepto": "Compras",
+        "monto": -123,
+        "categoria": 0
+    },
+    {
+        "id": 5479,
+        "fecha": "07/07/2024 14:00",
+        "concepto": "Servicios",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5480,
+        "fecha": "07/07/2024 12:27",
+        "concepto": "Entretenimiento",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5481,
+        "fecha": "07/07/2024 20:23",
+        "concepto": "Compras",
+        "monto": -109,
+        "categoria": 0
+    },
+    {
+        "id": 5482,
+        "fecha": "08/07/2024 16:49",
+        "concepto": "Compras",
+        "monto": -780,
+        "categoria": 0
+    },
+    {
+        "id": 5483,
+        "fecha": "08/07/2024 08:29",
+        "concepto": "Compras",
+        "monto": -413,
+        "categoria": 0
+    },
+    {
+        "id": 5484,
+        "fecha": "08/07/2024 05:57",
+        "concepto": "Compras",
+        "monto": -230,
+        "categoria": 0
+    },
+    {
+        "id": 5485,
+        "fecha": "08/07/2024 19:38",
+        "concepto": "Entretenimiento",
+        "monto": -133,
+        "categoria": 0
+    },
+    {
+        "id": 5486,
+        "fecha": "08/07/2024 16:50",
+        "concepto": "Comida",
+        "monto": -120,
+        "categoria": 0
+    },
+    {
+        "id": 5487,
+        "fecha": "09/07/2024 20:57",
+        "concepto": "Compras",
+        "monto": -956,
+        "categoria": 0
+    },
+    {
+        "id": 5488,
+        "fecha": "09/07/2024 16:47",
+        "concepto": "Transporte",
+        "monto": -105,
+        "categoria": 0
+    },
+    {
+        "id": 5489,
+        "fecha": "09/07/2024 00:45",
+        "concepto": "Servicios",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5490,
+        "fecha": "09/07/2024 13:48",
+        "concepto": "Compras",
+        "monto": -109,
+        "categoria": 0
+    },
+    {
+        "id": 5491,
+        "fecha": "09/07/2024 03:30",
+        "concepto": "Entretenimiento",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5492,
+        "fecha": "10/07/2024 20:45",
+        "concepto": "Transporte",
+        "monto": -118,
+        "categoria": 0
+    },
+    {
+        "id": 5493,
+        "fecha": "10/07/2024 12:27",
+        "concepto": "Comida",
+        "monto": -876,
+        "categoria": 0
+    },
+    {
+        "id": 5494,
+        "fecha": "10/07/2024 05:46",
+        "concepto": "Entretenimiento",
+        "monto": -255,
+        "categoria": 0
+    },
+    {
+        "id": 5495,
+        "fecha": "10/07/2024 12:17",
+        "concepto": "Servicios",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5496,
+        "fecha": "10/07/2024 16:13",
+        "concepto": "Servicios",
+        "monto": -338,
+        "categoria": 0
+    },
+    {
+        "id": 5497,
+        "fecha": "11/07/2024 10:26",
+        "concepto": "Entretenimiento",
+        "monto": -306,
+        "categoria": 0
+    },
+    {
+        "id": 5498,
+        "fecha": "11/07/2024 11:47",
+        "concepto": "Transporte",
+        "monto": -122,
+        "categoria": 0
+    },
+    {
+        "id": 5499,
+        "fecha": "11/07/2024 08:23",
+        "concepto": "Servicios",
+        "monto": -113,
+        "categoria": 0
+    },
+    {
+        "id": 5500,
+        "fecha": "11/07/2024 16:07",
+        "concepto": "Servicios",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5501,
+        "fecha": "11/07/2024 03:56",
+        "concepto": "Servicios",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5502,
+        "fecha": "12/07/2024 15:25",
+        "concepto": "Entretenimiento",
+        "monto": -172,
+        "categoria": 0
+    },
+    {
+        "id": 5503,
+        "fecha": "12/07/2024 16:40",
+        "concepto": "Entretenimiento",
+        "monto": -739,
+        "categoria": 0
+    },
+    {
+        "id": 5504,
+        "fecha": "12/07/2024 11:32",
+        "concepto": "Comida",
+        "monto": -1089,
+        "categoria": 0
+    },
+    {
+        "id": 5505,
+        "fecha": "12/07/2024 14:44",
+        "concepto": "Transporte",
+        "monto": -506,
+        "categoria": 0
+    },
+    {
+        "id": 5506,
+        "fecha": "12/07/2024 11:27",
+        "concepto": "Comida",
+        "monto": -345,
+        "categoria": 0
+    },
+    {
+        "id": 5507,
+        "fecha": "13/07/2024 04:14",
+        "concepto": "Compras",
+        "monto": -156,
+        "categoria": 0
+    },
+    {
+        "id": 5508,
+        "fecha": "13/07/2024 21:21",
+        "concepto": "Comida",
+        "monto": -128,
+        "categoria": 0
+    },
+    {
+        "id": 5509,
+        "fecha": "13/07/2024 12:30",
+        "concepto": "Entretenimiento",
+        "monto": -118,
+        "categoria": 0
+    },
+    {
+        "id": 5510,
+        "fecha": "13/07/2024 00:13",
+        "concepto": "Servicios",
+        "monto": -136,
+        "categoria": 0
+    },
+    {
+        "id": 5511,
+        "fecha": "13/07/2024 06:46",
+        "concepto": "Servicios",
+        "monto": -137,
+        "categoria": 0
+    },
+    {
+        "id": 5514,
+        "fecha": "14/07/2024 10:45",
+        "concepto": "Entretenimiento",
+        "monto": -90,
+        "categoria": 0
+    },
+    {
+        "id": 5515,
+        "fecha": "14/07/2024 09:35",
+        "concepto": "Compras",
+        "monto": -76,
+        "categoria": 0
+    },
+    {
+        "id": 5516,
+        "fecha": "14/07/2024 07:35",
+        "concepto": "Transporte",
+        "monto": -93,
+        "categoria": 0
+    },
+    {
+        "id": 5518,
+        "fecha": "15/07/2024 05:07",
+        "concepto": "Compras",
+        "monto": -33,
+        "categoria": 0
+    },
+    {
+        "id": 5520,
+        "fecha": "15/07/2024 23:50",
+        "concepto": "Entretenimiento",
+        "monto": -74,
+        "categoria": 0
+    },
+    {
+        "id": 5521,
+        "fecha": "15/07/2024 17:35",
+        "concepto": "Servicios",
+        "monto": -85,
+        "categoria": 0
+    },
+    {
+        "id": 5522,
+        "fecha": "16/07/2024 22:46",
+        "concepto": "Compras",
+        "monto": -511,
+        "categoria": 0
+    },
+    {
+        "id": 5523,
+        "fecha": "16/07/2024 12:05",
+        "concepto": "Comida",
+        "monto": -263,
+        "categoria": 0
+    },
+    {
+        "id": 5524,
+        "fecha": "16/07/2024 05:24",
+        "concepto": "Servicios",
+        "monto": -151,
+        "categoria": 0
+    },
+    {
+        "id": 5525,
+        "fecha": "16/07/2024 10:09",
+        "concepto": "Comida",
+        "monto": -275,
+        "categoria": 0
+    },
+    {
+        "id": 5526,
+        "fecha": "16/07/2024 14:21",
+        "concepto": "Entretenimiento",
+        "monto": -189,
+        "categoria": 0
+    },
+    {
+        "id": 5527,
+        "fecha": "17/07/2024 07:49",
+        "concepto": "Transporte",
+        "monto": -351,
+        "categoria": 0
+    },
+    {
+        "id": 5528,
+        "fecha": "17/07/2024 02:02",
+        "concepto": "Transporte",
+        "monto": -1097,
+        "categoria": 0
+    },
+    {
+        "id": 5529,
+        "fecha": "17/07/2024 10:50",
+        "concepto": "Compras",
+        "monto": -228,
+        "categoria": 0
+    },
+    {
+        "id": 5530,
+        "fecha": "17/07/2024 11:30",
+        "concepto": "Entretenimiento",
+        "monto": -117,
+        "categoria": 0
+    },
+    {
+        "id": 5531,
+        "fecha": "17/07/2024 22:54",
+        "concepto": "Comida",
+        "monto": -127,
+        "categoria": 0
+    },
+    {
+        "id": 5532,
+        "fecha": "18/07/2024 07:29",
+        "concepto": "Comida",
+        "monto": -247,
+        "categoria": 0
+    },
+    {
+        "id": 5533,
+        "fecha": "18/07/2024 14:09",
+        "concepto": "Transporte",
+        "monto": -177,
+        "categoria": 0
+    },
+    {
+        "id": 5534,
+        "fecha": "18/07/2024 21:16",
+        "concepto": "Transporte",
+        "monto": -127,
+        "categoria": 0
+    },
+    {
+        "id": 5535,
+        "fecha": "18/07/2024 12:07",
+        "concepto": "Compras",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5536,
+        "fecha": "18/07/2024 08:29",
+        "concepto": "Comida",
+        "monto": -143,
+        "categoria": 0
+    },
+    {
+        "id": 5537,
+        "fecha": "19/07/2024 01:11",
+        "concepto": "Servicios",
+        "monto": -2019,
+        "categoria": 0
+    },
+    {
+        "id": 5538,
+        "fecha": "19/07/2024 08:12",
+        "concepto": "Servicios",
+        "monto": -223,
+        "categoria": 0
+    },
+    {
+        "id": 5539,
+        "fecha": "19/07/2024 23:08",
+        "concepto": "Entretenimiento",
+        "monto": -169,
+        "categoria": 0
+    },
+    {
+        "id": 5540,
+        "fecha": "19/07/2024 04:08",
+        "concepto": "Servicios",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5541,
+        "fecha": "19/07/2024 04:53",
+        "concepto": "Comida",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5542,
+        "fecha": "20/07/2024 13:09",
+        "concepto": "Transporte",
+        "monto": -2044,
+        "categoria": 0
+    },
+    {
+        "id": 5543,
+        "fecha": "20/07/2024 14:03",
+        "concepto": "Transporte",
+        "monto": -370,
+        "categoria": 0
+    },
+    {
+        "id": 5544,
+        "fecha": "20/07/2024 08:51",
+        "concepto": "Servicios",
+        "monto": -794,
+        "categoria": 0
+    },
+    {
+        "id": 5545,
+        "fecha": "20/07/2024 07:55",
+        "concepto": "Entretenimiento",
+        "monto": -512,
+        "categoria": 0
+    },
+    {
+        "id": 5546,
+        "fecha": "20/07/2024 20:36",
+        "concepto": "Servicios",
+        "monto": -399,
+        "categoria": 0
+    },
+    {
+        "id": 5547,
+        "fecha": "21/07/2024 13:53",
+        "concepto": "Servicios",
+        "monto": -1656,
+        "categoria": 0
+    },
+    {
+        "id": 5548,
+        "fecha": "21/07/2024 04:09",
+        "concepto": "Comida",
+        "monto": -119,
+        "categoria": 0
+    },
+    {
+        "id": 5549,
+        "fecha": "21/07/2024 12:53",
+        "concepto": "Transporte",
+        "monto": -2340,
+        "categoria": 0
+    },
+    {
+        "id": 5550,
+        "fecha": "21/07/2024 16:52",
+        "concepto": "Transporte",
+        "monto": -108,
+        "categoria": 0
+    },
+    {
+        "id": 5551,
+        "fecha": "21/07/2024 10:47",
+        "concepto": "Compras",
+        "monto": -546,
+        "categoria": 0
+    },
+    {
+        "id": 5552,
+        "fecha": "22/07/2024 09:09",
+        "concepto": "Transporte",
+        "monto": -4205,
+        "categoria": 0
+    },
+    {
+        "id": 5553,
+        "fecha": "22/07/2024 03:40",
+        "concepto": "Servicios",
+        "monto": -316,
+        "categoria": 0
+    },
+    {
+        "id": 5554,
+        "fecha": "22/07/2024 08:29",
+        "concepto": "Comida",
+        "monto": -112,
+        "categoria": 0
+    },
+    {
+        "id": 5555,
+        "fecha": "22/07/2024 19:28",
+        "concepto": "Servicios",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5556,
+        "fecha": "22/07/2024 01:57",
+        "concepto": "Compras",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5557,
+        "fecha": "23/07/2024 07:12",
+        "concepto": "Entretenimiento",
+        "monto": -599,
+        "categoria": 0
+    },
+    {
+        "id": 5558,
+        "fecha": "23/07/2024 04:45",
+        "concepto": "Transporte",
+        "monto": -622,
+        "categoria": 0
+    },
+    {
+        "id": 5559,
+        "fecha": "23/07/2024 19:00",
+        "concepto": "Transporte",
+        "monto": -643,
+        "categoria": 0
+    },
+    {
+        "id": 5560,
+        "fecha": "23/07/2024 22:27",
+        "concepto": "Transporte",
+        "monto": -1053,
+        "categoria": 0
+    },
+    {
+        "id": 5561,
+        "fecha": "23/07/2024 10:25",
+        "concepto": "Comida",
+        "monto": -284,
+        "categoria": 0
+    },
+    {
+        "id": 5562,
+        "fecha": "24/07/2024 04:52",
+        "concepto": "Compras",
+        "monto": -2107,
+        "categoria": 0
+    },
+    {
+        "id": 5563,
+        "fecha": "24/07/2024 14:02",
+        "concepto": "Comida",
+        "monto": -146,
+        "categoria": 0
+    },
+    {
+        "id": 5564,
+        "fecha": "24/07/2024 02:02",
+        "concepto": "Comida",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5565,
+        "fecha": "24/07/2024 03:16",
+        "concepto": "Entretenimiento",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5566,
+        "fecha": "24/07/2024 23:27",
+        "concepto": "Compras",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5567,
+        "fecha": "25/07/2024 22:11",
+        "concepto": "Servicios",
+        "monto": -92,
+        "categoria": 0
+    },
+    {
+        "id": 5571,
+        "fecha": "25/07/2024 11:21",
+        "concepto": "Entretenimiento",
+        "monto": -69,
+        "categoria": 0
+    },
+    {
+        "id": 5572,
+        "fecha": "26/07/2024 03:59",
+        "concepto": "Transporte",
+        "monto": -2000,
+        "categoria": 0
+    },
+    {
+        "id": 5573,
+        "fecha": "26/07/2024 20:40",
+        "concepto": "Comida",
+        "monto": -191,
+        "categoria": 0
+    },
+    {
+        "id": 5574,
+        "fecha": "26/07/2024 16:21",
+        "concepto": "Comida",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5575,
+        "fecha": "26/07/2024 02:18",
+        "concepto": "Transporte",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5576,
+        "fecha": "26/07/2024 02:43",
+        "concepto": "Transporte",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5577,
+        "fecha": "27/07/2024 05:23",
+        "concepto": "Compras",
+        "monto": -502,
+        "categoria": 0
+    },
+    {
+        "id": 5578,
+        "fecha": "27/07/2024 18:08",
+        "concepto": "Transporte",
+        "monto": -2127,
+        "categoria": 0
+    },
+    {
+        "id": 5579,
+        "fecha": "27/07/2024 12:23",
+        "concepto": "Servicios",
+        "monto": -438,
+        "categoria": 0
+    },
+    {
+        "id": 5580,
+        "fecha": "27/07/2024 22:49",
+        "concepto": "Comida",
+        "monto": -136,
+        "categoria": 0
+    },
+    {
+        "id": 5581,
+        "fecha": "27/07/2024 20:01",
+        "concepto": "Entretenimiento",
+        "monto": -534,
+        "categoria": 0
+    },
+    {
+        "id": 5582,
+        "fecha": "28/07/2024 18:47",
+        "concepto": "Compras",
+        "monto": -1758,
+        "categoria": 0
+    },
+    {
+        "id": 5583,
+        "fecha": "28/07/2024 01:31",
+        "concepto": "Compras",
+        "monto": -1156,
+        "categoria": 0
+    },
+    {
+        "id": 5584,
+        "fecha": "28/07/2024 11:22",
+        "concepto": "Entretenimiento",
+        "monto": -201,
+        "categoria": 0
+    },
+    {
+        "id": 5585,
+        "fecha": "28/07/2024 22:44",
+        "concepto": "Entretenimiento",
+        "monto": -299,
+        "categoria": 0
+    },
+    {
+        "id": 5586,
+        "fecha": "28/07/2024 01:36",
+        "concepto": "Compras",
+        "monto": -672,
+        "categoria": 0
+    },
+    {
+        "id": 5587,
+        "fecha": "29/07/2024 21:21",
+        "concepto": "Servicios",
+        "monto": -2976,
+        "categoria": 0
+    },
+    {
+        "id": 5588,
+        "fecha": "29/07/2024 00:59",
+        "concepto": "Comida",
+        "monto": -607,
+        "categoria": 0
+    },
+    {
+        "id": 5589,
+        "fecha": "29/07/2024 14:35",
+        "concepto": "Entretenimiento",
+        "monto": -303,
+        "categoria": 0
+    },
+    {
+        "id": 5590,
+        "fecha": "29/07/2024 02:31",
+        "concepto": "Compras",
+        "monto": -245,
+        "categoria": 0
+    },
+    {
+        "id": 5591,
+        "fecha": "29/07/2024 21:38",
+        "concepto": "Servicios",
+        "monto": -585,
+        "categoria": 0
+    },
+    {
+        "id": 5592,
+        "fecha": "30/07/2024 15:14",
+        "concepto": "Servicios",
+        "monto": -1812,
+        "categoria": 0
+    },
+    {
+        "id": 5593,
+        "fecha": "30/07/2024 12:07",
+        "concepto": "Transporte",
+        "monto": -456,
+        "categoria": 0
+    },
+    {
+        "id": 5594,
+        "fecha": "30/07/2024 18:37",
+        "concepto": "Servicios",
+        "monto": -232,
+        "categoria": 0
+    },
+    {
+        "id": 5595,
+        "fecha": "30/07/2024 18:55",
+        "concepto": "Entretenimiento",
+        "monto": -155,
+        "categoria": 0
+    },
+    {
+        "id": 5596,
+        "fecha": "30/07/2024 11:23",
+        "concepto": "Comida",
+        "monto": -359,
+        "categoria": 0
+    },
+    {
+        "id": 5599,
+        "fecha": "31/07/2024 03:34",
+        "concepto": "Servicios",
+        "monto": -1,
+        "categoria": 0
+    },
+    {
+        "id": 5600,
+        "fecha": "31/07/2024 07:38",
+        "concepto": "Transporte",
+        "monto": -52,
+        "categoria": 0
+    },
+    {
+        "id": 5601,
+        "fecha": "31/07/2024 00:50",
+        "concepto": "Compras",
+        "monto": -71,
+        "categoria": 0
+    },
+    {
+        "id": 5602,
+        "fecha": "01/08/2024 21:13",
+        "concepto": "Salario",
+        "monto": 90000,
+        "categoria": 1
+    },
+    {
+        "id": 5603,
+        "fecha": "01/08/2024 06:58",
+        "concepto": "Servicios",
+        "monto": -2,
+        "categoria": 0
+    },
+    {
+        "id": 5604,
+        "fecha": "01/08/2024 01:11",
+        "concepto": "Compras",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5605,
+        "fecha": "01/08/2024 15:57",
+        "concepto": "Comida",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5606,
+        "fecha": "01/08/2024 00:36",
+        "concepto": "Transporte",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5607,
+        "fecha": "01/08/2024 07:34",
+        "concepto": "Servicios",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5608,
+        "fecha": "02/08/2024 21:11",
+        "concepto": "Entretenimiento",
+        "monto": -2219,
+        "categoria": 0
+    },
+    {
+        "id": 5609,
+        "fecha": "02/08/2024 11:45",
+        "concepto": "Entretenimiento",
+        "monto": -500,
+        "categoria": 0
+    },
+    {
+        "id": 5610,
+        "fecha": "02/08/2024 23:50",
+        "concepto": "Transporte",
+        "monto": -283,
+        "categoria": 0
+    },
+    {
+        "id": 5611,
+        "fecha": "02/08/2024 03:22",
+        "concepto": "Comida",
+        "monto": -127,
+        "categoria": 0
+    },
+    {
+        "id": 5612,
+        "fecha": "02/08/2024 22:03",
+        "concepto": "Compras",
+        "monto": -171,
+        "categoria": 0
+    },
+    {
+        "id": 5613,
+        "fecha": "03/08/2024 18:18",
+        "concepto": "Transporte",
+        "monto": -503,
+        "categoria": 0
+    },
+    {
+        "id": 5614,
+        "fecha": "03/08/2024 23:54",
+        "concepto": "Servicios",
+        "monto": -1059,
+        "categoria": 0
+    },
+    {
+        "id": 5615,
+        "fecha": "03/08/2024 08:32",
+        "concepto": "Transporte",
+        "monto": -126,
+        "categoria": 0
+    },
+    {
+        "id": 5616,
+        "fecha": "03/08/2024 00:16",
+        "concepto": "Comida",
+        "monto": -112,
+        "categoria": 0
+    },
+    {
+        "id": 5617,
+        "fecha": "03/08/2024 23:09",
+        "concepto": "Compras",
+        "monto": -112,
+        "categoria": 0
+    },
+    {
+        "id": 5619,
+        "fecha": "04/08/2024 13:06",
+        "concepto": "Comida",
+        "monto": -85,
+        "categoria": 0
+    },
+    {
+        "id": 5620,
+        "fecha": "04/08/2024 05:11",
+        "concepto": "Entretenimiento",
+        "monto": -40,
+        "categoria": 0
+    },
+    {
+        "id": 5621,
+        "fecha": "04/08/2024 02:09",
+        "concepto": "Comida",
+        "monto": -74,
+        "categoria": 0
+    },
+    {
+        "id": 5622,
+        "fecha": "04/08/2024 03:16",
+        "concepto": "Transporte",
+        "monto": -78,
+        "categoria": 0
+    },
+    {
+        "id": 5623,
+        "fecha": "05/08/2024 21:52",
+        "concepto": "Servicios",
+        "monto": -709,
+        "categoria": 0
+    },
+    {
+        "id": 5624,
+        "fecha": "05/08/2024 20:14",
+        "concepto": "Compras",
+        "monto": -324,
+        "categoria": 0
+    },
+    {
+        "id": 5625,
+        "fecha": "05/08/2024 03:35",
+        "concepto": "Servicios",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5626,
+        "fecha": "05/08/2024 09:05",
+        "concepto": "Comida",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5627,
+        "fecha": "05/08/2024 03:24",
+        "concepto": "Entretenimiento",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5628,
+        "fecha": "06/08/2024 19:34",
+        "concepto": "Servicios",
+        "monto": -427,
+        "categoria": 0
+    },
+    {
+        "id": 5629,
+        "fecha": "06/08/2024 20:27",
+        "concepto": "Comida",
+        "monto": -949,
+        "categoria": 0
+    },
+    {
+        "id": 5630,
+        "fecha": "06/08/2024 20:30",
+        "concepto": "Comida",
+        "monto": -209,
+        "categoria": 0
+    },
+    {
+        "id": 5631,
+        "fecha": "06/08/2024 12:35",
+        "concepto": "Comida",
+        "monto": -148,
+        "categoria": 0
+    },
+    {
+        "id": 5632,
+        "fecha": "06/08/2024 07:57",
+        "concepto": "Compras",
+        "monto": -136,
+        "categoria": 0
+    },
+    {
+        "id": 5634,
+        "fecha": "07/08/2024 14:38",
+        "concepto": "Entretenimiento",
+        "monto": -85,
+        "categoria": 0
+    },
+    {
+        "id": 5635,
+        "fecha": "07/08/2024 15:57",
+        "concepto": "Compras",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5636,
+        "fecha": "07/08/2024 07:43",
+        "concepto": "Compras",
+        "monto": -96,
+        "categoria": 0
+    },
+    {
+        "id": 5637,
+        "fecha": "07/08/2024 05:16",
+        "concepto": "Transporte",
+        "monto": -98,
+        "categoria": 0
+    },
+    {
+        "id": 5638,
+        "fecha": "08/08/2024 23:02",
+        "concepto": "Servicios",
+        "monto": -2703,
+        "categoria": 0
+    },
+    {
+        "id": 5639,
+        "fecha": "08/08/2024 22:37",
+        "concepto": "Servicios",
+        "monto": -147,
+        "categoria": 0
+    },
+    {
+        "id": 5640,
+        "fecha": "08/08/2024 06:05",
+        "concepto": "Compras",
+        "monto": -124,
+        "categoria": 0
+    },
+    {
+        "id": 5641,
+        "fecha": "08/08/2024 07:35",
+        "concepto": "Entretenimiento",
+        "monto": -109,
+        "categoria": 0
+    },
+    {
+        "id": 5642,
+        "fecha": "08/08/2024 12:14",
+        "concepto": "Comida",
+        "monto": -111,
+        "categoria": 0
+    },
+    {
+        "id": 5643,
+        "fecha": "09/08/2024 00:16",
+        "concepto": "Comida",
+        "monto": -2470,
+        "categoria": 0
+    },
+    {
+        "id": 5644,
+        "fecha": "09/08/2024 18:10",
+        "concepto": "Compras",
+        "monto": -222,
+        "categoria": 0
+    },
+    {
+        "id": 5645,
+        "fecha": "09/08/2024 14:48",
+        "concepto": "Comida",
+        "monto": -654,
+        "categoria": 0
+    },
+    {
+        "id": 5646,
+        "fecha": "09/08/2024 03:45",
+        "concepto": "Transporte",
+        "monto": -130,
+        "categoria": 0
+    },
+    {
+        "id": 5647,
+        "fecha": "09/08/2024 07:54",
+        "concepto": "Servicios",
+        "monto": -508,
+        "categoria": 0
+    },
+    {
+        "id": 5648,
+        "fecha": "10/08/2024 17:00",
+        "concepto": "Comida",
+        "monto": -244,
+        "categoria": 0
+    },
+    {
+        "id": 5649,
+        "fecha": "10/08/2024 12:27",
+        "concepto": "Comida",
+        "monto": -493,
+        "categoria": 0
+    },
+    {
+        "id": 5650,
+        "fecha": "10/08/2024 01:18",
+        "concepto": "Entretenimiento",
+        "monto": -136,
+        "categoria": 0
+    },
+    {
+        "id": 5651,
+        "fecha": "10/08/2024 20:36",
+        "concepto": "Compras",
+        "monto": -216,
+        "categoria": 0
+    },
+    {
+        "id": 5652,
+        "fecha": "10/08/2024 04:47",
+        "concepto": "Entretenimiento",
+        "monto": -141,
+        "categoria": 0
+    },
+    {
+        "id": 5653,
+        "fecha": "11/08/2024 05:09",
+        "concepto": "Compras",
+        "monto": -300,
+        "categoria": 0
+    },
+    {
+        "id": 5654,
+        "fecha": "11/08/2024 16:48",
+        "concepto": "Comida",
+        "monto": -140,
+        "categoria": 0
+    },
+    {
+        "id": 5655,
+        "fecha": "11/08/2024 06:01",
+        "concepto": "Transporte",
+        "monto": -198,
+        "categoria": 0
+    },
+    {
+        "id": 5656,
+        "fecha": "11/08/2024 18:46",
+        "concepto": "Transporte",
+        "monto": -110,
+        "categoria": 0
+    },
+    {
+        "id": 5657,
+        "fecha": "11/08/2024 18:46",
+        "concepto": "Compras",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5659,
+        "fecha": "12/08/2024 13:14",
+        "concepto": "Transporte",
+        "monto": -93,
+        "categoria": 0
+    },
+    {
+        "id": 5660,
+        "fecha": "12/08/2024 14:44",
+        "concepto": "Entretenimiento",
+        "monto": -91,
+        "categoria": 0
+    },
+    {
+        "id": 5661,
+        "fecha": "12/08/2024 02:06",
+        "concepto": "Entretenimiento",
+        "monto": -92,
+        "categoria": 0
+    },
+    {
+        "id": 5662,
+        "fecha": "12/08/2024 14:23",
+        "concepto": "Comida",
+        "monto": -90,
+        "categoria": 0
+    },
+    {
+        "id": 5663,
+        "fecha": "13/08/2024 11:19",
+        "concepto": "Compras",
+        "monto": -1022,
+        "categoria": 0
+    },
+    {
+        "id": 5664,
+        "fecha": "13/08/2024 09:36",
+        "concepto": "Compras",
+        "monto": -424,
+        "categoria": 0
+    },
+    {
+        "id": 5665,
+        "fecha": "13/08/2024 11:01",
+        "concepto": "Servicios",
+        "monto": -614,
+        "categoria": 0
+    },
+    {
+        "id": 5666,
+        "fecha": "13/08/2024 14:07",
+        "concepto": "Comida",
+        "monto": -173,
+        "categoria": 0
+    },
+    {
+        "id": 5667,
+        "fecha": "13/08/2024 06:02",
+        "concepto": "Servicios",
+        "monto": -738,
+        "categoria": 0
+    },
+    {
+        "id": 5668,
+        "fecha": "14/08/2024 11:46",
+        "concepto": "Entretenimiento",
+        "monto": -610,
+        "categoria": 0
+    },
+    {
+        "id": 5669,
+        "fecha": "14/08/2024 22:13",
+        "concepto": "Servicios",
+        "monto": -1172,
+        "categoria": 0
+    },
+    {
+        "id": 5670,
+        "fecha": "14/08/2024 19:45",
+        "concepto": "Transporte",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5671,
+        "fecha": "14/08/2024 12:47",
+        "concepto": "Entretenimiento",
+        "monto": -109,
+        "categoria": 0
+    },
+    {
+        "id": 5672,
+        "fecha": "14/08/2024 11:11",
+        "concepto": "Transporte",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5673,
+        "fecha": "15/08/2024 02:49",
+        "concepto": "Comida",
+        "monto": -3612,
+        "categoria": 0
+    },
+    {
+        "id": 5674,
+        "fecha": "15/08/2024 20:11",
+        "concepto": "Transporte",
+        "monto": -459,
+        "categoria": 0
+    },
+    {
+        "id": 5675,
+        "fecha": "15/08/2024 10:38",
+        "concepto": "Servicios",
+        "monto": -654,
+        "categoria": 0
+    },
+    {
+        "id": 5676,
+        "fecha": "15/08/2024 02:17",
+        "concepto": "Transporte",
+        "monto": -143,
+        "categoria": 0
+    },
+    {
+        "id": 5677,
+        "fecha": "15/08/2024 10:49",
+        "concepto": "Servicios",
+        "monto": -126,
+        "categoria": 0
+    },
+    {
+        "id": 5678,
+        "fecha": "16/08/2024 13:55",
+        "concepto": "Transporte",
+        "monto": -3829,
+        "categoria": 0
+    },
+    {
+        "id": 5679,
+        "fecha": "16/08/2024 22:14",
+        "concepto": "Comida",
+        "monto": -561,
+        "categoria": 0
+    },
+    {
+        "id": 5680,
+        "fecha": "16/08/2024 00:43",
+        "concepto": "Entretenimiento",
+        "monto": -149,
+        "categoria": 0
+    },
+    {
+        "id": 5681,
+        "fecha": "16/08/2024 16:58",
+        "concepto": "Compras",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5682,
+        "fecha": "16/08/2024 08:32",
+        "concepto": "Servicios",
+        "monto": -113,
+        "categoria": 0
+    },
+    {
+        "id": 5683,
+        "fecha": "17/08/2024 12:54",
+        "concepto": "Comida",
+        "monto": -789,
+        "categoria": 0
+    },
+    {
+        "id": 5684,
+        "fecha": "17/08/2024 06:59",
+        "concepto": "Servicios",
+        "monto": -2474,
+        "categoria": 0
+    },
+    {
+        "id": 5685,
+        "fecha": "17/08/2024 09:15",
+        "concepto": "Compras",
+        "monto": -217,
+        "categoria": 0
+    },
+    {
+        "id": 5686,
+        "fecha": "17/08/2024 11:34",
+        "concepto": "Comida",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5687,
+        "fecha": "17/08/2024 04:25",
+        "concepto": "Comida",
+        "monto": -252,
+        "categoria": 0
+    },
+    {
+        "id": 5688,
+        "fecha": "18/08/2024 07:40",
+        "concepto": "Comida",
+        "monto": -141,
+        "categoria": 0
+    },
+    {
+        "id": 5689,
+        "fecha": "18/08/2024 23:05",
+        "concepto": "Entretenimiento",
+        "monto": -349,
+        "categoria": 0
+    },
+    {
+        "id": 5690,
+        "fecha": "18/08/2024 06:10",
+        "concepto": "Servicios",
+        "monto": -105,
+        "categoria": 0
+    },
+    {
+        "id": 5691,
+        "fecha": "18/08/2024 14:15",
+        "concepto": "Compras",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5692,
+        "fecha": "18/08/2024 01:08",
+        "concepto": "Compras",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5693,
+        "fecha": "19/08/2024 05:03",
+        "concepto": "Compras",
+        "monto": -490,
+        "categoria": 0
+    },
+    {
+        "id": 5694,
+        "fecha": "19/08/2024 23:54",
+        "concepto": "Entretenimiento",
+        "monto": -1420,
+        "categoria": 0
+    },
+    {
+        "id": 5695,
+        "fecha": "19/08/2024 19:42",
+        "concepto": "Entretenimiento",
+        "monto": -311,
+        "categoria": 0
+    },
+    {
+        "id": 5696,
+        "fecha": "19/08/2024 11:25",
+        "concepto": "Comida",
+        "monto": -1272,
+        "categoria": 0
+    },
+    {
+        "id": 5697,
+        "fecha": "19/08/2024 12:07",
+        "concepto": "Entretenimiento",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5698,
+        "fecha": "20/08/2024 11:08",
+        "concepto": "Servicios",
+        "monto": -127,
+        "categoria": 0
+    },
+    {
+        "id": 5699,
+        "fecha": "20/08/2024 23:12",
+        "concepto": "Transporte",
+        "monto": -241,
+        "categoria": 0
+    },
+    {
+        "id": 5700,
+        "fecha": "20/08/2024 07:39",
+        "concepto": "Compras",
+        "monto": -209,
+        "categoria": 0
+    },
+    {
+        "id": 5701,
+        "fecha": "20/08/2024 04:24",
+        "concepto": "Compras",
+        "monto": -170,
+        "categoria": 0
+    },
+    {
+        "id": 5702,
+        "fecha": "20/08/2024 08:26",
+        "concepto": "Compras",
+        "monto": -117,
+        "categoria": 0
+    },
+    {
+        "id": 5703,
+        "fecha": "21/08/2024 03:00",
+        "concepto": "Comida",
+        "monto": -3321,
+        "categoria": 0
+    },
+    {
+        "id": 5704,
+        "fecha": "21/08/2024 03:34",
+        "concepto": "Servicios",
+        "monto": -341,
+        "categoria": 0
+    },
+    {
+        "id": 5705,
+        "fecha": "21/08/2024 12:38",
+        "concepto": "Servicios",
+        "monto": -223,
+        "categoria": 0
+    },
+    {
+        "id": 5706,
+        "fecha": "21/08/2024 08:55",
+        "concepto": "Servicios",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5707,
+        "fecha": "21/08/2024 08:46",
+        "concepto": "Comida",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5708,
+        "fecha": "22/08/2024 23:34",
+        "concepto": "Transporte",
+        "monto": -1939,
+        "categoria": 0
+    },
+    {
+        "id": 5709,
+        "fecha": "22/08/2024 16:12",
+        "concepto": "Transporte",
+        "monto": -121,
+        "categoria": 0
+    },
+    {
+        "id": 5710,
+        "fecha": "22/08/2024 06:41",
+        "concepto": "Entretenimiento",
+        "monto": -218,
+        "categoria": 0
+    },
+    {
+        "id": 5711,
+        "fecha": "22/08/2024 11:50",
+        "concepto": "Comida",
+        "monto": -129,
+        "categoria": 0
+    },
+    {
+        "id": 5712,
+        "fecha": "22/08/2024 14:59",
+        "concepto": "Servicios",
+        "monto": -356,
+        "categoria": 0
+    },
+    {
+        "id": 5713,
+        "fecha": "23/08/2024 02:14",
+        "concepto": "Compras",
+        "monto": -1592,
+        "categoria": 0
+    },
+    {
+        "id": 5714,
+        "fecha": "23/08/2024 01:38",
+        "concepto": "Servicios",
+        "monto": -1260,
+        "categoria": 0
+    },
+    {
+        "id": 5715,
+        "fecha": "23/08/2024 15:20",
+        "concepto": "Entretenimiento",
+        "monto": -760,
+        "categoria": 0
+    },
+    {
+        "id": 5716,
+        "fecha": "23/08/2024 20:05",
+        "concepto": "Transporte",
+        "monto": -197,
+        "categoria": 0
+    },
+    {
+        "id": 5717,
+        "fecha": "23/08/2024 01:36",
+        "concepto": "Comida",
+        "monto": -687,
+        "categoria": 0
+    },
+    {
+        "id": 5718,
+        "fecha": "24/08/2024 23:24",
+        "concepto": "Servicios",
+        "monto": -617,
+        "categoria": 0
+    },
+    {
+        "id": 5719,
+        "fecha": "24/08/2024 04:41",
+        "concepto": "Servicios",
+        "monto": -665,
+        "categoria": 0
+    },
+    {
+        "id": 5720,
+        "fecha": "24/08/2024 22:44",
+        "concepto": "Entretenimiento",
+        "monto": -130,
+        "categoria": 0
+    },
+    {
+        "id": 5721,
+        "fecha": "24/08/2024 03:37",
+        "concepto": "Transporte",
+        "monto": -115,
+        "categoria": 0
+    },
+    {
+        "id": 5722,
+        "fecha": "24/08/2024 17:33",
+        "concepto": "Servicios",
+        "monto": -112,
+        "categoria": 0
+    },
+    {
+        "id": 5723,
+        "fecha": "25/08/2024 17:36",
+        "concepto": "Transporte",
+        "monto": -121,
+        "categoria": 0
+    },
+    {
+        "id": 5724,
+        "fecha": "25/08/2024 02:15",
+        "concepto": "Compras",
+        "monto": -109,
+        "categoria": 0
+    },
+    {
+        "id": 5725,
+        "fecha": "25/08/2024 14:13",
+        "concepto": "Comida",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5726,
+        "fecha": "25/08/2024 20:00",
+        "concepto": "Servicios",
+        "monto": -113,
+        "categoria": 0
+    },
+    {
+        "id": 5727,
+        "fecha": "25/08/2024 22:48",
+        "concepto": "Servicios",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5728,
+        "fecha": "26/08/2024 03:28",
+        "concepto": "Compras",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5729,
+        "fecha": "26/08/2024 03:09",
+        "concepto": "Comida",
+        "monto": -90,
+        "categoria": 0
+    },
+    {
+        "id": 5730,
+        "fecha": "26/08/2024 17:09",
+        "concepto": "Compras",
+        "monto": -93,
+        "categoria": 0
+    },
+    {
+        "id": 5731,
+        "fecha": "26/08/2024 04:07",
+        "concepto": "Transporte",
+        "monto": -97,
+        "categoria": 0
+    },
+    {
+        "id": 5732,
+        "fecha": "26/08/2024 18:14",
+        "concepto": "Compras",
+        "monto": -90,
+        "categoria": 0
+    },
+    {
+        "id": 5733,
+        "fecha": "27/08/2024 06:10",
+        "concepto": "Compras",
+        "monto": -1208,
+        "categoria": 0
+    },
+    {
+        "id": 5734,
+        "fecha": "27/08/2024 17:13",
+        "concepto": "Entretenimiento",
+        "monto": -1535,
+        "categoria": 0
+    },
+    {
+        "id": 5735,
+        "fecha": "27/08/2024 12:54",
+        "concepto": "Transporte",
+        "monto": -546,
+        "categoria": 0
+    },
+    {
+        "id": 5736,
+        "fecha": "27/08/2024 16:12",
+        "concepto": "Compras",
+        "monto": -116,
+        "categoria": 0
+    },
+    {
+        "id": 5737,
+        "fecha": "27/08/2024 00:16",
+        "concepto": "Compras",
+        "monto": -198,
+        "categoria": 0
+    },
+    {
+        "id": 5738,
+        "fecha": "28/08/2024 16:10",
+        "concepto": "Entretenimiento",
+        "monto": -750,
+        "categoria": 0
+    },
+    {
+        "id": 5739,
+        "fecha": "28/08/2024 00:19",
+        "concepto": "Entretenimiento",
+        "monto": -141,
+        "categoria": 0
+    },
+    {
+        "id": 5740,
+        "fecha": "28/08/2024 20:43",
+        "concepto": "Compras",
+        "monto": -1998,
+        "categoria": 0
+    },
+    {
+        "id": 5741,
+        "fecha": "28/08/2024 18:34",
+        "concepto": "Comida",
+        "monto": -231,
+        "categoria": 0
+    },
+    {
+        "id": 5742,
+        "fecha": "28/08/2024 06:27",
+        "concepto": "Entretenimiento",
+        "monto": -319,
+        "categoria": 0
+    },
+    {
+        "id": 5743,
+        "fecha": "29/08/2024 08:38",
+        "concepto": "Servicios",
+        "monto": -1216,
+        "categoria": 0
+    },
+    {
+        "id": 5744,
+        "fecha": "29/08/2024 12:39",
+        "concepto": "Entretenimiento",
+        "monto": -165,
+        "categoria": 0
+    },
+    {
+        "id": 5745,
+        "fecha": "29/08/2024 06:37",
+        "concepto": "Comida",
+        "monto": -270,
+        "categoria": 0
+    },
+    {
+        "id": 5746,
+        "fecha": "29/08/2024 14:42",
+        "concepto": "Servicios",
+        "monto": -225,
+        "categoria": 0
+    },
+    {
+        "id": 5747,
+        "fecha": "29/08/2024 18:33",
+        "concepto": "Transporte",
+        "monto": -288,
+        "categoria": 0
+    },
+    {
+        "id": 5748,
+        "fecha": "30/08/2024 08:16",
+        "concepto": "Compras",
+        "monto": -221,
+        "categoria": 0
+    },
+    {
+        "id": 5749,
+        "fecha": "30/08/2024 20:01",
+        "concepto": "Servicios",
+        "monto": -2835,
+        "categoria": 0
+    },
+    {
+        "id": 5750,
+        "fecha": "30/08/2024 21:29",
+        "concepto": "Compras",
+        "monto": -817,
+        "categoria": 0
+    },
+    {
+        "id": 5751,
+        "fecha": "30/08/2024 13:31",
+        "concepto": "Entretenimiento",
+        "monto": -132,
+        "categoria": 0
+    },
+    {
+        "id": 5752,
+        "fecha": "30/08/2024 22:32",
+        "concepto": "Comida",
+        "monto": -200,
+        "categoria": 0
+    },
+    {
+        "id": 5753,
+        "fecha": "31/08/2024 17:32",
+        "concepto": "Comida",
+        "monto": -1353,
+        "categoria": 0
+    },
+    {
+        "id": 5754,
+        "fecha": "31/08/2024 12:43",
+        "concepto": "Entretenimiento",
+        "monto": -189,
+        "categoria": 0
+    },
+    {
+        "id": 5755,
+        "fecha": "31/08/2024 02:37",
+        "concepto": "Servicios",
+        "monto": -701,
+        "categoria": 0
+    },
+    {
+        "id": 5756,
+        "fecha": "31/08/2024 05:22",
+        "concepto": "Entretenimiento",
+        "monto": -242,
+        "categoria": 0
+    },
+    {
+        "id": 5757,
+        "fecha": "31/08/2024 00:26",
+        "concepto": "Transporte",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5758,
+        "fecha": "01/09/2024 21:13",
+        "concepto": "Salario",
+        "monto": 90000,
+        "categoria": 1
+    },
+    {
+        "id": 5759,
+        "fecha": "01/09/2024 08:09",
+        "concepto": "Comida",
+        "monto": -271,
+        "categoria": 0
+    },
+    {
+        "id": 5760,
+        "fecha": "01/09/2024 21:48",
+        "concepto": "Entretenimiento",
+        "monto": -109,
+        "categoria": 0
+    },
+    {
+        "id": 5761,
+        "fecha": "01/09/2024 08:11",
+        "concepto": "Compras",
+        "monto": -105,
+        "categoria": 0
+    },
+    {
+        "id": 5762,
+        "fecha": "01/09/2024 04:01",
+        "concepto": "Servicios",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5763,
+        "fecha": "01/09/2024 06:05",
+        "concepto": "Compras",
+        "monto": -122,
+        "categoria": 0
+    },
+    {
+        "id": 5764,
+        "fecha": "02/09/2024 14:04",
+        "concepto": "Transporte",
+        "monto": -145,
+        "categoria": 0
+    },
+    {
+        "id": 5765,
+        "fecha": "02/09/2024 19:37",
+        "concepto": "Entretenimiento",
+        "monto": -164,
+        "categoria": 0
+    },
+    {
+        "id": 5766,
+        "fecha": "02/09/2024 19:38",
+        "concepto": "Transporte",
+        "monto": -128,
+        "categoria": 0
+    },
+    {
+        "id": 5767,
+        "fecha": "02/09/2024 16:51",
+        "concepto": "Entretenimiento",
+        "monto": -127,
+        "categoria": 0
+    },
+    {
+        "id": 5768,
+        "fecha": "02/09/2024 13:39",
+        "concepto": "Transporte",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5769,
+        "fecha": "03/09/2024 17:23",
+        "concepto": "Entretenimiento",
+        "monto": -1515,
+        "categoria": 0
+    },
+    {
+        "id": 5770,
+        "fecha": "03/09/2024 07:35",
+        "concepto": "Comida",
+        "monto": -431,
+        "categoria": 0
+    },
+    {
+        "id": 5771,
+        "fecha": "03/09/2024 01:56",
+        "concepto": "Comida",
+        "monto": -199,
+        "categoria": 0
+    },
+    {
+        "id": 5772,
+        "fecha": "03/09/2024 23:09",
+        "concepto": "Servicios",
+        "monto": -145,
+        "categoria": 0
+    },
+    {
+        "id": 5773,
+        "fecha": "03/09/2024 06:37",
+        "concepto": "Compras",
+        "monto": -236,
+        "categoria": 0
+    },
+    {
+        "id": 5774,
+        "fecha": "04/09/2024 19:54",
+        "concepto": "Comida",
+        "monto": -980,
+        "categoria": 0
+    },
+    {
+        "id": 5775,
+        "fecha": "04/09/2024 20:41",
+        "concepto": "Servicios",
+        "monto": -210,
+        "categoria": 0
+    },
+    {
+        "id": 5776,
+        "fecha": "04/09/2024 16:58",
+        "concepto": "Entretenimiento",
+        "monto": -348,
+        "categoria": 0
+    },
+    {
+        "id": 5777,
+        "fecha": "04/09/2024 00:23",
+        "concepto": "Compras",
+        "monto": -132,
+        "categoria": 0
+    },
+    {
+        "id": 5778,
+        "fecha": "04/09/2024 02:51",
+        "concepto": "Compras",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5779,
+        "fecha": "05/09/2024 03:10",
+        "concepto": "Transporte",
+        "monto": -690,
+        "categoria": 0
+    },
+    {
+        "id": 5780,
+        "fecha": "05/09/2024 04:08",
+        "concepto": "Transporte",
+        "monto": -606,
+        "categoria": 0
+    },
+    {
+        "id": 5781,
+        "fecha": "05/09/2024 09:21",
+        "concepto": "Entretenimiento",
+        "monto": -859,
+        "categoria": 0
+    },
+    {
+        "id": 5782,
+        "fecha": "05/09/2024 05:58",
+        "concepto": "Transporte",
+        "monto": -296,
+        "categoria": 0
+    },
+    {
+        "id": 5783,
+        "fecha": "05/09/2024 17:43",
+        "concepto": "Compras",
+        "monto": -534,
+        "categoria": 0
+    },
+    {
+        "id": 5784,
+        "fecha": "06/09/2024 06:22",
+        "concepto": "Servicios",
+        "monto": -470,
+        "categoria": 0
+    },
+    {
+        "id": 5785,
+        "fecha": "06/09/2024 09:50",
+        "concepto": "Compras",
+        "monto": -1963,
+        "categoria": 0
+    },
+    {
+        "id": 5786,
+        "fecha": "06/09/2024 13:39",
+        "concepto": "Servicios",
+        "monto": -389,
+        "categoria": 0
+    },
+    {
+        "id": 5787,
+        "fecha": "06/09/2024 06:18",
+        "concepto": "Transporte",
+        "monto": -562,
+        "categoria": 0
+    },
+    {
+        "id": 5788,
+        "fecha": "06/09/2024 06:12",
+        "concepto": "Compras",
+        "monto": -151,
+        "categoria": 0
+    },
+    {
+        "id": 5789,
+        "fecha": "07/09/2024 12:32",
+        "concepto": "Servicios",
+        "monto": -253,
+        "categoria": 0
+    },
+    {
+        "id": 5790,
+        "fecha": "07/09/2024 04:24",
+        "concepto": "Compras",
+        "monto": -138,
+        "categoria": 0
+    },
+    {
+        "id": 5791,
+        "fecha": "07/09/2024 06:47",
+        "concepto": "Entretenimiento",
+        "monto": -480,
+        "categoria": 0
+    },
+    {
+        "id": 5792,
+        "fecha": "07/09/2024 08:37",
+        "concepto": "Comida",
+        "monto": -141,
+        "categoria": 0
+    },
+    {
+        "id": 5793,
+        "fecha": "07/09/2024 06:18",
+        "concepto": "Transporte",
+        "monto": -111,
+        "categoria": 0
+    },
+    {
+        "id": 5794,
+        "fecha": "08/09/2024 04:56",
+        "concepto": "Compras",
+        "monto": -567,
+        "categoria": 0
+    },
+    {
+        "id": 5795,
+        "fecha": "08/09/2024 18:13",
+        "concepto": "Compras",
+        "monto": -128,
+        "categoria": 0
+    },
+    {
+        "id": 5796,
+        "fecha": "08/09/2024 02:01",
+        "concepto": "Entretenimiento",
+        "monto": -142,
+        "categoria": 0
+    },
+    {
+        "id": 5797,
+        "fecha": "08/09/2024 14:38",
+        "concepto": "Comida",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5798,
+        "fecha": "08/09/2024 06:14",
+        "concepto": "Servicios",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5799,
+        "fecha": "09/09/2024 02:59",
+        "concepto": "Entretenimiento",
+        "monto": -189,
+        "categoria": 0
+    },
+    {
+        "id": 5800,
+        "fecha": "09/09/2024 02:56",
+        "concepto": "Servicios",
+        "monto": -2602,
+        "categoria": 0
+    },
+    {
+        "id": 5801,
+        "fecha": "09/09/2024 17:11",
+        "concepto": "Servicios",
+        "monto": -858,
+        "categoria": 0
+    },
+    {
+        "id": 5802,
+        "fecha": "09/09/2024 22:28",
+        "concepto": "Entretenimiento",
+        "monto": -225,
+        "categoria": 0
+    },
+    {
+        "id": 5803,
+        "fecha": "09/09/2024 16:06",
+        "concepto": "Transporte",
+        "monto": -212,
+        "categoria": 0
+    },
+    {
+        "id": 5804,
+        "fecha": "10/09/2024 09:35",
+        "concepto": "Entretenimiento",
+        "monto": -1004,
+        "categoria": 0
+    },
+    {
+        "id": 5805,
+        "fecha": "10/09/2024 15:27",
+        "concepto": "Comida",
+        "monto": -432,
+        "categoria": 0
+    },
+    {
+        "id": 5806,
+        "fecha": "10/09/2024 19:09",
+        "concepto": "Servicios",
+        "monto": -498,
+        "categoria": 0
+    },
+    {
+        "id": 5807,
+        "fecha": "10/09/2024 12:13",
+        "concepto": "Servicios",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5808,
+        "fecha": "10/09/2024 03:20",
+        "concepto": "Servicios",
+        "monto": -156,
+        "categoria": 0
+    },
+    {
+        "id": 5809,
+        "fecha": "11/09/2024 19:19",
+        "concepto": "Entretenimiento",
+        "monto": -167,
+        "categoria": 0
+    },
+    {
+        "id": 5810,
+        "fecha": "11/09/2024 07:33",
+        "concepto": "Entretenimiento",
+        "monto": -205,
+        "categoria": 0
+    },
+    {
+        "id": 5811,
+        "fecha": "11/09/2024 20:03",
+        "concepto": "Compras",
+        "monto": -109,
+        "categoria": 0
+    },
+    {
+        "id": 5812,
+        "fecha": "11/09/2024 19:59",
+        "concepto": "Comida",
+        "monto": -125,
+        "categoria": 0
+    },
+    {
+        "id": 5813,
+        "fecha": "11/09/2024 20:36",
+        "concepto": "Entretenimiento",
+        "monto": -118,
+        "categoria": 0
+    },
+    {
+        "id": 5814,
+        "fecha": "12/09/2024 05:08",
+        "concepto": "Compras",
+        "monto": -1579,
+        "categoria": 0
+    },
+    {
+        "id": 5815,
+        "fecha": "12/09/2024 11:46",
+        "concepto": "Entretenimiento",
+        "monto": -812,
+        "categoria": 0
+    },
+    {
+        "id": 5816,
+        "fecha": "12/09/2024 10:52",
+        "concepto": "Transporte",
+        "monto": -114,
+        "categoria": 0
+    },
+    {
+        "id": 5817,
+        "fecha": "12/09/2024 00:15",
+        "concepto": "Transporte",
+        "monto": -121,
+        "categoria": 0
+    },
+    {
+        "id": 5818,
+        "fecha": "12/09/2024 12:01",
+        "concepto": "Servicios",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5819,
+        "fecha": "13/09/2024 11:38",
+        "concepto": "Transporte",
+        "monto": -262,
+        "categoria": 0
+    },
+    {
+        "id": 5820,
+        "fecha": "13/09/2024 18:08",
+        "concepto": "Comida",
+        "monto": -534,
+        "categoria": 0
+    },
+    {
+        "id": 5821,
+        "fecha": "13/09/2024 20:42",
+        "concepto": "Transporte",
+        "monto": -216,
+        "categoria": 0
+    },
+    {
+        "id": 5822,
+        "fecha": "13/09/2024 21:41",
+        "concepto": "Entretenimiento",
+        "monto": -228,
+        "categoria": 0
+    },
+    {
+        "id": 5823,
+        "fecha": "13/09/2024 15:33",
+        "concepto": "Compras",
+        "monto": -192,
+        "categoria": 0
+    },
+    {
+        "id": 5825,
+        "fecha": "14/09/2024 16:35",
+        "concepto": "Comida",
+        "monto": -97,
+        "categoria": 0
+    },
+    {
+        "id": 5826,
+        "fecha": "14/09/2024 04:47",
+        "concepto": "Transporte",
+        "monto": -64,
+        "categoria": 0
+    },
+    {
+        "id": 5827,
+        "fecha": "14/09/2024 01:18",
+        "concepto": "Transporte",
+        "monto": -73,
+        "categoria": 0
+    },
+    {
+        "id": 5828,
+        "fecha": "14/09/2024 23:28",
+        "concepto": "Compras",
+        "monto": -78,
+        "categoria": 0
+    },
+    {
+        "id": 5829,
+        "fecha": "15/09/2024 19:50",
+        "concepto": "Servicios",
+        "monto": -3005,
+        "categoria": 0
+    },
+    {
+        "id": 5830,
+        "fecha": "15/09/2024 02:03",
+        "concepto": "Transporte",
+        "monto": -161,
+        "categoria": 0
+    },
+    {
+        "id": 5831,
+        "fecha": "15/09/2024 06:25",
+        "concepto": "Compras",
+        "monto": -271,
+        "categoria": 0
+    },
+    {
+        "id": 5832,
+        "fecha": "15/09/2024 04:02",
+        "concepto": "Entretenimiento",
+        "monto": -169,
+        "categoria": 0
+    },
+    {
+        "id": 5833,
+        "fecha": "15/09/2024 04:45",
+        "concepto": "Comida",
+        "monto": -138,
+        "categoria": 0
+    },
+    {
+        "id": 5834,
+        "fecha": "16/09/2024 11:58",
+        "concepto": "Compras",
+        "monto": -1260,
+        "categoria": 0
+    },
+    {
+        "id": 5835,
+        "fecha": "16/09/2024 08:46",
+        "concepto": "Servicios",
+        "monto": -760,
+        "categoria": 0
+    },
+    {
+        "id": 5836,
+        "fecha": "16/09/2024 01:33",
+        "concepto": "Comida",
+        "monto": -582,
+        "categoria": 0
+    },
+    {
+        "id": 5837,
+        "fecha": "16/09/2024 07:29",
+        "concepto": "Entretenimiento",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5838,
+        "fecha": "16/09/2024 16:20",
+        "concepto": "Compras",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5840,
+        "fecha": "17/09/2024 14:44",
+        "concepto": "Transporte",
+        "monto": -44,
+        "categoria": 0
+    },
+    {
+        "id": 5841,
+        "fecha": "17/09/2024 02:35",
+        "concepto": "Transporte",
+        "monto": -98,
+        "categoria": 0
+    },
+    {
+        "id": 5842,
+        "fecha": "17/09/2024 05:06",
+        "concepto": "Transporte",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5843,
+        "fecha": "17/09/2024 10:14",
+        "concepto": "Servicios",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5844,
+        "fecha": "18/09/2024 04:34",
+        "concepto": "Compras",
+        "monto": -264,
+        "categoria": 0
+    },
+    {
+        "id": 5845,
+        "fecha": "18/09/2024 06:50",
+        "concepto": "Compras",
+        "monto": -1372,
+        "categoria": 0
+    },
+    {
+        "id": 5846,
+        "fecha": "18/09/2024 22:14",
+        "concepto": "Comida",
+        "monto": -184,
+        "categoria": 0
+    },
+    {
+        "id": 5847,
+        "fecha": "18/09/2024 13:02",
+        "concepto": "Entretenimiento",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5848,
+        "fecha": "18/09/2024 22:12",
+        "concepto": "Transporte",
+        "monto": -192,
+        "categoria": 0
+    },
+    {
+        "id": 5849,
+        "fecha": "19/09/2024 06:56",
+        "concepto": "Compras",
+        "monto": -396,
+        "categoria": 0
+    },
+    {
+        "id": 5850,
+        "fecha": "19/09/2024 02:13",
+        "concepto": "Entretenimiento",
+        "monto": -252,
+        "categoria": 0
+    },
+    {
+        "id": 5851,
+        "fecha": "19/09/2024 13:10",
+        "concepto": "Servicios",
+        "monto": -258,
+        "categoria": 0
+    },
+    {
+        "id": 5852,
+        "fecha": "19/09/2024 06:20",
+        "concepto": "Servicios",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5853,
+        "fecha": "19/09/2024 22:35",
+        "concepto": "Entretenimiento",
+        "monto": -190,
+        "categoria": 0
+    },
+    {
+        "id": 5854,
+        "fecha": "20/09/2024 15:12",
+        "concepto": "Comida",
+        "monto": -276,
+        "categoria": 0
+    },
+    {
+        "id": 5855,
+        "fecha": "20/09/2024 11:52",
+        "concepto": "Comida",
+        "monto": -172,
+        "categoria": 0
+    },
+    {
+        "id": 5856,
+        "fecha": "20/09/2024 20:12",
+        "concepto": "Entretenimiento",
+        "monto": -291,
+        "categoria": 0
+    },
+    {
+        "id": 5857,
+        "fecha": "20/09/2024 21:32",
+        "concepto": "Transporte",
+        "monto": -114,
+        "categoria": 0
+    },
+    {
+        "id": 5858,
+        "fecha": "20/09/2024 16:39",
+        "concepto": "Transporte",
+        "monto": -233,
+        "categoria": 0
+    },
+    {
+        "id": 5859,
+        "fecha": "21/09/2024 03:11",
+        "concepto": "Compras",
+        "monto": -1182,
+        "categoria": 0
+    },
+    {
+        "id": 5860,
+        "fecha": "21/09/2024 01:10",
+        "concepto": "Transporte",
+        "monto": -1081,
+        "categoria": 0
+    },
+    {
+        "id": 5861,
+        "fecha": "21/09/2024 08:16",
+        "concepto": "Entretenimiento",
+        "monto": -216,
+        "categoria": 0
+    },
+    {
+        "id": 5862,
+        "fecha": "21/09/2024 21:56",
+        "concepto": "Comida",
+        "monto": -544,
+        "categoria": 0
+    },
+    {
+        "id": 5863,
+        "fecha": "21/09/2024 07:44",
+        "concepto": "Comida",
+        "monto": -186,
+        "categoria": 0
+    },
+    {
+        "id": 5864,
+        "fecha": "22/09/2024 06:56",
+        "concepto": "Entretenimiento",
+        "monto": -2726,
+        "categoria": 0
+    },
+    {
+        "id": 5865,
+        "fecha": "22/09/2024 17:46",
+        "concepto": "Servicios",
+        "monto": -196,
+        "categoria": 0
+    },
+    {
+        "id": 5866,
+        "fecha": "22/09/2024 11:19",
+        "concepto": "Comida",
+        "monto": -426,
+        "categoria": 0
+    },
+    {
+        "id": 5867,
+        "fecha": "22/09/2024 04:48",
+        "concepto": "Servicios",
+        "monto": -148,
+        "categoria": 0
+    },
+    {
+        "id": 5868,
+        "fecha": "22/09/2024 06:03",
+        "concepto": "Servicios",
+        "monto": -147,
+        "categoria": 0
+    },
+    {
+        "id": 5869,
+        "fecha": "23/09/2024 19:58",
+        "concepto": "Entretenimiento",
+        "monto": -182,
+        "categoria": 0
+    },
+    {
+        "id": 5870,
+        "fecha": "23/09/2024 06:27",
+        "concepto": "Comida",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5871,
+        "fecha": "23/09/2024 18:18",
+        "concepto": "Compras",
+        "monto": -398,
+        "categoria": 0
+    },
+    {
+        "id": 5872,
+        "fecha": "23/09/2024 15:57",
+        "concepto": "Transporte",
+        "monto": -121,
+        "categoria": 0
+    },
+    {
+        "id": 5873,
+        "fecha": "23/09/2024 21:05",
+        "concepto": "Entretenimiento",
+        "monto": -118,
+        "categoria": 0
+    },
+    {
+        "id": 5874,
+        "fecha": "24/09/2024 18:20",
+        "concepto": "Comida",
+        "monto": -89,
+        "categoria": 0
+    },
+    {
+        "id": 5875,
+        "fecha": "24/09/2024 02:12",
+        "concepto": "Entretenimiento",
+        "monto": -95,
+        "categoria": 0
+    },
+    {
+        "id": 5876,
+        "fecha": "24/09/2024 00:39",
+        "concepto": "Compras",
+        "monto": -90,
+        "categoria": 0
+    },
+    {
+        "id": 5877,
+        "fecha": "24/09/2024 02:03",
+        "concepto": "Servicios",
+        "monto": -98,
+        "categoria": 0
+    },
+    {
+        "id": 5878,
+        "fecha": "24/09/2024 12:02",
+        "concepto": "Servicios",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5879,
+        "fecha": "25/09/2024 16:16",
+        "concepto": "Compras",
+        "monto": -257,
+        "categoria": 0
+    },
+    {
+        "id": 5880,
+        "fecha": "25/09/2024 14:56",
+        "concepto": "Transporte",
+        "monto": -484,
+        "categoria": 0
+    },
+    {
+        "id": 5881,
+        "fecha": "25/09/2024 03:15",
+        "concepto": "Compras",
+        "monto": -254,
+        "categoria": 0
+    },
+    {
+        "id": 5882,
+        "fecha": "25/09/2024 03:39",
+        "concepto": "Servicios",
+        "monto": -204,
+        "categoria": 0
+    },
+    {
+        "id": 5883,
+        "fecha": "25/09/2024 21:34",
+        "concepto": "Servicios",
+        "monto": -209,
+        "categoria": 0
+    },
+    {
+        "id": 5884,
+        "fecha": "26/09/2024 04:56",
+        "concepto": "Comida",
+        "monto": -227,
+        "categoria": 0
+    },
+    {
+        "id": 5885,
+        "fecha": "26/09/2024 17:24",
+        "concepto": "Compras",
+        "monto": -2363,
+        "categoria": 0
+    },
+    {
+        "id": 5886,
+        "fecha": "26/09/2024 12:55",
+        "concepto": "Transporte",
+        "monto": -132,
+        "categoria": 0
+    },
+    {
+        "id": 5887,
+        "fecha": "26/09/2024 12:36",
+        "concepto": "Servicios",
+        "monto": -691,
+        "categoria": 0
+    },
+    {
+        "id": 5888,
+        "fecha": "26/09/2024 22:47",
+        "concepto": "Servicios",
+        "monto": -586,
+        "categoria": 0
+    },
+    {
+        "id": 5889,
+        "fecha": "27/09/2024 02:09",
+        "concepto": "Servicios",
+        "monto": -283,
+        "categoria": 0
+    },
+    {
+        "id": 5890,
+        "fecha": "27/09/2024 14:50",
+        "concepto": "Servicios",
+        "monto": -142,
+        "categoria": 0
+    },
+    {
+        "id": 5891,
+        "fecha": "27/09/2024 15:29",
+        "concepto": "Transporte",
+        "monto": -138,
+        "categoria": 0
+    },
+    {
+        "id": 5892,
+        "fecha": "27/09/2024 15:32",
+        "concepto": "Servicios",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5893,
+        "fecha": "27/09/2024 14:39",
+        "concepto": "Servicios",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5894,
+        "fecha": "28/09/2024 04:40",
+        "concepto": "Servicios",
+        "monto": -2596,
+        "categoria": 0
+    },
+    {
+        "id": 5895,
+        "fecha": "28/09/2024 04:20",
+        "concepto": "Transporte",
+        "monto": -762,
+        "categoria": 0
+    },
+    {
+        "id": 5896,
+        "fecha": "28/09/2024 10:20",
+        "concepto": "Transporte",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5897,
+        "fecha": "28/09/2024 00:00",
+        "concepto": "Transporte",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5898,
+        "fecha": "28/09/2024 18:43",
+        "concepto": "Servicios",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5899,
+        "fecha": "29/09/2024 19:23",
+        "concepto": "Comida",
+        "monto": -108,
+        "categoria": 0
+    },
+    {
+        "id": 5900,
+        "fecha": "29/09/2024 13:04",
+        "concepto": "Compras",
+        "monto": -172,
+        "categoria": 0
+    },
+    {
+        "id": 5901,
+        "fecha": "29/09/2024 12:21",
+        "concepto": "Entretenimiento",
+        "monto": -140,
+        "categoria": 0
+    },
+    {
+        "id": 5902,
+        "fecha": "29/09/2024 02:57",
+        "concepto": "Comida",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5903,
+        "fecha": "29/09/2024 13:21",
+        "concepto": "Entretenimiento",
+        "monto": -111,
+        "categoria": 0
+    },
+    {
+        "id": 5904,
+        "fecha": "30/09/2024 15:49",
+        "concepto": "Servicios",
+        "monto": -869,
+        "categoria": 0
+    },
+    {
+        "id": 5905,
+        "fecha": "30/09/2024 14:56",
+        "concepto": "Servicios",
+        "monto": -480,
+        "categoria": 0
+    },
+    {
+        "id": 5906,
+        "fecha": "30/09/2024 02:23",
+        "concepto": "Transporte",
+        "monto": -255,
+        "categoria": 0
+    },
+    {
+        "id": 5907,
+        "fecha": "30/09/2024 20:14",
+        "concepto": "Servicios",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5908,
+        "fecha": "30/09/2024 14:30",
+        "concepto": "Servicios",
+        "monto": -341,
+        "categoria": 0
+    },
+    {
+        "id": 5909,
+        "fecha": "01/10/2024 21:13",
+        "concepto": "Salario",
+        "monto": 90000,
+        "categoria": 1
+    },
+    {
+        "id": 5910,
+        "fecha": "01/10/2024 08:17",
+        "concepto": "Entretenimiento",
+        "monto": -642,
+        "categoria": 0
+    },
+    {
+        "id": 5911,
+        "fecha": "01/10/2024 01:28",
+        "concepto": "Servicios",
+        "monto": -445,
+        "categoria": 0
+    },
+    {
+        "id": 5912,
+        "fecha": "01/10/2024 22:08",
+        "concepto": "Compras",
+        "monto": -240,
+        "categoria": 0
+    },
+    {
+        "id": 5913,
+        "fecha": "01/10/2024 22:48",
+        "concepto": "Compras",
+        "monto": -126,
+        "categoria": 0
+    },
+    {
+        "id": 5914,
+        "fecha": "01/10/2024 16:14",
+        "concepto": "Servicios",
+        "monto": -339,
+        "categoria": 0
+    },
+    {
+        "id": 5915,
+        "fecha": "02/10/2024 11:47",
+        "concepto": "Servicios",
+        "monto": -2888,
+        "categoria": 0
+    },
+    {
+        "id": 5916,
+        "fecha": "02/10/2024 16:59",
+        "concepto": "Compras",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5917,
+        "fecha": "02/10/2024 01:32",
+        "concepto": "Comida",
+        "monto": -124,
+        "categoria": 0
+    },
+    {
+        "id": 5918,
+        "fecha": "02/10/2024 20:41",
+        "concepto": "Servicios",
+        "monto": -112,
+        "categoria": 0
+    },
+    {
+        "id": 5919,
+        "fecha": "02/10/2024 16:44",
+        "concepto": "Entretenimiento",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5920,
+        "fecha": "03/10/2024 04:26",
+        "concepto": "Entretenimiento",
+        "monto": -72,
+        "categoria": 0
+    },
+    {
+        "id": 5921,
+        "fecha": "03/10/2024 10:06",
+        "concepto": "Compras",
+        "monto": -91,
+        "categoria": 0
+    },
+    {
+        "id": 5922,
+        "fecha": "03/10/2024 05:16",
+        "concepto": "Entretenimiento",
+        "monto": -82,
+        "categoria": 0
+    },
+    {
+        "id": 5923,
+        "fecha": "03/10/2024 04:49",
+        "concepto": "Comida",
+        "monto": -96,
+        "categoria": 0
+    },
+    {
+        "id": 5924,
+        "fecha": "03/10/2024 22:59",
+        "concepto": "Transporte",
+        "monto": -75,
+        "categoria": 0
+    },
+    {
+        "id": 5926,
+        "fecha": "04/10/2024 15:37",
+        "concepto": "Servicios",
+        "monto": -84,
+        "categoria": 0
+    },
+    {
+        "id": 5927,
+        "fecha": "04/10/2024 00:15",
+        "concepto": "Servicios",
+        "monto": -95,
+        "categoria": 0
+    },
+    {
+        "id": 5928,
+        "fecha": "04/10/2024 05:49",
+        "concepto": "Comida",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5929,
+        "fecha": "04/10/2024 23:40",
+        "concepto": "Entretenimiento",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5930,
+        "fecha": "05/10/2024 20:57",
+        "concepto": "Entretenimiento",
+        "monto": -1330,
+        "categoria": 0
+    },
+    {
+        "id": 5931,
+        "fecha": "05/10/2024 15:38",
+        "concepto": "Entretenimiento",
+        "monto": -1966,
+        "categoria": 0
+    },
+    {
+        "id": 5932,
+        "fecha": "05/10/2024 21:20",
+        "concepto": "Comida",
+        "monto": -236,
+        "categoria": 0
+    },
+    {
+        "id": 5933,
+        "fecha": "05/10/2024 22:37",
+        "concepto": "Compras",
+        "monto": -220,
+        "categoria": 0
+    },
+    {
+        "id": 5934,
+        "fecha": "05/10/2024 17:11",
+        "concepto": "Transporte",
+        "monto": -111,
+        "categoria": 0
+    },
+    {
+        "id": 5935,
+        "fecha": "06/10/2024 03:30",
+        "concepto": "Compras",
+        "monto": -1448,
+        "categoria": 0
+    },
+    {
+        "id": 5936,
+        "fecha": "06/10/2024 12:38",
+        "concepto": "Servicios",
+        "monto": -203,
+        "categoria": 0
+    },
+    {
+        "id": 5937,
+        "fecha": "06/10/2024 15:09",
+        "concepto": "Compras",
+        "monto": -171,
+        "categoria": 0
+    },
+    {
+        "id": 5938,
+        "fecha": "06/10/2024 11:43",
+        "concepto": "Entretenimiento",
+        "monto": -150,
+        "categoria": 0
+    },
+    {
+        "id": 5939,
+        "fecha": "06/10/2024 20:02",
+        "concepto": "Transporte",
+        "monto": -267,
+        "categoria": 0
+    },
+    {
+        "id": 5940,
+        "fecha": "07/10/2024 14:53",
+        "concepto": "Transporte",
+        "monto": -522,
+        "categoria": 0
+    },
+    {
+        "id": 5941,
+        "fecha": "07/10/2024 09:34",
+        "concepto": "Comida",
+        "monto": -312,
+        "categoria": 0
+    },
+    {
+        "id": 5942,
+        "fecha": "07/10/2024 21:31",
+        "concepto": "Entretenimiento",
+        "monto": -130,
+        "categoria": 0
+    },
+    {
+        "id": 5943,
+        "fecha": "07/10/2024 01:11",
+        "concepto": "Comida",
+        "monto": -106,
+        "categoria": 0
+    },
+    {
+        "id": 5944,
+        "fecha": "07/10/2024 18:11",
+        "concepto": "Servicios",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5945,
+        "fecha": "08/10/2024 21:28",
+        "concepto": "Comida",
+        "monto": -170,
+        "categoria": 0
+    },
+    {
+        "id": 5946,
+        "fecha": "08/10/2024 15:33",
+        "concepto": "Comida",
+        "monto": -404,
+        "categoria": 0
+    },
+    {
+        "id": 5947,
+        "fecha": "08/10/2024 10:44",
+        "concepto": "Transporte",
+        "monto": -688,
+        "categoria": 0
+    },
+    {
+        "id": 5948,
+        "fecha": "08/10/2024 08:05",
+        "concepto": "Comida",
+        "monto": -484,
+        "categoria": 0
+    },
+    {
+        "id": 5949,
+        "fecha": "08/10/2024 04:59",
+        "concepto": "Comida",
+        "monto": -328,
+        "categoria": 0
+    },
+    {
+        "id": 5950,
+        "fecha": "09/10/2024 08:09",
+        "concepto": "Transporte",
+        "monto": -1186,
+        "categoria": 0
+    },
+    {
+        "id": 5951,
+        "fecha": "09/10/2024 08:47",
+        "concepto": "Entretenimiento",
+        "monto": -429,
+        "categoria": 0
+    },
+    {
+        "id": 5952,
+        "fecha": "09/10/2024 05:40",
+        "concepto": "Comida",
+        "monto": -334,
+        "categoria": 0
+    },
+    {
+        "id": 5953,
+        "fecha": "09/10/2024 05:38",
+        "concepto": "Comida",
+        "monto": -372,
+        "categoria": 0
+    },
+    {
+        "id": 5954,
+        "fecha": "09/10/2024 02:40",
+        "concepto": "Transporte",
+        "monto": -208,
+        "categoria": 0
+    },
+    {
+        "id": 5955,
+        "fecha": "10/10/2024 17:55",
+        "concepto": "Entretenimiento",
+        "monto": -1488,
+        "categoria": 0
+    },
+    {
+        "id": 5956,
+        "fecha": "10/10/2024 10:49",
+        "concepto": "Comida",
+        "monto": -252,
+        "categoria": 0
+    },
+    {
+        "id": 5957,
+        "fecha": "10/10/2024 16:04",
+        "concepto": "Entretenimiento",
+        "monto": -1451,
+        "categoria": 0
+    },
+    {
+        "id": 5958,
+        "fecha": "10/10/2024 14:53",
+        "concepto": "Transporte",
+        "monto": -211,
+        "categoria": 0
+    },
+    {
+        "id": 5959,
+        "fecha": "10/10/2024 11:53",
+        "concepto": "Servicios",
+        "monto": -111,
+        "categoria": 0
+    },
+    {
+        "id": 5960,
+        "fecha": "11/10/2024 09:53",
+        "concepto": "Entretenimiento",
+        "monto": -528,
+        "categoria": 0
+    },
+    {
+        "id": 5961,
+        "fecha": "11/10/2024 13:24",
+        "concepto": "Entretenimiento",
+        "monto": -486,
+        "categoria": 0
+    },
+    {
+        "id": 5962,
+        "fecha": "11/10/2024 09:45",
+        "concepto": "Comida",
+        "monto": -807,
+        "categoria": 0
+    },
+    {
+        "id": 5963,
+        "fecha": "11/10/2024 06:16",
+        "concepto": "Servicios",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5964,
+        "fecha": "11/10/2024 09:32",
+        "concepto": "Compras",
+        "monto": -104,
+        "categoria": 0
+    },
+    {
+        "id": 5965,
+        "fecha": "12/10/2024 11:24",
+        "concepto": "Transporte",
+        "monto": -604,
+        "categoria": 0
+    },
+    {
+        "id": 5966,
+        "fecha": "12/10/2024 19:47",
+        "concepto": "Transporte",
+        "monto": -135,
+        "categoria": 0
+    },
+    {
+        "id": 5967,
+        "fecha": "12/10/2024 02:24",
+        "concepto": "Entretenimiento",
+        "monto": -124,
+        "categoria": 0
+    },
+    {
+        "id": 5968,
+        "fecha": "12/10/2024 13:09",
+        "concepto": "Comida",
+        "monto": -110,
+        "categoria": 0
+    },
+    {
+        "id": 5969,
+        "fecha": "12/10/2024 16:12",
+        "concepto": "Servicios",
+        "monto": -105,
+        "categoria": 0
+    },
+    {
+        "id": 5970,
+        "fecha": "13/10/2024 12:41",
+        "concepto": "Compras",
+        "monto": -258,
+        "categoria": 0
+    },
+    {
+        "id": 5971,
+        "fecha": "13/10/2024 21:04",
+        "concepto": "Entretenimiento",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5972,
+        "fecha": "13/10/2024 03:34",
+        "concepto": "Servicios",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5973,
+        "fecha": "13/10/2024 02:18",
+        "concepto": "Servicios",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5974,
+        "fecha": "13/10/2024 10:11",
+        "concepto": "Transporte",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5975,
+        "fecha": "14/10/2024 10:58",
+        "concepto": "Servicios",
+        "monto": -1158,
+        "categoria": 0
+    },
+    {
+        "id": 5976,
+        "fecha": "14/10/2024 12:10",
+        "concepto": "Comida",
+        "monto": -170,
+        "categoria": 0
+    },
+    {
+        "id": 5977,
+        "fecha": "14/10/2024 08:05",
+        "concepto": "Compras",
+        "monto": -148,
+        "categoria": 0
+    },
+    {
+        "id": 5978,
+        "fecha": "14/10/2024 13:31",
+        "concepto": "Compras",
+        "monto": -144,
+        "categoria": 0
+    },
+    {
+        "id": 5979,
+        "fecha": "14/10/2024 18:00",
+        "concepto": "Transporte",
+        "monto": -283,
+        "categoria": 0
+    },
+    {
+        "id": 5980,
+        "fecha": "15/10/2024 18:46",
+        "concepto": "Comida",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 5981,
+        "fecha": "15/10/2024 00:33",
+        "concepto": "Compras",
+        "monto": -315,
+        "categoria": 0
+    },
+    {
+        "id": 5982,
+        "fecha": "15/10/2024 20:42",
+        "concepto": "Entretenimiento",
+        "monto": -214,
+        "categoria": 0
+    },
+    {
+        "id": 5983,
+        "fecha": "15/10/2024 11:27",
+        "concepto": "Compras",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 5984,
+        "fecha": "15/10/2024 20:04",
+        "concepto": "Servicios",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 5985,
+        "fecha": "16/10/2024 19:55",
+        "concepto": "Compras",
+        "monto": -15,
+        "categoria": 0
+    },
+    {
+        "id": 5986,
+        "fecha": "16/10/2024 05:09",
+        "concepto": "Compras",
+        "monto": -10,
+        "categoria": 0
+    },
+    {
+        "id": 5987,
+        "fecha": "16/10/2024 08:26",
+        "concepto": "Entretenimiento",
+        "monto": -46,
+        "categoria": 0
+    },
+    {
+        "id": 5988,
+        "fecha": "16/10/2024 11:37",
+        "concepto": "Compras",
+        "monto": -97,
+        "categoria": 0
+    },
+    {
+        "id": 5989,
+        "fecha": "16/10/2024 23:52",
+        "concepto": "Transporte",
+        "monto": -99,
+        "categoria": 0
+    },
+    {
+        "id": 5990,
+        "fecha": "17/10/2024 22:16",
+        "concepto": "Servicios",
+        "monto": -940,
+        "categoria": 0
+    },
+    {
+        "id": 5991,
+        "fecha": "17/10/2024 17:35",
+        "concepto": "Entretenimiento",
+        "monto": -1779,
+        "categoria": 0
+    },
+    {
+        "id": 5992,
+        "fecha": "17/10/2024 15:29",
+        "concepto": "Compras",
+        "monto": -603,
+        "categoria": 0
+    },
+    {
+        "id": 5993,
+        "fecha": "17/10/2024 00:34",
+        "concepto": "Compras",
+        "monto": -182,
+        "categoria": 0
+    },
+    {
+        "id": 5994,
+        "fecha": "17/10/2024 10:24",
+        "concepto": "Comida",
+        "monto": -203,
+        "categoria": 0
+    },
+    {
+        "id": 5995,
+        "fecha": "18/10/2024 09:36",
+        "concepto": "Comida",
+        "monto": -2013,
+        "categoria": 0
+    },
+    {
+        "id": 5996,
+        "fecha": "18/10/2024 02:30",
+        "concepto": "Servicios",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 5997,
+        "fecha": "18/10/2024 11:25",
+        "concepto": "Transporte",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5998,
+        "fecha": "18/10/2024 18:50",
+        "concepto": "Entretenimiento",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 5999,
+        "fecha": "18/10/2024 03:52",
+        "concepto": "Entretenimiento",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 6000,
+        "fecha": "19/10/2024 10:21",
+        "concepto": "Comida",
+        "monto": -373,
+        "categoria": 0
+    },
+    {
+        "id": 6001,
+        "fecha": "19/10/2024 15:01",
+        "concepto": "Transporte",
+        "monto": -486,
+        "categoria": 0
+    },
+    {
+        "id": 6002,
+        "fecha": "19/10/2024 12:06",
+        "concepto": "Compras",
+        "monto": -147,
+        "categoria": 0
+    },
+    {
+        "id": 6003,
+        "fecha": "19/10/2024 08:31",
+        "concepto": "Entretenimiento",
+        "monto": -122,
+        "categoria": 0
+    },
+    {
+        "id": 6004,
+        "fecha": "19/10/2024 15:37",
+        "concepto": "Transporte",
+        "monto": -195,
+        "categoria": 0
+    },
+    {
+        "id": 6005,
+        "fecha": "20/10/2024 19:33",
+        "concepto": "Entretenimiento",
+        "monto": -364,
+        "categoria": 0
+    },
+    {
+        "id": 6006,
+        "fecha": "20/10/2024 19:45",
+        "concepto": "Comida",
+        "monto": -162,
+        "categoria": 0
+    },
+    {
+        "id": 6007,
+        "fecha": "20/10/2024 22:05",
+        "concepto": "Entretenimiento",
+        "monto": -181,
+        "categoria": 0
+    },
+    {
+        "id": 6008,
+        "fecha": "20/10/2024 16:25",
+        "concepto": "Transporte",
+        "monto": -108,
+        "categoria": 0
+    },
+    {
+        "id": 6009,
+        "fecha": "20/10/2024 06:30",
+        "concepto": "Entretenimiento",
+        "monto": -123,
+        "categoria": 0
+    },
+    {
+        "id": 6010,
+        "fecha": "21/10/2024 06:13",
+        "concepto": "Comida",
+        "monto": -466,
+        "categoria": 0
+    },
+    {
+        "id": 6011,
+        "fecha": "21/10/2024 16:26",
+        "concepto": "Comida",
+        "monto": -906,
+        "categoria": 0
+    },
+    {
+        "id": 6012,
+        "fecha": "21/10/2024 20:07",
+        "concepto": "Transporte",
+        "monto": -190,
+        "categoria": 0
+    },
+    {
+        "id": 6013,
+        "fecha": "21/10/2024 17:49",
+        "concepto": "Comida",
+        "monto": -320,
+        "categoria": 0
+    },
+    {
+        "id": 6014,
+        "fecha": "21/10/2024 03:02",
+        "concepto": "Servicios",
+        "monto": -1038,
+        "categoria": 0
+    },
+    {
+        "id": 6015,
+        "fecha": "22/10/2024 01:31",
+        "concepto": "Compras",
+        "monto": -209,
+        "categoria": 0
+    },
+    {
+        "id": 6016,
+        "fecha": "22/10/2024 00:21",
+        "concepto": "Entretenimiento",
+        "monto": -222,
+        "categoria": 0
+    },
+    {
+        "id": 6017,
+        "fecha": "22/10/2024 04:26",
+        "concepto": "Entretenimiento",
+        "monto": -203,
+        "categoria": 0
+    },
+    {
+        "id": 6018,
+        "fecha": "22/10/2024 06:04",
+        "concepto": "Servicios",
+        "monto": -145,
+        "categoria": 0
+    },
+    {
+        "id": 6019,
+        "fecha": "22/10/2024 07:23",
+        "concepto": "Entretenimiento",
+        "monto": -134,
+        "categoria": 0
+    },
+    {
+        "id": 6020,
+        "fecha": "23/10/2024 11:04",
+        "concepto": "Comida",
+        "monto": -1646,
+        "categoria": 0
+    },
+    {
+        "id": 6021,
+        "fecha": "23/10/2024 21:21",
+        "concepto": "Comida",
+        "monto": -380,
+        "categoria": 0
+    },
+    {
+        "id": 6022,
+        "fecha": "23/10/2024 21:09",
+        "concepto": "Compras",
+        "monto": -2278,
+        "categoria": 0
+    },
+    {
+        "id": 6023,
+        "fecha": "23/10/2024 05:40",
+        "concepto": "Servicios",
+        "monto": -216,
+        "categoria": 0
+    },
+    {
+        "id": 6024,
+        "fecha": "23/10/2024 09:42",
+        "concepto": "Comida",
+        "monto": -252,
+        "categoria": 0
+    },
+    {
+        "id": 6025,
+        "fecha": "24/10/2024 03:44",
+        "concepto": "Servicios",
+        "monto": -378,
+        "categoria": 0
+    },
+    {
+        "id": 6026,
+        "fecha": "24/10/2024 17:53",
+        "concepto": "Transporte",
+        "monto": -223,
+        "categoria": 0
+    },
+    {
+        "id": 6027,
+        "fecha": "24/10/2024 18:50",
+        "concepto": "Entretenimiento",
+        "monto": -118,
+        "categoria": 0
+    },
+    {
+        "id": 6028,
+        "fecha": "24/10/2024 18:18",
+        "concepto": "Entretenimiento",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 6029,
+        "fecha": "24/10/2024 19:12",
+        "concepto": "Transporte",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 6030,
+        "fecha": "25/10/2024 04:14",
+        "concepto": "Servicios",
+        "monto": -1364,
+        "categoria": 0
+    },
+    {
+        "id": 6031,
+        "fecha": "25/10/2024 06:02",
+        "concepto": "Entretenimiento",
+        "monto": -343,
+        "categoria": 0
+    },
+    {
+        "id": 6032,
+        "fecha": "25/10/2024 19:16",
+        "concepto": "Entretenimiento",
+        "monto": -179,
+        "categoria": 0
+    },
+    {
+        "id": 6033,
+        "fecha": "25/10/2024 18:22",
+        "concepto": "Servicios",
+        "monto": -103,
+        "categoria": 0
+    },
+    {
+        "id": 6034,
+        "fecha": "25/10/2024 09:30",
+        "concepto": "Comida",
+        "monto": -110,
+        "categoria": 0
+    },
+    {
+        "id": 6035,
+        "fecha": "26/10/2024 00:03",
+        "concepto": "Entretenimiento",
+        "monto": -279,
+        "categoria": 0
+    },
+    {
+        "id": 6036,
+        "fecha": "26/10/2024 19:11",
+        "concepto": "Entretenimiento",
+        "monto": -149,
+        "categoria": 0
+    },
+    {
+        "id": 6037,
+        "fecha": "26/10/2024 18:07",
+        "concepto": "Entretenimiento",
+        "monto": -102,
+        "categoria": 0
+    },
+    {
+        "id": 6038,
+        "fecha": "26/10/2024 09:47",
+        "concepto": "Entretenimiento",
+        "monto": -119,
+        "categoria": 0
+    },
+    {
+        "id": 6039,
+        "fecha": "26/10/2024 03:18",
+        "concepto": "Transporte",
+        "monto": -179,
+        "categoria": 0
+    },
+    {
+        "id": 6040,
+        "fecha": "27/10/2024 19:46",
+        "concepto": "Transporte",
+        "monto": -758,
+        "categoria": 0
+    },
+    {
+        "id": 6041,
+        "fecha": "27/10/2024 12:22",
+        "concepto": "Transporte",
+        "monto": -137,
+        "categoria": 0
+    },
+    {
+        "id": 6042,
+        "fecha": "27/10/2024 16:40",
+        "concepto": "Transporte",
+        "monto": -115,
+        "categoria": 0
+    },
+    {
+        "id": 6043,
+        "fecha": "27/10/2024 07:09",
+        "concepto": "Entretenimiento",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 6044,
+        "fecha": "27/10/2024 18:57",
+        "concepto": "Transporte",
+        "monto": -100,
+        "categoria": 0
+    },
+    {
+        "id": 6045,
+        "fecha": "28/10/2024 05:09",
+        "concepto": "Compras",
+        "monto": -762,
+        "categoria": 0
+    },
+    {
+        "id": 6046,
+        "fecha": "28/10/2024 06:29",
+        "concepto": "Comida",
+        "monto": -1006,
+        "categoria": 0
+    },
+    {
+        "id": 6047,
+        "fecha": "28/10/2024 11:56",
+        "concepto": "Comida",
+        "monto": -2382,
+        "categoria": 0
+    },
+    {
+        "id": 6048,
+        "fecha": "28/10/2024 01:24",
+        "concepto": "Comida",
+        "monto": -123,
+        "categoria": 0
+    },
+    {
+        "id": 6049,
+        "fecha": "28/10/2024 14:33",
+        "concepto": "Entretenimiento",
+        "monto": -117,
+        "categoria": 0
+    },
+    {
+        "id": 6050,
+        "fecha": "29/10/2024 00:41",
+        "concepto": "Compras",
+        "monto": -242,
+        "categoria": 0
+    },
+    {
+        "id": 6051,
+        "fecha": "29/10/2024 10:03",
+        "concepto": "Comida",
+        "monto": -188,
+        "categoria": 0
+    },
+    {
+        "id": 6052,
+        "fecha": "29/10/2024 19:45",
+        "concepto": "Entretenimiento",
+        "monto": -158,
+        "categoria": 0
+    },
+    {
+        "id": 6053,
+        "fecha": "29/10/2024 12:53",
+        "concepto": "Entretenimiento",
+        "monto": -107,
+        "categoria": 0
+    },
+    {
+        "id": 6054,
+        "fecha": "29/10/2024 06:09",
+        "concepto": "Compras",
+        "monto": -115,
+        "categoria": 0
+    },
+    {
+        "id": 6055,
+        "fecha": "30/10/2024 08:49",
+        "concepto": "Compras",
+        "monto": -71,
+        "categoria": 0
+    },
+    {
+        "id": 6056,
+        "fecha": "30/10/2024 22:14",
+        "concepto": "Compras",
+        "monto": -67,
+        "categoria": 0
+    },
+    {
+        "id": 6057,
+        "fecha": "30/10/2024 02:56",
+        "concepto": "Transporte",
+        "monto": -90,
+        "categoria": 0
+    },
+    {
+        "id": 6058,
+        "fecha": "30/10/2024 09:28",
+        "concepto": "Compras",
+        "monto": -92,
+        "categoria": 0
+    },
+    {
+        "id": 6059,
+        "fecha": "30/10/2024 12:17",
+        "concepto": "Compras",
+        "monto": -95,
+        "categoria": 0
+    },
+    {
+        "id": 6060,
+        "fecha": "31/10/2024 19:35",
+        "concepto": "Compras",
+        "monto": -492,
+        "categoria": 0
+    },
+    {
+        "id": 6061,
+        "fecha": "31/10/2024 05:52",
+        "concepto": "Comida",
+        "monto": -579,
+        "categoria": 0
+    },
+    {
+        "id": 6062,
+        "fecha": "31/10/2024 07:30",
+        "concepto": "Entretenimiento",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 6063,
+        "fecha": "31/10/2024 11:42",
+        "concepto": "Comida",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 6064,
+        "fecha": "31/10/2024 20:10",
+        "concepto": "Compras",
+        "monto": -101,
+        "categoria": 0
+    },
+    {
+        "id": 6065,
+        "fecha": "01/11/2024 21:13",
+        "concepto": "Salario",
+        "monto": 90000,
+        "categoria": 1
+    },
+    {
+        "id": 6066,
+        "fecha": "01/11/2024 18:44",
+        "concepto": "Compras",
+        "monto": -690,
+        "categoria": 0
+    },
+    {
+        "id": 6067,
+        "fecha": "01/11/2024 03:52",
+        "concepto": "Comida",
+        "monto": -209,
+        "categoria": 0
+    },
+    {
+        "id": 6068,
+        "fecha": "01/11/2024 03:50",
+        "concepto": "Compras",
+        "monto": -137,
+        "categoria": 0
+    },
+    {
+        "id": 6069,
+        "fecha": "01/11/2024 22:51",
+        "concepto": "Comida",
+        "monto": -583,
+        "categoria": 0
+    },
+    {
+        "id": 6070,
+        "fecha": "01/11/2024 02:19",
+        "concepto": "Transporte",
+        "monto": -438,
+        "categoria": 0
+    },
+    {
+        "id": 6071,
+        "fecha": "02/11/2024 09:58",
+        "concepto": "Compras",
+        "monto": -411,
+        "categoria": 0
+    },
+    {
+        "id": 6072,
+        "fecha": "02/11/2024 14:07",
+        "concepto": "Servicios",
+        "monto": -383,
+        "categoria": 0
+    },
+    {
+        "id": 6073,
+        "fecha": "02/11/2024 10:13",
+        "concepto": "Servicios",
+        "monto": -218,
+        "categoria": 0
+    },
+    {
+        "id": 6074,
+        "fecha": "02/11/2024 06:03",
+        "concepto": "Entretenimiento",
+        "monto": -105,
+        "categoria": 0
+    },
+    {
+        "id": 6075,
+        "fecha": "02/11/2024 16:47",
+        "concepto": "Compras",
+        "monto": -134,
+        "categoria": 0
+    }
+]
